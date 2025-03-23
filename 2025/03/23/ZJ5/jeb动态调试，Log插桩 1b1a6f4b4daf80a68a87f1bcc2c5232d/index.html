@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/CC.png">
+  <link rel="icon" href="/img/CC.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CC">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="jeb动态调试，Log插桩1.什么是动态调试动态调试是指自带的调试器跟踪自己软件的运行，可以在调试的过程中知道参数或者局部变量的值以及履清代码运行的先后顺序。多用于爆破注册码。与静态分析（直接阅读反编译的代码）不同，动态调试允许实时监控内存、寄存器、变量值和执行流程，尤其适合分析复杂逻辑或加密&#x2F;混淆后的代码。  动态调试 vs 静态分析    特性 动态调试 静态分析    执行状态 程序正在运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CC₍ᐢ..ᐢ₎♡">
+<meta property="og:url" content="https://cc-nx.github.io/2025/03/23/ZJ5/jeb%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%EF%BC%8CLog%E6%8F%92%E6%A1%A9%201b1a6f4b4daf80a68a87f1bcc2c5232d/index.html">
+<meta property="og:site_name" content="CC₍ᐢ..ᐢ₎♡">
+<meta property="og:description" content="jeb动态调试，Log插桩1.什么是动态调试动态调试是指自带的调试器跟踪自己软件的运行，可以在调试的过程中知道参数或者局部变量的值以及履清代码运行的先后顺序。多用于爆破注册码。与静态分析（直接阅读反编译的代码）不同，动态调试允许实时监控内存、寄存器、变量值和执行流程，尤其适合分析复杂逻辑或加密&#x2F;混淆后的代码。  动态调试 vs 静态分析    特性 动态调试 静态分析    执行状态 程序正在运行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115640.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115589.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115786.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115387.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116197.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116068.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116137.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116429.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116510.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117031.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117489.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117217.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117764.png">
+<meta property="article:published_time" content="2025-03-23T05:13:58.000Z">
+<meta property="article:modified_time" content="2025-03-23T13:17:51.581Z">
+<meta property="article:author" content="CC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115640.png">
+  
+  
+  
+  <title>CC₍ᐢ..ᐢ₎♡</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cc-nx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CC₍ᐢ..ᐢ₎♡</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/123.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-23 13:13" pubdate>
+          2025年3月23日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="jeb动态调试，Log插桩"><a href="#jeb动态调试，Log插桩" class="headerlink" title="jeb动态调试，Log插桩"></a>jeb动态调试，Log插桩</h1><h2 id="1-什么是动态调试"><a href="#1-什么是动态调试" class="headerlink" title="1.什么是动态调试"></a><strong>1.什么是动态调试</strong></h2><p>动态调试是指自带的调试器跟踪自己软件的运行，可以在调试的过程中知道参数或者局部变量的值以及履清代码运行的先后顺序。多用于爆破注册码。与静态分析（直接阅读反编译的代码）不同，动态调试允许实时监控内存、寄存器、变量值和执行流程，尤其适合分析复杂逻辑或加密/混淆后的代码。</p>
+<ul>
+<li><p><strong>动态调试 vs 静态分析</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>动态调试</strong></th>
+<th><strong>静态分析</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>执行状态</strong></td>
+<td>程序正在运行</td>
+<td>程序未运行，仅分析代码文件</td>
+</tr>
+<tr>
+<td><strong>优势</strong></td>
+<td>观察实时数据流、内存变化，绕过部分反逆向技术</td>
+<td>全面查看代码结构，无执行环境依赖</td>
+</tr>
+<tr>
+<td><strong>劣势</strong></td>
+<td>需处理反调试机制，依赖运行环境</td>
+<td>无法追踪运行时状态，难以分析动态逻辑</td>
+</tr>
+<tr>
+<td><strong>典型工具</strong></td>
+<td>GDB、LLDB、IDA Pro、Frida、Android Studio</td>
+<td>JADX、Ghidra、IDA Pro、Binary Ninja</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="2-动态调试步骤"><a href="#2-动态调试步骤" class="headerlink" title="2.动态调试步骤"></a><strong>2.动态调试步骤</strong></h2><h3 id="1-修改debug权限"><a href="#1-修改debug权限" class="headerlink" title="1.修改debug权限"></a><strong>1.修改debug权限</strong></h3><p>方法一:在AndroidManifest.xml里添加可调试权限</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">android:debuggable="true"<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>示例</p>
+<p>  1.先提取安装包进行后续修改</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115640.png" srcset="/img/loading.gif" lazyload></p>
+<p>  2.对文件进行修改</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115589.png" srcset="/img/loading.gif" lazyload></p>
+<p>  3.将权限添加在<code>application</code>中</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115786.png" srcset="/img/loading.gif" lazyload></p>
+<p>  4.重新安装完成后即可得到一个可以调试的安装包。</p>
+</li>
+</ul>
+<p>方法二：XappDebug模块hook对应的app</p>
+<p>项目地址</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Palatis/XAppDebug">XappDebug</a></p>
+<p>方法三：Magisk命令(重启失效)</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span>&nbsp;&nbsp;adb shell #adb进入命令行模式<br><br><span class="hljs-bullet">2.</span>&nbsp;&nbsp;su #切换至超级用户<br><br><span class="hljs-bullet">3.</span>&nbsp;&nbsp;magisk resetprop ro.debuggable 1<br><br><span class="hljs-bullet">4.</span>&nbsp;&nbsp;stop;start; #一定要通过该方式重启<br></code></pre></td></tr></tbody></table></figure>
+
+<p>方法四:刷入MagiskHide Props Config模块</p>
+<p>一般来说，在4选项中如果有ro.debuggable那就直接修改</p>
+<p>没有的话就选5</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232115387.png" srcset="/img/loading.gif" lazyload></p>
+<p>修改ro.debuggable的值为1</p>
+<h3 id="2-端口转发以及开启adb权限"><a href="#2-端口转发以及开启adb权限" class="headerlink" title="2.端口转发以及开启adb权限"></a><strong>2.端口转发以及开启adb权限</strong></h3><p>版本号点击七次开启开发者模式并开启adb调试权限</p>
+<p>夜神模拟器：adb connect 127.0.0.1:62001（雷电模拟器自带端口转发）</p>
+<h3 id="3-下段点"><a href="#3-下段点" class="headerlink" title="3.下段点"></a><strong>3.下段点</strong></h3><p>ctrl+b下断点</p>
+<h3 id="4-debug模式启动"><a href="#4-debug模式启动" class="headerlink" title="4.debug模式启动"></a><strong>4.debug模式启动</strong></h3><figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">adb <span class="hljs-keyword">shell</span> <span class="hljs-keyword">am</span> start -D -n <span class="hljs-keyword">com</span>.zj.wuaipojie/.ui.MainActivity<br></code></pre></td></tr></tbody></table></figure>
+
+<p>adb shell am start -D -n</p>
+<p>adb shell am start -D -n 包名/类名</p>
+<p>am start -n 表示启动一个activity</p>
+<p>am start -D 表示将应用设置为可调试模式</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jinmie0193/article/details/111355867">Android修改ro.debuggable 的四种方法-CSDN博客</a></p>
+<h3 id="5-Jeb附加调试进程"><a href="#5-Jeb附加调试进程" class="headerlink" title="5.Jeb附加调试进程"></a><strong>5.Jeb附加调试进程</strong></h3><p>激活jeb</p>
+<p>在线python运行</p>
+<p><a target="_blank" rel="noopener" href="https://tool.lu/coderunner/">https://tool.lu/coderunner/</a></p>
+<ul>
+<li><p>使用案例：</p>
+<p>  1.查询到相关位置</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116197.png" srcset="/img/loading.gif" lazyload></p>
+<p>  2.将内容编译为JAVA的形式进行分析</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116068.png" srcset="/img/loading.gif" lazyload></p>
+<p>  3.通过初步分析判断关键点在<code>chek()</code>方法对我们输入的字符串进行了怎样的判断。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116137.png" srcset="/img/loading.gif" lazyload></p>
+<p>  4.双击进入到<code>chek()</code>代码，发现它是一个经过一串运算后进行base64编码与字符进行对比</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116429.png" srcset="/img/loading.gif" lazyload></p>
+<p>  5.查找到关键中间字符的代码进行下断点（Ctrl+b）</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232116510.png" srcset="/img/loading.gif" lazyload></p>
+<p>  6.使用debug启动该软件，依次获取包名和启动类名</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117031.png" srcset="/img/loading.gif" lazyload></p>
+<p>  去掉包名的部分，后边的一串属于是要填写的类名</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117489.png" srcset="/img/loading.gif" lazyload></p>
+<p>  7.启动后返回界面出现下列提示说明已正常运行debug模式</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117217.png" srcset="/img/loading.gif" lazyload></p>
+<p>  8.使用jeb对下断点的地方进行调试，我们检查调试端口和报名对应正确且进程存在，点击<strong>附上</strong></p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232117764.png" srcset="/img/loading.gif" lazyload></p>
+<ol start="9">
+<li></li>
+</ol>
+</li>
+</ul>
+<p>算号代码：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs python"> 复制代码 隐藏代码<br><span class="hljs-comment">#https://bbs.pediy.com/</span><br><span class="hljs-comment">#!/usr/bin/env python</span><br><span class="hljs-keyword">import</span> os, sys, struct, time, binascii, hashlib<br><br>RC4_Key2= <span class="hljs-string">'Eg\xa2\x99_\x83\xf1\x10'</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">rc4</span>(<span class="hljs-params">Key, inData</span>):<br>&nbsp; &nbsp; Buf = <span class="hljs-string">""</span><br>&nbsp; &nbsp; S = <span class="hljs-built_in">range</span>(<span class="hljs-number">256</span>)<br>&nbsp; &nbsp; K = (<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x:<span class="hljs-built_in">ord</span>(x), Key) * (<span class="hljs-number">256</span> / <span class="hljs-built_in">len</span>(Key) + <span class="hljs-number">1</span>))[:<span class="hljs-number">256</span>]<br>&nbsp; &nbsp; j = <span class="hljs-number">0</span><br>&nbsp; &nbsp; <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">256</span>):<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;j = (S[i] + K[i] + j) % <span class="hljs-number">256</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;S[i], S[j] = S[j], S[i]<br>&nbsp; &nbsp; i, j = <span class="hljs-number">0</span>, <span class="hljs-number">0</span><br>&nbsp; &nbsp; <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(inData)):<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;i = (i + <span class="hljs-number">1</span>) % <span class="hljs-number">256</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;j = (j + S[i]) % <span class="hljs-number">256</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;S[i], S[j] = S[j], S[i]<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Buf += <span class="hljs-built_in">chr</span>(S[(S[j] + S[i]) % <span class="hljs-number">256</span>] ^ <span class="hljs-built_in">ord</span>(inData[x]))<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> Buf<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">Long2Int</span>(<span class="hljs-params">longdata</span>):<br>&nbsp; &nbsp; lo = longdata &amp; <span class="hljs-number">0xFFFFFFFF</span><br>&nbsp; &nbsp; hi = (longdata &gt;&gt; <span class="hljs-number">32</span>) &amp; <span class="hljs-number">0x7FFFFFFF</span><br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> hi, lo<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">KeygenSN</span>(<span class="hljs-params">LicenseSerial, MachineID</span>):<br>&nbsp; &nbsp; mhi, mlo = Long2Int(MachineID)<br>&nbsp; &nbsp; lhi, llo = Long2Int(LicenseSerial)<br>&nbsp; &nbsp; hi_Key = (mhi - lhi + <span class="hljs-number">0x55667788</span>) &amp; <span class="hljs-number">0x7FFFFFFF</span><br>&nbsp; &nbsp; lo_Key = (mlo + llo + <span class="hljs-number">0x11223344</span>) &amp; <span class="hljs-number">0xFFFFFFFF</span><br>&nbsp; &nbsp; Z0, = struct.unpack(<span class="hljs-string">'&lt;Q'</span>, struct.pack(<span class="hljs-string">'&lt;LL'</span>, lo_Key, hi_Key))<br>&nbsp; &nbsp; Z1 = <span class="hljs-built_in">int</span>(time.time()) ^ <span class="hljs-number">0x56739ACD</span><br>&nbsp; &nbsp; s = <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x:<span class="hljs-built_in">int</span>(x, <span class="hljs-number">16</span>), <span class="hljs-string">"%x"</span> % Z1)) % <span class="hljs-number">10</span><br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> <span class="hljs-string">"%dZ%d%d"</span> % (Z0, Z1, s)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ParsePost</span>(<span class="hljs-params">buf</span>):<br>&nbsp; &nbsp; Info = struct.unpack(<span class="hljs-string">'&lt;3L2Q4LQ3L'</span>, buf[:<span class="hljs-number">0x40</span>])<br>&nbsp; &nbsp; flag, CRC, UserSerial, LicenseSerial, MachineID, build_type, \<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; Ver_Major, Ver_Minor, Ver_Buildid, Ver_Timestamp, \<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; TimeOffset, Kclass, Random2 = Info<br>&nbsp; &nbsp; SysInfoData = buf[<span class="hljs-number">0x40</span>:]<br>&nbsp; &nbsp; <span class="hljs-keyword">assert</span> CRC == binascii.crc32(buf[<span class="hljs-number">8</span>:]) &amp; <span class="hljs-number">0xFFFFFFFF</span><br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> Info, SysInfoData<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">DecodeRc4Str</span>(<span class="hljs-params">buf</span>):<br>&nbsp; &nbsp; buf = buf.decode(<span class="hljs-string">'hex'</span>)<br>&nbsp; &nbsp; i, s = ParsePost(rc4(buf[:<span class="hljs-number">8</span>] + RC4_Key2, buf[<span class="hljs-number">8</span>:]))<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> i, s<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">GetJebLicenseKey</span>():<br>&nbsp; &nbsp; licdata = <span class="hljs-string">""</span><br>&nbsp; &nbsp; <span class="hljs-keyword">if</span> licdata:<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;i, MachineID = DecodeRc4Str(licdata)<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;SN = KeygenSN(i[<span class="hljs-number">3</span>], i[<span class="hljs-number">4</span>])<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-built_in">print</span> <span class="hljs-string">"JEB License Key:"</span>, SN<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span> SN<br><br>GetJebLicenseKey()<br>raw_input(<span class="hljs-string">"Enter to Exit..."</span>)<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>快捷键：</p>
+<p>^F6进入方法</p>
+<p>F6跳过方法</p>
+<p>F7从方法中跳出来</p>
+<p>R运行到光标处</p>
+<h3 id="3-Log插桩"><a href="#3-Log插桩" class="headerlink" title="3.Log插桩"></a><strong>3.Log插桩</strong></h3><p>定义：Log插桩指的是反编译APK文件时，在对应的smali文件里，添加相应的smali代码，将程序中的关键信息，以log日志的形式进行输出。</p>
+<p>调用命令</p>
+<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs smali"> 复制代码 隐藏代码<br><span class="hljs-built_in"></span><br><span class="hljs-built_in">invoke-static </span>{对应寄存器}, <span class="hljs-class">Lcom/mtools/LogUtils;</span>-&gt;v(<span class="hljs-class">Ljava/lang/Object;</span>)V<br></code></pre></td></tr></tbody></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://cc-nx.github.io/2025/03/23/ZJ5/jeb动态调试，Log插桩 1b1a6f4b4daf80a68a87f1bcc2c5232d/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/23/ZJ4/%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D%E5%8E%BB%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%B9%BF%E5%91%8A%E5%88%86%E6%9E%90%E4%B8%8E%E5%B8%83%E5%B1%80%E4%BC%98%E5%8C%96%201b0a6f4b4daf80019ef2e0767f50ce0e/" title="弹窗定位去更新，广告分析与布局优化">
+                        <span class="hidden-mobile">弹窗定位去更新，广告分析与布局优化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxuehua.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
