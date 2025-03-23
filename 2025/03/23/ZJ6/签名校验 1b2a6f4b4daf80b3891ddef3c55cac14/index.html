@@ -1,0 +1,1214 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/CC.png">
+  <link rel="icon" href="/img/CC.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CC">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="签名校验芽衣的帖子 - 吾爱破解 - 52pojie.cn 1.什么是校验在安卓逆向中，校验通常指开发者通过代码逻辑对应用的关键信息（如签名、文件完整性、运行环境等）进行验证，确保应用未被篡改或破解。  常见的校验有 签名校验（Signature Check）  目的：验证APK的签名是否与开发者预期一致，防止应用被重新打包或篡改。  实现方式：  代码中通过PackageManager获取签名信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="签名校验">
+<meta property="og:url" content="https://cc-nx.github.io/2025/03/23/ZJ6/%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C%201b2a6f4b4daf80b3891ddef3c55cac14/index.html">
+<meta property="og:site_name" content="CC₍ᐢ..ᐢ₎♡">
+<meta property="og:description" content="签名校验芽衣的帖子 - 吾爱破解 - 52pojie.cn 1.什么是校验在安卓逆向中，校验通常指开发者通过代码逻辑对应用的关键信息（如签名、文件完整性、运行环境等）进行验证，确保应用未被篡改或破解。  常见的校验有 签名校验（Signature Check）  目的：验证APK的签名是否与开发者预期一致，防止应用被重新打包或篡改。  实现方式：  代码中通过PackageManager获取签名信">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232134148.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232134186.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232135216.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232135856.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136105.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136056.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136193.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136656.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136332.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137296.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137737.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137906.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137976.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137127.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137039.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232138337.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232139337.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232139942.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232139287.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140551.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140993.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140610.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140613.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140229.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140491.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232141891.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232141186.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232142228.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232142255.png">
+<meta property="article:published_time" content="2025-03-23T05:33:32.000Z">
+<meta property="article:modified_time" content="2025-03-23T13:44:28.782Z">
+<meta property="article:author" content="CC">
+<meta property="article:tag" content="签名校验">
+<meta property="article:tag" content="smali">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232134148.png">
+  
+  
+  
+  <title>签名校验 - CC₍ᐢ..ᐢ₎♡</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cc-nx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CC₍ᐢ..ᐢ₎♡</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/123.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="签名校验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-23 13:33" pubdate>
+          2025年3月23日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          79 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">签名校验</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="签名校验"><a href="#签名校验" class="headerlink" title="签名校验"></a>签名校验</h1><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/home.php?mod=space&amp;uid=874154&amp;do=thread&amp;view=me&amp;from=space">芽衣的帖子 - 吾爱破解 - 52pojie.cn</a></p>
+<h2 id="1-什么是校验"><a href="#1-什么是校验" class="headerlink" title="1.什么是校验"></a><strong>1.什么是校验</strong></h2><p>在安卓逆向中，<strong>校验</strong>通常指开发者通过代码逻辑对应用的关键信息（如签名、文件完整性、运行环境等）进行验证，确保应用未被篡改或破解。</p>
+<ul>
+<li>常见的校验有<ol>
+<li><p><strong>签名校验（Signature Check）</strong></p>
+<ul>
+<li><p><strong>目的</strong>：验证APK的签名是否与开发者预期一致，防止应用被重新打包或篡改。</p>
+</li>
+<li><p><strong>实现方式</strong>：</p>
+<ul>
+<li>代码中通过<code>PackageManager</code>获取签名信息，与预设的签名哈希值对比。</li>
+<li>若签名不匹配，触发退出或限制功能（如付费验证失效）。</li>
+</ul>
+</li>
+<li><p><strong>示例代码</strong>：</p>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 获取当前APK的签名信息</span><br>Signature[] signatures = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES).signatures;<br><span class="hljs-type">String</span> <span class="hljs-variable">currentSignature</span> <span class="hljs-operator">=</span> signatures[<span class="hljs-number">0</span>].toCharsString();<br><span class="hljs-comment">// 对比预设的合法签名</span><br><span class="hljs-keyword">if</span> (!currentSignature.equals(<span class="hljs-string">"预设的签名哈希值"</span>)) {<br>    exit();<br>}<br></code></pre></td></tr></tbody></table></figure></li>
+</ul>
+</li>
+<li><p><strong>文件完整性校验</strong></p>
+<ul>
+<li><strong>目的</strong>：验证APK或资源文件（如DEX、SO库）是否被修改。</li>
+<li><strong>实现方式</strong>：<ul>
+<li>计算文件的哈希值（如MD5、SHA-1）并与预设值对比。</li>
+<li>检测关键文件的大小或修改时间是否异常。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>环境校验</strong></p>
+<ul>
+<li><strong>目的</strong>：检测是否运行在模拟器、Root环境或调试模式。</li>
+<li><strong>实现方式</strong>：<ul>
+<li>检查系统属性（如<code>ro.build.tags</code>是否包含<code>test-keys</code>）。</li>
+<li>检测<code>su</code>文件是否存在（Root环境）。</li>
+<li>使用<code>android.os.Debug.isDebuggerConnected()</code>检测调试状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>逻辑校验</strong></p>
+<ul>
+<li><strong>目的</strong>：验证关键业务逻辑是否被篡改（如付费验证、加密算法）。</li>
+<li><strong>实现方式</strong>：<ul>
+<li>校验关键函数的返回值是否符合预期。</li>
+<li>使用代码混淆或Native代码（C/C++）隐藏校验逻辑。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>JNI/Native 层校验</strong></p>
+</li>
+</ol>
+<ul>
+<li>许多应用会在 C/C++ 层进行完整性检查，检测 <code>lib.so</code> 是否被修改，或者检查 Java 方法的行为是否被 Hook。</li>
+<li>例如，某些反调试技术会在 <code>lib.so</code> 中实现 <code>ptrace</code> 检测或 <code>frida</code> 检测。</li>
+</ul>
+</li>
+</ul>
+<p>签名校验(最常见)、dexcrc校验、apk完整性校验、路径文件校验等</p>
+<h2 id="2-什么是APK签名"><a href="#2-什么是APK签名" class="headerlink" title="2.什么是APK签名"></a><strong>2.什么是APK签名</strong></h2><p>APK签名是Android系统的安全机制，用于验证应用来源和完整性。</p>
+<p>通过对 Apk 进行签名，开发者可以证明对 Apk 的所有权和控制权，可用于安装和更新其应用。而在 Android 设备上的安装 Apk ，如果是一个没有被签名的 Apk，则会被拒绝安装。在安装 Apk 的时候，软件包管理器也会验证 Apk 是否已经被正确签名，并且通过签名证书和数据摘要验证是否合法没有被篡改。只有确认安全无篡改的情况下，才允许安装在设备上。</p>
+<p>简单来说，APK 的签名主要作用有两个： </p>
+<ol>
+<li>证明 APK 的所有者。</li>
+<li>允许 Android 市场和设备校验 APK 的正确性。</li>
+</ol>
+<h3 id="（1）签名机制"><a href="#（1）签名机制" class="headerlink" title="（1）签名机制"></a><strong>（1）签名机制</strong></h3><p>每个安卓应用在打包时都会使用开发者的私钥进行签名，签名信息存储在 <code>META-INF</code> 目录下，主要包括：</p>
+<ul>
+<li><code>CERT.RSA</code>（公钥证书）</li>
+<li><code>CERT.SF</code>（摘要信息）</li>
+<li><code>MANIFEST.MF</code>（文件哈希值）</li>
+</ul>
+<p>当用户安装 APK 时，Android 系统会：</p>
+<ol>
+<li>使用 <code>CERT.RSA</code> 内的公钥验证 <code>CERT.SF</code> 的真实性。</li>
+<li>通过 <code>CERT.SF</code> 的哈希值检查 <code>MANIFEST.MF</code>，确认文件未被修改。</li>
+<li>通过 <code>MANIFEST.MF</code> 中记录的哈希值，校验 APK 内所有文件是否被篡改。</li>
+</ol>
+<p>如果签名校验失败，APK 将无法安装。</p>
+<h3 id="（2）-Android-目前支持以下四种应用签名方案："><a href="#（2）-Android-目前支持以下四种应用签名方案：" class="headerlink" title="**（2）**Android 目前支持以下四种应用签名方案："></a>**（2）**Android 目前支持以下四种应用签名方案：</h3><ul>
+<li><p><strong>V1 签名（JAR 签名，Android 1.6+）</strong></p>
+<ul>
+<li><p>只校验 <code>META-INF</code> 目录下的签名文件，对 <code>APK</code> 本身的完整性保护较弱，可通过 Zip 方式修改 <code>APK</code> 而不影响签名。</p>
+</li>
+<li><p>V1 签名的机制主要就在 META-INF 目录下的三个文件，MANIFEST.MF，ANDROID.SF，ANDROID.RSA，他们都是 V1 签名的产物。</p>
+<p>  （1）MANIFEST.MF：这是摘要文件。程序遍历Apk包中的所有文件(entry)，对非文件夹非签名文件的文件，逐个用SHA1(安全哈希算法)生成摘要信息，再用Base64进行编码。如果你改变了apk包中的文件，那么在apk安装校验时，改变后的文件摘要信息与MANIFEST.MF的检验信息不同，于是程序就不能成功安装。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232134148.png" srcset="/img/loading.gif" lazyload></p>
+<p>  （2）ANDROID.SF：这是对摘要的签名文件。对前一步生成的MANIFEST.MF，使用SHA1-RSA算法，用开发者的私钥进行签名。在安装时只能使用公钥才能解密它。解密之后，将它与未加密的摘要信息（即，MANIFEST.MF文件）进行对比，如果相符，则表明内容没有被异常修改。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232134186.png" srcset="/img/loading.gif" lazyload></p>
+<p>  （3）ANDROID.RSA文件中保存了公钥、所采用的加密算法等信息。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232135216.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+</li>
+<li><p><strong>V2 签名（APK Signature Scheme v2，Android 7.0+）</strong></p>
+<ul>
+<li>直接对整个 APK 文件进行签名，提高了安全性，防止对 APK 进行 Zip 修改后仍能通过签名校验。</li>
+<li>在某些情况下，直接对apk进行v1签名可以绕过apk的签名校验</li>
+</ul>
+<p>  v2方案会将 APK 文件视为 blob，并对整个文件进行签名检查。对 APK 进行的任何修改（包括对 ZIP 元数据进行的修改）都会使 APK 签名作废。这种形式的 APK 验证不仅速度要快得多，而且能够发现更多种未经授权的修改。
+  </p>
+</li>
+<li><p><strong>V3 签名（APK Signature Scheme v3，Android 9.0+）</strong></p>
+<ul>
+<li>增加了对 Key Rotation（密钥轮换）的支持，允许开发者更换私钥后仍能保持应用更新。</li>
+</ul>
+</li>
+<li><p><strong>V4 签名（APK Signature Scheme v4，Android 11+）</strong></p>
+<ul>
+<li>用于加速 APK 安装，但不会影响完整性校验。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-什么是签名校验"><a href="#3-什么是签名校验" class="headerlink" title="3.什么是签名校验"></a><strong>3.什么是签名校验</strong></h2><ul>
+<li><p>基本概念</p>
+<h3 id="1-什么是签名校验？"><a href="#1-什么是签名校验？" class="headerlink" title="1. 什么是签名校验？"></a><strong>1. 什么是签名校验？</strong></h3><p>  签名校验是 Android 应用常见的安全机制，<strong>用于检测应用是否被篡改或重新签名</strong>。它的主要目的是防止二次打包和恶意篡改。</p>
+<p>  当开发者编译和打包 APK 时，APK 会使用开发者的私钥进行签名。Android 系统在安装应用时会验证签名，如果 APK 被篡改，签名就会失效，导致无法安装。</p>
+<p>  但在 <strong>逆向分析</strong> 中，攻击者可以修改 APK 并重新签名，因此应用通常会在运行时 <strong>自检签名</strong>，如果签名不匹配，应用可能会终止运行或执行反调试逻辑。</p>
+<hr>
+<h3 id="2-签名校验的工作原理"><a href="#2-签名校验的工作原理" class="headerlink" title="2. 签名校验的工作原理"></a><strong>2. 签名校验的工作原理</strong></h3><p>  签名校验通常分为 <strong>系统级校验</strong> 和 <strong>应用自校验</strong>：</p>
+<h3 id="（1）系统级签名校验"><a href="#（1）系统级签名校验" class="headerlink" title="（1）系统级签名校验"></a><strong>（1）系统级签名校验</strong></h3><ul>
+<li><strong>作用</strong>：当用户安装 APK 时，Android 系统会自动检查 APK 的签名。</li>
+<li><strong>流程</strong>：<ol>
+<li>提取 APK 的 <code>CERT.RSA</code> 证书。</li>
+<li>使用该证书的公钥验证 <code>CERT.SF</code> 和 <code>MANIFEST.MF</code> 文件，确保 APK 未被篡改。</li>
+<li>如果 APK 签名无效（如篡改了 <code>classes.dex</code> 或 <code>AndroidManifest.xml</code>），则安装失败。</li>
+</ol>
+</li>
+<li><strong>特点</strong>：<ul>
+<li>由 Android 系统执行，不可绕过。</li>
+<li>只有相同签名的应用才能相互更新（应用升级必须使用相同的开发者签名）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="（2）应用自校验（运行时签名校验）"><a href="#（2）应用自校验（运行时签名校验）" class="headerlink" title="（2）应用自校验（运行时签名校验）"></a><strong>（2）应用自校验（运行时签名校验）</strong></h3><ul>
+<li><strong>作用</strong>：在应用运行时检查自身签名，防止被二次打包或篡改后运行。</li>
+<li><strong>实现方式</strong>：<ul>
+<li>获取应用的签名信息，并与预存的合法签名进行比对。</li>
+<li>如果签名不匹配，则终止应用运行或执行反调试逻辑。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-签名校验的实现方式"><a href="#3-签名校验的实现方式" class="headerlink" title="3. 签名校验的实现方式"></a><strong>3. 签名校验的实现方式</strong></h3><p>  在 Android 代码中，签名校验通常通过以下方式实现：</p>
+<h3 id="（1）获取签名（兼容-Android-7-0-）"><a href="#（1）获取签名（兼容-Android-7-0-）" class="headerlink" title="（1）获取签名（兼容 Android 7.0+）"></a><strong>（1）获取签名（兼容 Android 7.0+）</strong></h3>  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java">java<br>复制编辑<br><span class="hljs-keyword">import</span> android.content.pm.PackageInfo;<br><span class="hljs-keyword">import</span> android.content.pm.PackageManager;<br><span class="hljs-keyword">import</span> android.content.pm.Signature;<br><span class="hljs-keyword">import</span> java.security.MessageDigest;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getSignature</span><span class="hljs-params">(Context context)</span> {<br>    <span class="hljs-keyword">try</span> {<br>        <span class="hljs-type">PackageManager</span> <span class="hljs-variable">pm</span> <span class="hljs-operator">=</span> context.getPackageManager();<br>        <span class="hljs-type">PackageInfo</span> <span class="hljs-variable">packageInfo</span> <span class="hljs-operator">=</span> pm.getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNING_CERTIFICATES);<br>        Signature[] signatures = packageInfo.signingInfo.getApkContentsSigners();<br><br>        <span class="hljs-type">MessageDigest</span> <span class="hljs-variable">md</span> <span class="hljs-operator">=</span> MessageDigest.getInstance(<span class="hljs-string">"SHA-256"</span>);<br>        md.update(signatures[<span class="hljs-number">0</span>].toByteArray());<br>        <span class="hljs-keyword">return</span> bytesToHex(md.digest()); <span class="hljs-comment">// 计算签名哈希值</span><br>    } <span class="hljs-keyword">catch</span> (Exception e) {<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    }<br>}<br><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">bytesToHex</span><span class="hljs-params">(<span class="hljs-type">byte</span>[] bytes)</span> {<br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">hexString</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">byte</span> b : bytes) {<br>        <span class="hljs-type">String</span> <span class="hljs-variable">hex</span> <span class="hljs-operator">=</span> Integer.toHexString(<span class="hljs-number">0xff</span> &amp; b);<br>        <span class="hljs-keyword">if</span> (hex.length() == <span class="hljs-number">1</span>) {<br>            hexString.append(<span class="hljs-string">'0'</span>);<br>        }<br>        hexString.append(hex);<br>    }<br>    <span class="hljs-keyword">return</span> hexString.toString();<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li>该代码计算应用的 SHA-256 签名哈希值，并与预存的值比对，防止篡改。</li>
+</ul>
+<h3 id="（2）比对签名"><a href="#（2）比对签名" class="headerlink" title="（2）比对签名"></a><strong>（2）比对签名</strong></h3>  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">java<br>复制编辑<br><span class="hljs-type">String</span> <span class="hljs-variable">expectedSignature</span> <span class="hljs-operator">=</span> <span class="hljs-string">"ABC123DEF456..."</span>; <span class="hljs-comment">// 预存的签名哈希</span><br><span class="hljs-type">String</span> <span class="hljs-variable">currentSignature</span> <span class="hljs-operator">=</span> getSignature(context);<br><span class="hljs-keyword">if</span> (!expectedSignature.equals(currentSignature)) {<br>    System.exit(<span class="hljs-number">0</span>); <span class="hljs-comment">// 签名不匹配，退出应用</span><br>}<br><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h3 id="4-签名校验的常见绕过方法"><a href="#4-签名校验的常见绕过方法" class="headerlink" title="4. 签名校验的常见绕过方法"></a><strong>4. 签名校验的常见绕过方法</strong></h3><p>  在逆向工程中，攻击者通常会修改 APK 并重新签名，使其能够安装并运行。但如果应用进行了运行时签名校验，则需要使用以下方法绕过：</p>
+<h3 id="（1）Hook-绕过"><a href="#（1）Hook-绕过" class="headerlink" title="（1）Hook 绕过"></a><strong>（1）Hook 绕过</strong></h3><p>  使用 Frida/Xposed Hook <code>getPackageInfo()</code> 方法，伪造签名返回值：</p>
+  <figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs jsx">javascript<br>复制编辑<br><span class="hljs-title class_">Java</span>.<span class="hljs-title function_">perform</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-keyword">var</span> pm = <span class="hljs-title class_">Java</span>.<span class="hljs-title function_">use</span>(<span class="hljs-string">"android.app.ApplicationPackageManager"</span>);<br>    pm.<span class="hljs-property">getPackageInfo</span>.<span class="hljs-title function_">overload</span>(<span class="hljs-string">"java.lang.String"</span>, <span class="hljs-string">"int"</span>).<span class="hljs-property">implementation</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">pkg, flags</span>) {<br>        <span class="hljs-keyword">var</span> info = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getPackageInfo</span>(pkg, flags);<br>        <span class="hljs-keyword">var</span> fakeSignature = <span class="hljs-title class_">Java</span>.<span class="hljs-title function_">use</span>(<span class="hljs-string">"android.content.pm.Signature"</span>).$new(<span class="hljs-string">"ABC123DEF456..."</span>); <span class="hljs-comment">// 伪造签名</span><br>        info.<span class="hljs-property">signatures</span>.<span class="hljs-property">value</span> = [fakeSignature];<br>        <span class="hljs-keyword">return</span> info;<br>    };<br>});<br><br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li>该代码 Hook 了 <code>getPackageInfo()</code> 方法，使其始终返回合法的签名。</li>
+</ul>
+<h3 id="（2）修改-Smali-代码"><a href="#（2）修改-Smali-代码" class="headerlink" title="（2）修改 Smali 代码"></a><strong>（2）修改 Smali 代码</strong></h3><ol>
+<li><p>反编译 APK：</p>
+ <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>apktool d app.apk -o app_smali<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>找到 <code>getSignature()</code> 方法，将签名比对逻辑改为 <code>return true</code>：</p>
+ <figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs smali">smali<br>复制编辑<span class="hljs-built_in"></span><br><span class="hljs-built_in">const-string </span>v0, <span class="hljs-string">"ABC123DEF456..."</span><span class="hljs-built_in"></span><br><span class="hljs-built_in">return </span>v0<br><br>//使校验函数直接返回true或跳过校验步骤<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>重新打包并签名：</p>
+ <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>apktool b app_smali -o new_app.apk<br>zipalign -p 4 new_app.apk new_app_aligned.apk<br>apksigner sign --ks mykeystore.jks --out new_app_signed.apk new_app_aligned.apk<br></code></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h3 id="（3）直接修改-APK-签名"><a href="#（3）直接修改-APK-签名" class="headerlink" title="（3）直接修改 APK 签名"></a><strong>（3）直接修改 APK 签名</strong></h3><ul>
+<li><p>使用 <code>zipalign</code> 和 <code>apksigner</code> 重新签名 APK：</p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>zipalign -p 4 modded.apk modded_aligned.apk<br>apksigner sign --ks mykeystore.jks --out modded_signed.apk modded_aligned.apk<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>但是如果应用内置了签名校验代码，仍然需要 Hook 相关方法绕过。</p>
+</li>
+</ul>
+<hr>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a><strong>5. 总结</strong></h3><h3 id="如何增强签名校验？（开发者视角）"><a href="#如何增强签名校验？（开发者视角）" class="headerlink" title="如何增强签名校验？（开发者视角）"></a><strong>如何增强签名校验？</strong>（开发者视角）</h3><ol>
+<li><strong>避免硬编码签名值</strong><ul>
+<li>动态从服务器获取合法签名，或通过代码混淆分散存储。</li>
+</ul>
+</li>
+<li><strong>Native层校验</strong><ul>
+<li>将校验逻辑写入C/C++库（.so文件），并添加反调试、代码混淆等保护。</li>
+</ul>
+</li>
+<li><strong>多维度校验</strong><ul>
+<li>同时校验签名哈希、证书序列号、公钥等信息，而非单一哈希值。</li>
+</ul>
+</li>
+<li><strong>环境检测</strong><ul>
+<li>结合Root检测、模拟器检测，防止校验逻辑在调试环境中运行。</li>
+</ul>
+</li>
+<li><strong>服务端协同</strong><ul>
+<li>关键业务请求时，服务端二次校验客户端的签名信息。</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>签名校验类型</strong></th>
+<th><strong>作用</strong></th>
+<th><strong>绕过方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>系统级签名校验</strong></td>
+<td>检查 APK 安装时的合法性</td>
+<td>无法绕过，必须重新签名</td>
+</tr>
+<tr>
+<td><strong>应用自校验</strong></td>
+<td>运行时检测签名是否匹配</td>
+<td>Hook <code>getPackageInfo()</code>、修改 Smali</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>签名校验主要用于防止二次打包和破解，但可以通过 Hook 或修改 Smali 绕过。</strong></li>
+<li><strong>更高级的保护手段可能会将签名校验与代码完整性校验、JNI 保护等结合，增加破解难度。</strong></li>
+</ul>
+</li>
+</ul>
+<p>如何判断是否有签名校验？</p>
+<p>不做任何修改，直接签名安装，应用闪退则说明大概率有签名校验</p>
+<p>一般来说，普通的签名校验会导致软件的闪退，黑屏，卡启动页等</p>
+<p>当然，以上都算是比较好的，有一些比较狠的作者，则会直接rm -rf /，把基带都格掉的一键变砖。</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lua"><br>kill/killProcess<span class="hljs-comment">-----kill/KillProcess()可以杀死当前应用活动的进程，这一操作将会把所有该进程内的资源（包括线程全部清理掉）.当然，由于ActivityManager时刻监听着进程，一旦发现进程被非正常Kill，它将会试图去重启这个进程。这就是为什么，有时候当我们试图这样去结束掉应用时，发现它又自动重新启动的原因.</span><br><br>system.<span class="hljs-built_in">exit</span><span class="hljs-comment">-----杀死了整个进程，这时候活动所占的资源也会被释放。</span><br><br>finish<span class="hljs-comment">----------仅仅针对Activity，当调用finish()时，只是将活动推向后台，并没有立即释放内存，活动的资源并没有被清理</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>在我个人见过最恶心的签名校验中，当属三角校验(低调大佬教的)最烦人。</p>
+<p>所谓三角校验，就是so检测dex，动态加载的dex(在软件运行时会解压释放一段dex文件，检测完后就删除)检测so，dex检测动态加载的dex</p>
+<ul>
+<li><p>示例</p>
+<ol>
+<li>打开算法助手的拦截和防止退出</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232135856.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>我们可以在日志中查看到拦截信息</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136105.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>查找到闪退的方法</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136056.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>查询到闪退的代码将其注释掉，就可以解决闪退等问题。</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136193.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>我们也可以通过算法助手的签名监听来进行定位</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136656.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>通过日志中的签名信息找到其相应的堆栈进行查询</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232136332.png" srcset="/img/loading.gif" lazyload></p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137296.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>对堆栈进行查询找到关键方法<code>checkSign</code>进行分析。</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137737.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>通过获取安装包签名信息的值与<code>SIGNATURE</code>的值进行比对</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137906.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>我们可以将判断的逻辑if-nez改为if-eqz，直接把判断取反</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137976.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>直接对sign值进行查询</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137127.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>将包内的sign替换掉，就可以通过普通签名校验</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232137039.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<p>普通获取签名校验代码：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">SignCheck</span><span class="hljs-params">()</span> {<br>&nbsp; &nbsp; <span class="hljs-type">String</span> <span class="hljs-variable">trueSignMD5</span> <span class="hljs-operator">=</span> <span class="hljs-string">"d0add9987c7c84aeb7198c3ff26ca152"</span>;<br>&nbsp; &nbsp; <span class="hljs-type">String</span> <span class="hljs-variable">nowSignMD5</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>;<br>&nbsp; &nbsp; <span class="hljs-keyword">try</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-comment">// 得到签名的MD5</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">PackageInfo</span> <span class="hljs-variable">packageInfo</span> <span class="hljs-operator">=</span> getPackageManager().getPackageInfo(getPackageName(),PackageManager.GET_SIGNATURES);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Signature[] signs = packageInfo.signatures;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">String</span> <span class="hljs-variable">signBase64</span> <span class="hljs-operator">=</span> Base64Util.encodeToString(signs[<span class="hljs-number">0</span>].toByteArray());<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;nowSignMD5 = MD5Utils.MD5(signBase64);<br>&nbsp; &nbsp; } <span class="hljs-keyword">catch</span> (PackageManager.NameNotFoundException e) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;e.printStackTrace();<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> trueSignMD5.equals(nowSignMD5);<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>系统将应用的签名信息封装在 PackageInfo 中，调用 PackageManager 的 getPackageInfo(String packageName, int flags) 即可获取指定包名的签名信息。</p>
+<h2 id="4-签名校验对抗"><a href="#4-签名校验对抗" class="headerlink" title="4.签名校验对抗"></a><strong>4.签名校验对抗</strong></h2><p>方法一:核心破解插件，不签名安装应用</p>
+<p>方法二:一键过签名工具，例如MT、NP、ARMPro、CNFIX、Modex的去除签名校验功能</p>
+<p>方法三:具体分析签名校验逻辑(手撕签名校验)</p>
+<p>方法四:io重定向–VA&amp;SVC：ptrace+seccomp</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-273160.htm">SVC的TraceHook沙箱的实现&amp;无痕Hook实现思路</a></p>
+<p>方法五:去作者家严刑拷打拿到.jks文件和密码</p>
+<ul>
+<li><p>jks文件了</p>
+<p>  <strong><code>.jks</code> 文件</strong>是 <strong>Java KeyStore</strong> 文件，主要用于存储加密密钥、证书和私钥，通常用于 SSL/TLS 证书管理。Java 应用程序使用 <code>.jks</code> 文件来确保安全的通信。</p>
+<h3 id="常见用途"><a href="#常见用途" class="headerlink" title="常见用途"></a><strong>常见用途</strong></h3><ol>
+<li><strong>SSL/TLS 证书管理</strong>（HTTPS 服务器、客户端身份验证）</li>
+<li><strong>Java 应用安全</strong>（如 Spring Boot、Tomcat）</li>
+<li><strong>Android 签名</strong>（用于 APK 签名）</li>
+</ol>
+<h3 id="常见命令（keytool-工具）"><a href="#常见命令（keytool-工具）" class="headerlink" title="常见命令（keytool 工具）"></a><strong>常见命令（keytool 工具）</strong></h3><p>  <code>keytool</code> 是 Java 自带的密钥管理工具，可用于创建和管理 <code>.jks</code> 文件。</p>
+<h3 id="1-生成新的-JKS-文件"><a href="#1-生成新的-JKS-文件" class="headerlink" title="1. 生成新的 JKS 文件"></a><strong>1. 生成新的 JKS 文件</strong></h3>  <figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">keytool</span> -genkey -alias myalias -keyalg RSA -keystore mykeystore.jks -validity <span class="hljs-number">3650</span> -storepass mypassword<br><br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>alias myalias</code>：指定别名</li>
+<li><code>keyalg RSA</code>：密钥算法</li>
+<li><code>keystore mykeystore.jks</code>：JKS 文件名</li>
+<li><code>validity 3650</code>：证书有效期（天）</li>
+<li><code>storepass mypassword</code>：密钥库密码</li>
+</ul>
+<h3 id="2-查看-JKS-文件内容"><a href="#2-查看-JKS-文件内容" class="headerlink" title="2. 查看 JKS 文件内容"></a><strong>2. 查看 JKS 文件内容</strong></h3>  <figure class="highlight lsl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lsl">keytool -<span class="hljs-type">list</span> -keystore mykeystore.jks -storepass mypassword<br><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="3-导入证书到-JKS"><a href="#3-导入证书到-JKS" class="headerlink" title="3. 导入证书到 JKS"></a><strong>3. 导入证书到 JKS</strong></h3>  <figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">keytool -import -trustcacerts -<span class="hljs-built_in">alias</span> mycert -<span class="hljs-built_in">file</span> mycert.crt -keystore mykeystore.jks<br><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="4-导出证书"><a href="#4-导出证书" class="headerlink" title="4. 导出证书"></a><strong>4. 导出证书</strong></h3>  <figure class="highlight delphi"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs delphi">keytool -<span class="hljs-keyword">export</span> -<span class="hljs-keyword">alias</span> myalias -<span class="hljs-keyword">file</span> mycert.crt -keystore mykeystore.jks<br><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="5-转换-JKS-到-PKCS12"><a href="#5-转换-JKS-到-PKCS12" class="headerlink" title="5. 转换 JKS 到 PKCS12"></a><strong>5. 转换 JKS 到 PKCS12</strong></h3>  <figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">keytool -importkeystore -srckeystore mykeystore<span class="hljs-selector-class">.jks</span> -destkeystore mykeystore<span class="hljs-selector-class">.p12</span> -deststoretype PKCS12<br><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="JKS-在-Android-中的应用"><a href="#JKS-在-Android-中的应用" class="headerlink" title="JKS 在 Android 中的应用"></a><strong>JKS 在 Android 中的应用</strong></h3><p>  Android 应用使用 JKS 文件（通常是 <code>.keystore</code> 格式）来签名 APK。例如：</p>
+  <figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">arsigner -verbose -keystore <span class="hljs-keyword">my</span>-release-key.jks <span class="hljs-keyword">my</span>-app.apk myalias<br><br></code></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h2 id="5-手动实现PM代-过-滤-理"><a href="#5-手动实现PM代-过-滤-理" class="headerlink" title="5.手动实现PM代{过}{滤}理"></a><strong>5.手动实现PM代{过}{滤}理</strong></h2><h3 id="1-什么是PMS"><a href="#1-什么是PMS" class="headerlink" title="1.什么是PMS"></a><strong>1.什么是PMS</strong></h3><p>思路源自：<a target="_blank" rel="noopener" href="https://github.com/fourbrother/HookPmsSignature">Android中Hook 应用签名方法</a></p>
+<p>PackageManagerService（简称PMS），是Android系统核心服务之一，处理包管理相关的工作，常见的比如安装、卸载应用等。</p>
+<h3 id="2-实现方法以及原理解析"><a href="#2-实现方法以及原理解析" class="headerlink" title="2.实现方法以及原理解析"></a><strong>2.实现方法以及原理解析</strong></h3><p>HOOK PMS代码:</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.zj.hookpms;<br><span class="hljs-keyword">import</span> java.lang.reflect.Field;<br><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><span class="hljs-keyword">import</span> java.lang.reflect.Proxy;<br><br><span class="hljs-keyword">import</span> android.content.Context;<br><span class="hljs-keyword">import</span> android.content.pm.PackageManager;<br><span class="hljs-keyword">import</span> android.util.Log;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ServiceManagerWraper</span> {<br><br>&nbsp; &nbsp; <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">ZJ</span> <span class="hljs-operator">=</span> <span class="hljs-string">"ZJ595"</span>;<br><br>&nbsp; &nbsp; <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hookPMS</span><span class="hljs-params">(Context context, String signed, String appPkgName, <span class="hljs-type">int</span> hashCode)</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">try</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-comment">// 获取全局的ActivityThread对象</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Class&lt;?&gt; activityThreadClass = Class.forName(<span class="hljs-string">"android.app.ActivityThread"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">Method</span> <span class="hljs-variable">currentActivityThreadMethod</span> <span class="hljs-operator">=</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;activityThreadClass.getDeclaredMethod(<span class="hljs-string">"currentActivityThread"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">Object</span> <span class="hljs-variable">currentActivityThread</span> <span class="hljs-operator">=</span> currentActivityThreadMethod.invoke(<span class="hljs-literal">null</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-comment">// 获取ActivityThread里面原始的sPackageManager</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">Field</span> <span class="hljs-variable">sPackageManagerField</span> <span class="hljs-operator">=</span> activityThreadClass.getDeclaredField(<span class="hljs-string">"sPackageManager"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;sPackageManagerField.setAccessible(<span class="hljs-literal">true</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">Object</span> <span class="hljs-variable">sPackageManager</span> <span class="hljs-operator">=</span> sPackageManagerField.get(currentActivityThread);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-comment">// 准备好代{过}{滤}理对象, 用来替换原始的对象</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Class&lt;?&gt; iPackageManagerInterface = Class.forName(<span class="hljs-string">"android.content.pm.IPackageManager"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">Object</span> <span class="hljs-variable">proxy</span> <span class="hljs-operator">=</span> Proxy.newProxyInstance(<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;iPackageManagerInterface.getClassLoader(),<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">new</span> <span class="hljs-title class_">Class</span>&lt;?&gt;[]{iPackageManagerInterface},<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">new</span> <span class="hljs-title class_">PmsHookBinderInvocationHandler</span>(sPackageManager, signed, appPkgName, <span class="hljs-number">0</span>));<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-comment">// 1. 替换掉ActivityThread里面的 sPackageManager 字段</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;sPackageManagerField.set(currentActivityThread, proxy);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-comment">// 2. 替换 ApplicationPackageManager里面的 mPM对象</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">PackageManager</span> <span class="hljs-variable">pm</span> <span class="hljs-operator">=</span> context.getPackageManager();<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-type">Field</span> <span class="hljs-variable">mPmField</span> <span class="hljs-operator">=</span> pm.getClass().getDeclaredField(<span class="hljs-string">"mPM"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;mPmField.setAccessible(<span class="hljs-literal">true</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;mPmField.set(pm, proxy);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;} <span class="hljs-keyword">catch</span> (Exception e) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Log.d(ZJ, <span class="hljs-string">"hook pms error:"</span> + Log.getStackTraceString(e));<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br>&nbsp; &nbsp; }<br><br>&nbsp; &nbsp; <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hookPMS</span><span class="hljs-params">(Context context)</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">String</span> <span class="hljs-variable">Sign</span> <span class="hljs-operator">=</span> <span class="hljs-string">"原包的签名信息"</span>;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hookPMS(context, Sign, <span class="hljs-string">"com.zj.hookpms"</span>, <span class="hljs-number">0</span>);<br>&nbsp; &nbsp; }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>ActivityThread的静态变量sPackageManager</p>
+<p>ApplicationPackageManager对象里面的mPM变量</p>
+<ul>
+<li><p>获取原包签名信息</p>
+<ol>
+<li>使用MT管理器，点击签名信息并查看原始数据</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232138337.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>这一串内容均为其那名信息，将内容全选复制为base64并与原包签名信息进行替换</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232139337.png" srcset="/img/loading.gif" lazyload></p>
+<p>  3.替换信息后，调用代码</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232139942.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<p>该方法较为过时，简单了解一下即可。</p>
+<h2 id="6-IO重定向"><a href="#6-IO重定向" class="headerlink" title="6.IO重定向"></a><strong>6.IO重定向</strong></h2><ul>
+<li><p>什么是IO重定向</p>
+<pre><code class="hljs">IO 重定向（Input/Output Redirection）是指在计算机系统中，将标准输入（stdin）、标准输出（stdout）或标准错误输出（stderr）重定向到不同的文件或设备，而不是默认的终端（屏幕和键盘）。这是 Unix/Linux 和 Windows 命令行中常见的操作，主要用于控制程序的输入和输出。
+
+在 **Android 逆向** 中，**IO 重定向**（Input/Output Redirection）主要用于劫持、修改或捕获应用程序的标准输入、标准输出（stdout）和标准错误（stderr）。它在分析、调试和 Hook 过程中非常重要。
+</code></pre>
+<hr>
+<h2 id="1-IO-重定向在-Android-逆向中的作用"><a href="#1-IO-重定向在-Android-逆向中的作用" class="headerlink" title="1. IO 重定向在 Android 逆向中的作用"></a><strong>1. IO 重定向在 Android 逆向中的作用</strong></h2><p>  在 Android 逆向过程中，我们通常希望获取应用程序的 <strong>调试日志</strong>、<strong>标准输出</strong>、<strong>标准错误</strong>，或者将输入重定向到目标进程。由于 Android 应用通常运行在 <strong>Linux 环境（基于 Android 内核）</strong> 下，它也遵循 Linux 的 IO 机制，因此可以使用 <strong>重定向技术</strong> 进行信息捕获或干预。</p>
+<hr>
+<h2 id="2-IO-重定向的常见用途"><a href="#2-IO-重定向的常见用途" class="headerlink" title="2. IO 重定向的常见用途"></a><strong>2. IO 重定向的常见用途</strong></h2><h3 id="（1）捕获应用标准输出"><a href="#（1）捕获应用标准输出" class="headerlink" title="（1）捕获应用标准输出"></a><strong>（1）捕获应用标准输出</strong></h3><p>  有些 Android 应用会在 <code>stdout</code> 或 <code>stderr</code> 中打印调试信息，例如：</p>
+  <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c">c<br>复制编辑<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">"Secret Key: %s\n"</span>, secretKey);<br><br></code></pre></td></tr></tbody></table></figure>
+<p>  但这些信息不会直接显示在 Logcat 中，而是需要重定向输出才能捕获。</p>
+<h3 id="方法1：使用-strace-或-logcat"><a href="#方法1：使用-strace-或-logcat" class="headerlink" title="方法1：使用 strace 或 logcat"></a><strong>方法1：使用 strace 或 logcat</strong></h3><ul>
+<li><p><strong>使用 <code>strace</code> 监视 IO 调用</strong></p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>strace -p &lt;PID&gt; -e write<br><br></code></pre></td></tr></tbody></table></figure>
+<p>  这可以监视 <code>write</code> 系统调用，捕获应用写入 <code>stdout</code> 和 <code>stderr</code> 的数据。</p>
+</li>
+<li><p><strong>使用 <code>logcat</code> 捕获日志</strong></p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>logcat -s <span class="hljs-string">"AppTag"</span><br><br></code></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="方法2：使用-run-as-重定向"><a href="#方法2：使用-run-as-重定向" class="headerlink" title="方法2：使用 run-as 重定向"></a><strong>方法2：使用 <code>run-as</code> 重定向</strong></h3><p>  如果目标应用是 <code>debuggable</code>，可以使用 <code>run-as</code> 切换到应用的 UID 并重定向 IO：</p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>run-as com.example.app sh -c <span class="hljs-string">'exec &gt; /data/data/com.example.app/output.log 2&gt;&amp;1'</span><br><br></code></pre></td></tr></tbody></table></figure>
+<p>  这会将应用的 <code>stdout</code> 和 <code>stderr</code> 重定向到 <code>output.log</code>，然后可以用 <code>adb pull</code> 拉取日志：</p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br>adb pull /data/data/com.example.app/output.log .<br><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h3 id="（2）Hook-IO-函数"><a href="#（2）Hook-IO-函数" class="headerlink" title="（2）Hook IO 函数"></a><strong>（2）Hook IO 函数</strong></h3><p>  <strong>重定向 <code>open</code>、<code>read</code>、<code>write</code> 等系统调用</strong>，可以在动态调试中捕获关键数据，例如应用读写的文件、网络数据等。</p>
+<h3 id="方法1：使用-Frida-Hook-IO"><a href="#方法1：使用-Frida-Hook-IO" class="headerlink" title="方法1：使用 Frida Hook IO"></a><strong>方法1：使用 Frida Hook IO</strong></h3>  <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">python<br>复制编辑<br><span class="hljs-keyword">import</span> frida<br><br>script_code = <span class="hljs-string">"""</span><br><span class="hljs-string">Interceptor.attach(Module.findExportByName(null, 'write'), {</span><br><span class="hljs-string">    onEnter: function(args) {</span><br><span class="hljs-string">        send("Writing data: " + Memory.readUtf8String(args[1]));</span><br><span class="hljs-string">    }</span><br><span class="hljs-string">});</span><br><span class="hljs-string">"""</span><br>device = frida.get_usb_device()<br>session = device.attach(<span class="hljs-string">"com.target.app"</span>)<br>script = session.create_script(script_code)<br>script.on(<span class="hljs-string">"message"</span>, <span class="hljs-keyword">lambda</span> msg, data: <span class="hljs-built_in">print</span>(msg))<br>script.load()<br><br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>作用：</strong></p>
+<ul>
+<li>Hook <code>write()</code> 系统调用，劫持目标进程的输出内容（如日志、密钥等）。</li>
+<li>适用于需要 <strong>监视应用输出数据</strong> 的场景。</li>
+</ul>
+<hr>
+<h3 id="（3）修改应用输入"><a href="#（3）修改应用输入" class="headerlink" title="（3）修改应用输入"></a><strong>（3）修改应用输入</strong></h3><p>  在 Android 逆向中，某些应用会通过 <code>stdin</code> 读取数据，比如命令行工具或者 Shell 脚本。可以通过 <strong>输入重定向</strong> 伪造数据输入，例如：</p>
+  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash<br>复制编辑<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"fake_password"</span> | ./target_binary<br><br></code></pre></td></tr></tbody></table></figure>
+<p>  或者 Hook <code>read()</code> 函数，修改 <code>stdin</code> 输入：</p>
+  <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">python<br>复制编辑<br>Interceptor.attach(Module.findExportByName(null, <span class="hljs-string">'read'</span>), {<br>    onEnter: function(args) {<br>        args[<span class="hljs-number">1</span>].writeUtf8String(<span class="hljs-string">"hacked_input"</span>);<br>    }<br>});<br><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h3 id="（4）劫持-Java-层-IO"><a href="#（4）劫持-Java-层-IO" class="headerlink" title="（4）劫持 Java 层 IO"></a><strong>（4）劫持 Java 层 IO</strong></h3><p>  在 Java 层，<code>System.out.print()</code> 默认会输出到 <code>stdout</code>，可以通过 Hook <code>System.out</code> 来修改或捕获：</p>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">java<br>复制编辑<br>System.setOut(<span class="hljs-keyword">new</span> <span class="hljs-title class_">PrintStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">OutputStream</span>() {<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">write</span><span class="hljs-params">(<span class="hljs-type">int</span> b)</span> {<br>        <span class="hljs-comment">// 劫持 IO，改写输出</span><br>    }<br>}));<br><br></code></pre></td></tr></tbody></table></figure>
+<p>  这在 Hook Java 方法时可以用于修改应用日志或隐藏关键输出。</p>
+<hr>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a><strong>3. 总结</strong></h2><table>
+<thead>
+<tr>
+<th><strong>用途</strong></th>
+<th><strong>技术</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>捕获 <code>stdout</code>、<code>stderr</code></strong></td>
+<td><code>strace</code>、<code>logcat</code>、<code>run-as</code></td>
+</tr>
+<tr>
+<td><strong>Hook IO 函数</strong></td>
+<td><code>Frida</code>、<code>Xposed</code>、<code>LD_PRELOAD</code></td>
+</tr>
+<tr>
+<td><strong>修改输入</strong></td>
+<td><code>stdin</code> 重定向、Hook <code>read()</code></td>
+</tr>
+<tr>
+<td><strong>Java 层 IO 劫持</strong></td>
+<td><code>System.setOut()</code></td>
+</tr>
+</tbody></table>
+<p>  <strong>IO 重定向在 Android 逆向中的核心作用：</strong></p>
+<ol>
+<li><strong>获取应用未公开的调试信息</strong></li>
+<li><strong>监视或篡改应用输入</strong></li>
+<li><strong>分析目标应用的日志、密钥或敏感数据</strong></li>
+<li><strong>结合 Frida/Xposed 进行 Hook，提高调试能力</strong></li>
+</ol>
+</li>
+</ul>
+<p>例：在读A文件的时候指向B文件</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/virjarRatel/ratel-core">平头哥的核心代码</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/asLody/VirtualApp">Virtual Engine for Android(Support 12.0 in business version)</a></p>
+<p>IO重定向可以干嘛？</p>
+<p>1，可以让文件只读，不可写</p>
+<p>2，禁止访问文件</p>
+<p>3，路径替换</p>
+<p>具体实现：</p>
+<p>过签名检测(读取原包)</p>
+<p>风控对抗(例:一个文件记录App启动的次数)</p>
+<p>过Root检测，Xposed检测(文件不可取)</p>
+<ul>
+<li><p>新的API签名校验与普通签名校验Ture方法一致</p>
+<ol>
+<li>分析API的签名校验算法，发现它newsign定位好签名之后，将新的API与原来的进行比对，仍可以采用普通校验的方式将新的API替换，ture处理掉。</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232139287.png" srcset="/img/loading.gif" lazyload>
+  </p>
+</li>
+<li><p>CRC校验</p>
+<ol>
+<li>观察校验部分的代码发现，解压后获取dex文件，获取它的crc的一个值。而我们每做一次修改，dex文件中的值都会发生对应的改变，而它的值需要与j进行一个对比，我们顺着思路查看j在哪里.</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140551.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>Ctrl+F顺着j进行查找，发现是通过一个方法传入一个值</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140993.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>我们顺着观察发现string类里面有crc的值</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140610.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>跳转查看发现每一次修改都会使数值发生转变，不可能每一次都对数值进行修改，写死会导致校验失败。需要运用io重定向</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140613.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>代码已经写在so文件中，现在缺少一个调用。使用smail代码。它是获取上下文的文本，然后传入到hook方法中，hook方法是一个native方法。</li>
+<li>首先打开编辑器搜索到checkSign方法后，打开导航找到crc，查看他的调用。</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140229.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>因为要进行重定向，要在校验之前完成这部分工作才可以读到原包。在方法开头将我们的调用代码放入进去。</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232140491.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>在软件数据目录下（数据目录1）新建一个files文件，将没有经过修改的原包复制在该文件中，重命名为base.apk，这样才可以实现一个io的重定向读取原包的信息。（具体原因在代码部分解释）</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232141891.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>以上就是一个简单的io重定向的实现（crc读取dex的一个crc值，而hash读取整个APK一个hash的一个值）</li>
+</ol>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232141186.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<p>io重定向原码，相当于hook的open，openat等几个函数（用于读取底层文件函数）</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><code class="hljs java">using namespace std;<br>string packname;<br>string origpath;<br>string fakepath;<br><br><span class="hljs-type">int</span> (*orig_open)(const <span class="hljs-type">char</span> *pathname, <span class="hljs-type">int</span> flags, ...);<br><span class="hljs-type">int</span> (*orig_openat)(<span class="hljs-type">int</span>,const <span class="hljs-type">char</span> *pathname, <span class="hljs-type">int</span> flags, ...);<br>FILE *(*orig_fopen)(const <span class="hljs-type">char</span> *filename, const <span class="hljs-type">char</span> *mode);<br><span class="hljs-keyword">static</span> <span class="hljs-title function_">long</span> <span class="hljs-params">(*orig_syscall)</span><span class="hljs-params">(<span class="hljs-type">long</span> number, ...)</span>;<br><span class="hljs-type">int</span> (*orig__NR_openat)(<span class="hljs-type">int</span>,const <span class="hljs-type">char</span> *pathname, <span class="hljs-type">int</span> flags, ...);<br><br><span class="hljs-keyword">void</span>* (*orig_dlopen_CI)(const <span class="hljs-type">char</span> *filename, <span class="hljs-type">int</span> flag);<br><span class="hljs-keyword">void</span>* (*orig_dlopen_CIV)(const <span class="hljs-type">char</span> *filename, <span class="hljs-type">int</span> flag, const <span class="hljs-keyword">void</span> *extinfo);<br><span class="hljs-keyword">void</span>* (*orig_dlopen_CIVV)(const <span class="hljs-type">char</span> *name, <span class="hljs-type">int</span> flags, const <span class="hljs-keyword">void</span> *extinfo, <span class="hljs-keyword">void</span> *caller_addr);<br><br><span class="hljs-keyword">static</span> inline bool <span class="hljs-title function_">needs_mode</span><span class="hljs-params">(<span class="hljs-type">int</span> flags)</span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> ((flags &amp; O_CREAT) == O_CREAT) || ((flags &amp; O_TMPFILE) == O_TMPFILE);<br>}<br>bool <span class="hljs-title function_">startsWith</span><span class="hljs-params">(string str, string sub)</span>{<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> str.find(sub)==<span class="hljs-number">0</span>;<br>}<br><br>bool <span class="hljs-title function_">endsWith</span><span class="hljs-params">(string s,string sub)</span>{<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> s.rfind(sub)==(s.length()-sub.length());<br>}<br>bool <span class="hljs-title function_">isOrigAPK</span><span class="hljs-params">(string&nbsp;&nbsp;path)</span>{<br><br>&nbsp; &nbsp; <span class="hljs-keyword">if</span>(path==origpath){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>}<br><span class="hljs-comment">//该函数的功能是在打开一个文件时进行拦截，并在满足特定条件时将文件路径替换为另一个路径</span><br><br><span class="hljs-comment">//fake_open 函数有三个参数：</span><br><span class="hljs-comment">//pathname：一个字符串，表示要打开的文件的路径。</span><br><span class="hljs-comment">//flags：一个整数，表示打开文件的方式，例如只读、只写、读写等。</span><br><span class="hljs-comment">//mode（可选参数）：一个整数，表示打开文件时应用的权限模式。</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">fake_open</span><span class="hljs-params">(const <span class="hljs-type">char</span> *pathname, <span class="hljs-type">int</span> flags, ...)</span> {<br>&nbsp; &nbsp; <span class="hljs-type">mode_t</span> <span class="hljs-variable">mode</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span> (needs_mode(flags)) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;va_list args;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;va_start(args, flags);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;mode = static_cast&lt;mode_t&gt;(va_arg(args, <span class="hljs-type">int</span>));<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;va_end(args);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-comment">//LOGI("open,&nbsp;&nbsp;path: %s, flags: %d, mode: %d",pathname, flags ,mode);</span><br>&nbsp; &nbsp; string cpp_path= pathname;<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span>(isOrigAPK(cpp_path)){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;LOGI(<span class="hljs-string">"libc_open, redirect: %s, ---&gt;: %s"</span>,pathname, fakepath.data());<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span> orig_open(<span class="hljs-string">"/data/user/0/com.zj.wuaipojie/files/base.apk"</span>, flags, mode);<br>    }<span class="hljs-comment">//这里已经将我们io后的路径写死，也是我们实例中新建对应文件的原因。</span><br>    &nbsp; <span class="hljs-keyword">return</span>&nbsp;&nbsp;orig_open(pathname, flags, mode);<br><br>}<br><br><span class="hljs-comment">//该函数的功能是在打开一个文件时进行拦截，并在满足特定条件时将文件路径替换为另一个路径</span><br><br><span class="hljs-comment">//fake_openat 函数有四个参数：</span><br><span class="hljs-comment">//fd：一个整数，表示要打开的文件的文件描述符。</span><br><span class="hljs-comment">//pathname：一个字符串，表示要打开的文件的路径。</span><br><span class="hljs-comment">//flags：一个整数，表示打开文件的方式，例如只读、只写、读写等。</span><br><span class="hljs-comment">//mode（可选参数）：一个整数，表示打开文件时应用的权限模式。</span><br><span class="hljs-comment">//openat 函数的作用类似于 open 函数，但是它使用文件描述符来指定文件路径，而不是使用文件路径本身。这样，就可以在打开文件时使用相对路径，而不必提供完整的文件路径。</span><br><span class="hljs-comment">//例如，如果要打开相对于当前目录的文件，可以使用 openat 函数，而不是 open 函数，因为 open 函数只能使用绝对路径。</span><br><span class="hljs-comment">//</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">fake_openat</span><span class="hljs-params">(<span class="hljs-type">int</span> fd, const <span class="hljs-type">char</span> *pathname, <span class="hljs-type">int</span> flags, ...)</span> {<br>&nbsp; &nbsp; <span class="hljs-type">mode_t</span> <span class="hljs-variable">mode</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span> (needs_mode(flags)) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;va_list args;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;va_start(args, flags);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;mode = static_cast&lt;mode_t&gt;(va_arg(args, <span class="hljs-type">int</span>));<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;va_end(args);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; LOGI(<span class="hljs-string">"openat, fd: %d, path: %s, flags: %d, mode: %d"</span>,fd ,pathname, flags ,mode);<br>&nbsp; &nbsp; string cpp_path= pathname;<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span>(isOrigAPK(cpp_path)){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;LOGI(<span class="hljs-string">"libc_openat, redirect: %s, ---&gt;: %s"</span>,pathname, fakepath.data());<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span>&nbsp;&nbsp;orig_openat(fd,fakepath.data(), flags, mode);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> orig_openat(fd,pathname, flags, mode);<br><br>}<br>FILE *fake_fopen(const <span class="hljs-type">char</span> *filename, const <span class="hljs-type">char</span> *mode) {<br>&nbsp; &nbsp; string cpp_path= filename;<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span>(isOrigAPK(cpp_path)){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span>&nbsp;&nbsp;orig_fopen(fakepath.data(), mode);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> orig_fopen(filename, mode);<br>}<br><span class="hljs-comment">//该函数的功能是在执行系统调用时进行拦截，并在满足特定条件时修改系统调用的参数。</span><br><span class="hljs-comment">//syscall 函数是一个系统调用，是程序访问内核功能的方法之一。使用 syscall 函数可以调用大量的系统调用，它们用于实现操作系统的各种功能，例如打开文件、创建进程、分配内存等。</span><br><span class="hljs-comment">//</span><br><span class="hljs-keyword">static</span> <span class="hljs-type">long</span> <span class="hljs-title function_">fake_syscall</span><span class="hljs-params">(<span class="hljs-type">long</span> number, ...)</span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">void</span> *arg[<span class="hljs-number">7</span>];<br>&nbsp; &nbsp; va_list list;<br><br>&nbsp; &nbsp; va_start(list, number);<br>&nbsp; &nbsp; <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">7</span>; ++i) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;arg[i] = va_arg(list, <span class="hljs-keyword">void</span> *);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; va_end(list);<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span> (number == __NR_openat){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;const <span class="hljs-type">char</span> *cpp_path = static_cast&lt;const <span class="hljs-type">char</span> *&gt;(arg[<span class="hljs-number">1</span>]);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;LOGI(<span class="hljs-string">"syscall __NR_openat, fd: %d, path: %s, flags: %d, mode: %d"</span>,arg[<span class="hljs-number">0</span>] ,arg[<span class="hljs-number">1</span>], arg[<span class="hljs-number">2</span>], arg[<span class="hljs-number">3</span>]);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">if</span> (isOrigAPK(cpp_path)){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;LOGI(<span class="hljs-string">"syscall __NR_openat, redirect: %s, ---&gt;: %s"</span>,arg[<span class="hljs-number">1</span>], fakepath.data());<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-keyword">return</span> orig_syscall(number,arg[<span class="hljs-number">0</span>], fakepath.data() ,arg[<span class="hljs-number">2</span>],arg[<span class="hljs-number">3</span>]);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> orig_syscall(number, arg[<span class="hljs-number">0</span>], arg[<span class="hljs-number">1</span>], arg[<span class="hljs-number">2</span>], arg[<span class="hljs-number">3</span>], arg[<span class="hljs-number">4</span>], arg[<span class="hljs-number">5</span>], arg[<span class="hljs-number">6</span>]);<br><br>}<br><br><span class="hljs-comment">//函数的功能是获取当前应用的包名、APK 文件路径以及库文件路径，并将这些信息保存在全局变量中</span><br><span class="hljs-comment">//函数调用 GetObjectClass 和 GetMethodID 函数来获取 context 对象的类型以及 getPackageName 方法的 ID。然后，函数调用 CallObjectMethod 函数来调用 getPackageName 方法，获取当前应用的包名。最后，函数使用 GetStringUTFChars 函数将包名转换为 C 字符串，并将包名保存在 packname 全局变量中</span><br><span class="hljs-comment">//接着，函数使用 fakepath 全局变量保存了 /data/user/0/&lt;packname&gt;/files/base.apk 这样的路径，其中 &lt;packname&gt; 是当前应用的包名。</span><br><span class="hljs-comment">//然后，函数再次调用 GetObjectClass 和 GetMethodID 函数来获取 context 对象的类型以及 getApplicationInfo 方法的 ID。然后，函数调用 CallObjectMethod 函数来调用 getApplicationInfo 方法，获取当前应用的 ApplicationInfo 对象。</span><br><span class="hljs-comment">//它先调用 GetObjectClass 函数获取 ApplicationInfo 对象的类型，然后调用 GetFieldID 函数获取 sourceDir 字段的 ID。接着，函数使用 GetObjectField 函数获取 sourceDir 字段的值，并使用 GetStringUTFChars 函数将其转换为 C 字符串。最后，函数将 C 字符串保存在 origpath 全局变量中，表示当前应用的 APK 文件路径。</span><br><span class="hljs-comment">//最后，函数使用 GetFieldID 和 GetObjectField 函数获取 nativeLibraryDir 字段的值，并使用 GetStringUTFChars 函数将其转换为 C 字符串。函数最后调用 LOGI 函数打印库文件路径，但是并没有将其保存在全局变量中。</span><br><br>extern <span class="hljs-string">"C"</span> JNIEXPORT <span class="hljs-keyword">void</span> JNICALL<br><span class="hljs-title function_">Java_com_zj_wuaipojie_util_SecurityUtil_hook</span><span class="hljs-params">(JNIEnv *env, jclass clazz, jobject context)</span> {<br>&nbsp; &nbsp; <span class="hljs-type">jclass</span> <span class="hljs-variable">conext_class</span> <span class="hljs-operator">=</span> env-&gt;GetObjectClass(context);<br>&nbsp; &nbsp; <span class="hljs-type">jmethodID</span> <span class="hljs-variable">methodId_pack</span> <span class="hljs-operator">=</span> env-&gt;GetMethodID(conext_class, <span class="hljs-string">"getPackageName"</span>,<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-string">"()Ljava/lang/String;"</span>);<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">packname_js</span> <span class="hljs-operator">=</span> reinterpret_cast&lt;jstring&gt;(env-&gt;CallObjectMethod(context, methodId_pack));<br>&nbsp; &nbsp; const <span class="hljs-type">char</span> *pn = env-&gt;GetStringUTFChars(packname_js, <span class="hljs-number">0</span>);<br>&nbsp; &nbsp; packname = string(pn);<br><br>&nbsp; &nbsp; env-&gt;ReleaseStringUTFChars(packname_js, pn);<br>&nbsp; &nbsp; <span class="hljs-comment">//LOGI("packname: %s", packname.data());</span><br>&nbsp; &nbsp; fakepath= <span class="hljs-string">"/data/user/0/"</span>+ packname +<span class="hljs-string">"/files/base.apk"</span>;<br><br>&nbsp; &nbsp; <span class="hljs-type">jclass</span> <span class="hljs-variable">conext_class2</span> <span class="hljs-operator">=</span> env-&gt;GetObjectClass(context);<br>&nbsp; &nbsp; <span class="hljs-type">jmethodID</span> <span class="hljs-variable">methodId_pack2</span> <span class="hljs-operator">=</span> env-&gt;GetMethodID(conext_class2,<span class="hljs-string">"getApplicationInfo"</span>,<span class="hljs-string">"()Landroid/content/pm/ApplicationInfo;"</span>);<br>&nbsp; &nbsp; <span class="hljs-type">jobject</span> <span class="hljs-variable">application_info</span> <span class="hljs-operator">=</span> env-&gt;CallObjectMethod(context,methodId_pack2);<br>&nbsp; &nbsp; <span class="hljs-type">jclass</span> <span class="hljs-variable">pm_clazz</span> <span class="hljs-operator">=</span> env-&gt;GetObjectClass(application_info);<br><br>&nbsp; &nbsp; <span class="hljs-type">jfieldID</span> <span class="hljs-variable">package_info_id</span> <span class="hljs-operator">=</span> env-&gt;GetFieldID(pm_clazz,<span class="hljs-string">"sourceDir"</span>,<span class="hljs-string">"Ljava/lang/String;"</span>);<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">sourceDir_js</span> <span class="hljs-operator">=</span> reinterpret_cast&lt;jstring&gt;(env-&gt;GetObjectField(application_info,package_info_id));<br>&nbsp; &nbsp; const <span class="hljs-type">char</span> *sourceDir = env-&gt;GetStringUTFChars(sourceDir_js, <span class="hljs-number">0</span>);<br>&nbsp; &nbsp; origpath = string(sourceDir);<br>&nbsp; &nbsp; LOGI(<span class="hljs-string">"sourceDir: %s"</span>, sourceDir);<br><br>&nbsp; &nbsp; <span class="hljs-type">jfieldID</span> <span class="hljs-variable">package_info_id2</span> <span class="hljs-operator">=</span> env-&gt;GetFieldID(pm_clazz,<span class="hljs-string">"nativeLibraryDir"</span>,<span class="hljs-string">"Ljava/lang/String;"</span>);<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">nativeLibraryDir_js</span> <span class="hljs-operator">=</span> reinterpret_cast&lt;jstring&gt;(env-&gt;GetObjectField(application_info,package_info_id2));<br>&nbsp; &nbsp; const <span class="hljs-type">char</span> *nativeLibraryDir = env-&gt;GetStringUTFChars(nativeLibraryDir_js, <span class="hljs-number">0</span>);<br>&nbsp; &nbsp; LOGI(<span class="hljs-string">"nativeLibraryDir: %s"</span>, nativeLibraryDir);<br>&nbsp; &nbsp; <span class="hljs-comment">//LOGI("%s", "Start Hook");</span><br><br>&nbsp; &nbsp; <span class="hljs-comment">//启动hook</span><br>&nbsp; &nbsp; <span class="hljs-keyword">void</span> *handle = dlopen(<span class="hljs-string">"libc.so"</span>,RTLD_NOW);<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">pagesize</span> <span class="hljs-operator">=</span> sysconf(_SC_PAGE_SIZE);<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">addr</span> <span class="hljs-operator">=</span> ((uintptr_t)dlsym(handle,<span class="hljs-string">"open"</span>) &amp; (-pagesize));<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">addr2</span> <span class="hljs-operator">=</span> ((uintptr_t)dlsym(handle,<span class="hljs-string">"openat"</span>) &amp; (-pagesize));<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">addr3</span> <span class="hljs-operator">=</span> ((uintptr_t)fopen) &amp; (-pagesize);<br>&nbsp; &nbsp; <span class="hljs-type">auto</span> <span class="hljs-variable">addr4</span> <span class="hljs-operator">=</span> ((uintptr_t)syscall) &amp; (-pagesize);<br><br>&nbsp; &nbsp; <span class="hljs-comment">//解除部分机型open被保护</span><br>&nbsp; &nbsp; mprotect((<span class="hljs-keyword">void</span>*)addr, pagesize, PROT_READ | PROT_WRITE | PROT_EXEC);<br>&nbsp; &nbsp; mprotect((<span class="hljs-keyword">void</span>*)addr2, pagesize, PROT_READ | PROT_WRITE | PROT_EXEC);<br>&nbsp; &nbsp; mprotect((<span class="hljs-keyword">void</span>*)addr3, pagesize, PROT_READ | PROT_WRITE | PROT_EXEC);<br>&nbsp; &nbsp; mprotect((<span class="hljs-keyword">void</span>*)addr4, pagesize, PROT_READ | PROT_WRITE | PROT_EXEC);<br><br>&nbsp; &nbsp; DobbyHook((<span class="hljs-keyword">void</span> *)dlsym(handle,<span class="hljs-string">"open"</span>), (<span class="hljs-keyword">void</span> *)fake_open, (<span class="hljs-keyword">void</span> **)&amp;orig_open);<br>&nbsp; &nbsp; DobbyHook((<span class="hljs-keyword">void</span> *)dlsym(handle,<span class="hljs-string">"openat"</span>), (<span class="hljs-keyword">void</span> *)fake_openat, (<span class="hljs-keyword">void</span> **)&amp;orig_openat);<br>&nbsp; &nbsp; DobbyHook((<span class="hljs-keyword">void</span> *)fopen, (<span class="hljs-keyword">void</span> *)fake_fopen, (<span class="hljs-keyword">void</span>**)&amp;orig_fopen);<br>&nbsp; &nbsp; DobbyHook((<span class="hljs-keyword">void</span> *)syscall, (<span class="hljs-keyword">void</span> *)fake_syscall, (<span class="hljs-keyword">void</span> **)&amp;orig_syscall);<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs smali"> <br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span class="hljs-built_in">&nbsp;sget-object </span>p10, <span class="hljs-class">Lcom/zj/wuaipojie/util/ContextUtils;</span>-&gt;INSTANCE:<span class="hljs-class">Lcom/zj/wuaipojie/util/ContextUtils;</span><br><br>&nbsp; &nbsp;<span class="hljs-built_in"> invoke-virtual </span>{p10}, <span class="hljs-class">Lcom/zj/wuaipojie/util/ContextUtils;</span>-&gt;getContext()<span class="hljs-class">Landroid/content/Context;</span><br><br>&nbsp; &nbsp;<span class="hljs-built_in"> move-result-object </span>p10<br><br>&nbsp; &nbsp;<span class="hljs-built_in"> invoke-static </span>{p10}, <span class="hljs-class">Lcom/zj/wuaipojie/util/SecurityUtil;</span>-&gt;hook(<span class="hljs-class">Landroid/content/Context;</span>)V<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="7-其他常见校验"><a href="#7-其他常见校验" class="headerlink" title="7.其他常见校验"></a><strong>7.其他常见校验</strong></h2><h3 id="root检测："><a href="#root检测：" class="headerlink" title="root检测："></a><strong>root检测：</strong></h3><p>反制手段</p>
+<p>1.算法助手、对话框取消等插件一键hook</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232142228.png" srcset="/img/loading.gif" lazyload></p>
+<p>2.分析具体的检测代码</p>
+<p>3.利用IO重定向使文件不可读</p>
+<p>4.修改Andoird源码，去除常见指纹</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"> 复制代码 隐藏代码<br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">isDeviceRooted</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Boolean</span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> checkRootMethod1() || checkRootMethod2() || checkRootMethod3()<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">checkRootMethod1</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Boolean</span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">val</span> buildTags = android.os.Build.TAGS<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> buildTags != <span class="hljs-literal">null</span> &amp;&amp; buildTags.contains(<span class="hljs-string">"test-keys"</span>)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">checkRootMethod2</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Boolean</span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">val</span> paths = arrayOf(<span class="hljs-string">"/system/app/Superuser.apk"</span>, <span class="hljs-string">"/sbin/su"</span>, <span class="hljs-string">"/system/bin/su"</span>, <span class="hljs-string">"/system/xbin/su"</span>, <span class="hljs-string">"/data/local/xbin/su"</span>, <span class="hljs-string">"/data/local/bin/su"</span>, <span class="hljs-string">"/system/sd/xbin/su"</span>,<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-string">"/system/bin/failsafe/su"</span>, <span class="hljs-string">"/data/local/su"</span>, <span class="hljs-string">"/su/bin/su"</span>)<br>&nbsp; &nbsp; <span class="hljs-keyword">for</span> (path <span class="hljs-keyword">in</span> paths) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">if</span> (File(path).exists()) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>}<br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">checkRootMethod3</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Boolean</span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">var</span> process: Process? = <span class="hljs-literal">null</span><br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> <span class="hljs-keyword">try</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;process = Runtime.getRuntime().exec(arrayOf(<span class="hljs-string">"/system/xbin/which"</span>, <span class="hljs-string">"su"</span>))<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">val</span> bufferedReader = BufferedReader(InputStreamReader(process.inputStream))<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;bufferedReader.readLine() != <span class="hljs-literal">null</span><br>&nbsp; &nbsp; } <span class="hljs-keyword">catch</span> (t: Throwable) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-literal">false</span><br>&nbsp; &nbsp; } <span class="hljs-keyword">finally</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;process?.destroy()<br>&nbsp; &nbsp; }<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>定义了一个&nbsp;<code>isDeviceRooted()</code>&nbsp;函数，该函数调用了三个检测 root 的方法：<code>checkRootMethod1()</code>、<code>checkRootMethod2()</code>&nbsp;和&nbsp;<code>checkRootMethod3()</code>。</p>
+<p><code>checkRootMethod1()</code>&nbsp;方法检查设备的&nbsp;<code>build tags</code>&nbsp;是否包含&nbsp;<code>test-keys</code>。这通常是用于测试的设备，因此如果检测到这个标记，则可以认为设备已被 root。</p>
+<p><code>checkRootMethod2()</code>&nbsp;方法检查设备是否存在一些特定的文件，这些文件通常被用于执行 root 操作。如果检测到这些文件，则可以认为设备已被 root。</p>
+<p><code>checkRootMethod3()</code>&nbsp;方法使用&nbsp;<code>Runtime.exec()</code>&nbsp;方法来执行&nbsp;<code>which su</code>&nbsp;命令，然后检查命令的输出是否不为空。如果输出不为空，则可以认为设备已被 root。</p>
+<h3 id="模拟器检测"><a href="#模拟器检测" class="headerlink" title="模拟器检测"></a><strong>模拟器检测</strong></h3><figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">isEmulator</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Boolean</span> {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span> Build.FINGERPRINT.startsWith(<span class="hljs-string">"generic"</span>) || Build.FINGERPRINT.startsWith(<span class="hljs-string">"unknown"</span>) || Build.MODEL.contains(<span class="hljs-string">"google_sdk"</span>) Build.MODEL.contains(<span class="hljs-string">"Emulator"</span>) || Build.MODEL.contains(<span class="hljs-string">"Android SDK built for x86"</span>) || Build.MANUFACTURER.contains(<span class="hljs-string">"Genymotion"</span>) || Build.HOST.startsWith(<span class="hljs-string">"Build"</span>) || Build.PRODUCT == <span class="hljs-string">"google_sdk"</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>通过检测系统的&nbsp;<code>Build</code>&nbsp;对象来判断当前设备是否为模拟器。具体方法是检测&nbsp;<code>Build.FINGERPRINT</code>&nbsp;属性是否包含字符串&nbsp;<code>"generic"</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/04dbaf39091f42519b14decd2a87fde7?pvs=21">模拟器检测对抗</a></p>
+<h3 id="反调试检测"><a href="#反调试检测" class="headerlink" title="反调试检测"></a><strong>反调试检测</strong></h3><p>安卓系统自带调试检测函数</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">checkForDebugger</span><span class="hljs-params">()</span></span> {<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span> (Debug.isDebuggerConnected()) {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-comment">// 如果调试器已连接，则终止应用程序</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;System.exit(<span class="hljs-number">0</span>)<br>&nbsp; &nbsp; }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>debuggable属性</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">getAppCanDebug</span><span class="hljs-params">(Context context)</span><span class="hljs-comment">//上下文对象为xxActivity.this</span><br>{<br>&nbsp; &nbsp; <span class="hljs-type">boolean</span> <span class="hljs-variable">isDebug</span> <span class="hljs-operator">=</span> context.getApplicationInfo() != <span class="hljs-literal">null</span> &amp;&amp;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;(context.getApplicationInfo().flags &amp; ApplicationInfo.FLAG_DEBUGGABLE) != <span class="hljs-number">0</span>;<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> isDebug;<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>ptrace检测</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">ptrace_protect</span><span class="hljs-params">()</span><span class="hljs-comment">//ptrace附加自身线程 会导致此进程TracerPid 变为父进程的TracerPid 即zygote</span></span><br><span class="hljs-function"></span>{<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> <span class="hljs-built_in">ptrace</span>(PTRACE_TRACEME,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);;<span class="hljs-comment">//返回-1即为已经被调试</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>每个进程同时刻只能被1个调试进程ptrace&nbsp;&nbsp;，主动ptrace本进程可以使得其他调试器无法调试</p>
+<p>调试进程名检测</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">SearchObjProcess</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>{<br>&nbsp; &nbsp; FILE* pfile=<span class="hljs-literal">NULL</span>;<br>&nbsp; &nbsp; <span class="hljs-type">char</span> buf[<span class="hljs-number">0x1000</span>]={<span class="hljs-number">0</span>};<br><br>&nbsp; &nbsp; pfile=<span class="hljs-built_in">popen</span>(<span class="hljs-string">"ps"</span>,<span class="hljs-string">"r"</span>);<br>&nbsp; &nbsp; <span class="hljs-keyword">if</span>(<span class="hljs-literal">NULL</span>==pfile)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-comment">//LOGA("SearchObjProcess popen打开命令失败!\n");</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-comment">// 获取结果</span><br>&nbsp; &nbsp; <span class="hljs-comment">//LOGA("popen方案:\n");</span><br>&nbsp; &nbsp; <span class="hljs-keyword">while</span>(<span class="hljs-built_in">fgets</span>(buf,<span class="hljs-built_in">sizeof</span>(buf),pfile))<br>&nbsp; &nbsp; {<br><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">char</span>* strA=<span class="hljs-literal">NULL</span>;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">char</span>* strB=<span class="hljs-literal">NULL</span>;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">char</span>* strC=<span class="hljs-literal">NULL</span>;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-type">char</span>* strD=<span class="hljs-literal">NULL</span>;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;strA=<span class="hljs-built_in">strstr</span>(buf,<span class="hljs-string">"android_server"</span>);<span class="hljs-comment">//通过查找匹配子串判断</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;strB=<span class="hljs-built_in">strstr</span>(buf,<span class="hljs-string">"gdbserver"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;strC=<span class="hljs-built_in">strstr</span>(buf,<span class="hljs-string">"gdb"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;strD=<span class="hljs-built_in">strstr</span>(buf,<span class="hljs-string">"fuwu"</span>);<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span class="hljs-keyword">if</span>(strA || strB ||strC || strD)<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<span class="hljs-comment">// 执行到这里，判定为调试状态</span><br><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <span class="hljs-built_in">pclose</span>(pfile);<br>&nbsp; &nbsp; <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-268155.htm">[原创]对安卓反调试和校验检测的一些实践与结论</a></p>
+<h3 id="frida检测"><a href="#frida检测" class="headerlink" title="frida检测"></a><strong>frida检测</strong></h3><p><a target="_blank" rel="noopener" href="https://github.com/xxr0ss/AntiFrida">一些Frida检测手段</a></p>
+<h2 id="8-smali语法小课堂之赋值"><a href="#8-smali语法小课堂之赋值" class="headerlink" title="8.smali语法小课堂之赋值"></a><strong>8.smali语法小课堂之赋值</strong></h2><h3 id="1-Int型赋值"><a href="#1-Int型赋值" class="headerlink" title="1.Int型赋值"></a><strong>1.Int型赋值</strong></h3><figure class="highlight smalltalk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk"><br>.method private static final onCreate<span class="hljs-string">$l</span>ambda<span class="hljs-number">-0</span>(<span class="hljs-type">Lcom</span>/zj/wuaipojie/ui/<span class="hljs-type">SmaliLearn</span>;<span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;<span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;<span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;<span class="hljs-type">Landroid</span>/view/<span class="hljs-type">View</span>;)<span class="hljs-type">V</span><br>&nbsp; &nbsp; .registers <span class="hljs-number">9</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">21</span><br>&nbsp; &nbsp; invoke-virtual {p0}, <span class="hljs-type">Lcom</span>/zj/wuaipojie/ui/<span class="hljs-type">SmaliLearn</span>;-&gt;isVip()<span class="hljs-type">I</span><br><br>&nbsp; &nbsp; move-result p4<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;//判断vip的值分别对应不用的会员的等级<br>&nbsp; &nbsp; if-eqz p4, :cond_35<br><br>&nbsp; &nbsp; const/<span class="hljs-number">4</span> v0, <span class="hljs-number">0x1</span><br><br>&nbsp; &nbsp; if-eq p4, v0, :cond_2d<br><br>&nbsp; &nbsp; const/<span class="hljs-number">4</span> v0, <span class="hljs-number">0x4</span><br><br>&nbsp; &nbsp; if-eq p4, v0, :cond_25<br><br>&nbsp; &nbsp; const/<span class="hljs-number">16</span> v0, <span class="hljs-number">0x10</span><br><br>&nbsp; &nbsp; if-eq p4, v0, :cond_1d<br><br>&nbsp; &nbsp; const/<span class="hljs-number">16</span> v0, <span class="hljs-number">0x63</span><br><br>&nbsp; &nbsp; if-eq p4, v0, :cond_15<br><br>&nbsp; &nbsp; goto :goto_3c<br><br>&nbsp; &nbsp; :cond_15<br>&nbsp; &nbsp; const-string p4, <span class="hljs-comment">"至尊会员"</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">26</span><br>&nbsp; &nbsp; check-cast p4, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p1, p4}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; goto :goto_3c<br><br>&nbsp; &nbsp; :cond_1d<br>&nbsp; &nbsp; const-string p4, <span class="hljs-comment">"超级会员"</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">25</span><br>&nbsp; &nbsp; check-cast p4, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p1, p4}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; goto :goto_3c<br><br>&nbsp; &nbsp; :cond_25<br>&nbsp; &nbsp; const-string p4, <span class="hljs-comment">"大会员"</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">24</span><br>&nbsp; &nbsp; check-cast p4, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p1, p4}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; goto :goto_3c<br><br>&nbsp; &nbsp; :cond_2d<br>&nbsp; &nbsp; const-string p4, <span class="hljs-comment">"会员"</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">23</span><br>&nbsp; &nbsp; check-cast p4, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p1, p4}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; goto :goto_3c<br><br>&nbsp; &nbsp; :cond_35<br>&nbsp; &nbsp; const-string p4, <span class="hljs-comment">"非会员"</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">22</span><br>&nbsp; &nbsp; check-cast p4, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p1, p4}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;.line <span class="hljs-number">28</span><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;//判断vipEndTime的时间戳是否小于系统时间<br>&nbsp; &nbsp; :goto_3c<br>&nbsp; &nbsp; new-instance p1, <span class="hljs-type">Ljava</span>/util/<span class="hljs-type">Date</span>;<br><br>&nbsp; &nbsp; invoke-direct {p1}, <span class="hljs-type">Ljava</span>/util/<span class="hljs-type">Date</span>;-&gt;&lt;init&gt;()<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; invoke-virtual {p1}, <span class="hljs-type">Ljava</span>/util/<span class="hljs-type">Date</span>;-&gt;getTime()<span class="hljs-type">J</span><br><br>&nbsp; &nbsp; move-result-wide v0<br><br>&nbsp; &nbsp; .line <span class="hljs-number">29</span><br>&nbsp; &nbsp; new-instance p1, <span class="hljs-type">Ljava</span>/text/<span class="hljs-type">SimpleDateFormat</span>;<br><br>&nbsp; &nbsp; const-string p4, <span class="hljs-comment">"yyyy-MM-dd"</span><br><br>&nbsp; &nbsp; invoke-direct {p1, p4}, <span class="hljs-type">Ljava</span>/text/<span class="hljs-type">SimpleDateFormat</span>;-&gt;&lt;init&gt;(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">String</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">30</span><br>&nbsp; &nbsp; invoke-virtual {p0}, <span class="hljs-type">Lcom</span>/zj/wuaipojie/ui/<span class="hljs-type">SmaliLearn</span>;-&gt;vipEndTime()<span class="hljs-type">J</span><br><br>&nbsp; &nbsp; move-result-wide v2<br><br>&nbsp; &nbsp; cmp-long p4, v2, v0<br><br>&nbsp; &nbsp; if-gez p4, :cond_5c<br><br>&nbsp; &nbsp; const-string p1, <span class="hljs-comment">"已过期"</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">31</span><br>&nbsp; &nbsp; check-cast p1, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p2, p1}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; goto :goto_6d<br><br>&nbsp; &nbsp; .line <span class="hljs-number">33</span><br>&nbsp; &nbsp; :cond_5c<br>&nbsp; &nbsp; invoke-virtual {p0}, <span class="hljs-type">Lcom</span>/zj/wuaipojie/ui/<span class="hljs-type">SmaliLearn</span>;-&gt;vipEndTime()<span class="hljs-type">J</span><br><br>&nbsp; &nbsp; move-result-wide v0<br><br>&nbsp; &nbsp; invoke-static {v0, v1}, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">Long</span>;-&gt;valueOf(<span class="hljs-type">J</span>)<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">Long</span>;<br><br>&nbsp; &nbsp; move-result-object p4<br><br>&nbsp; &nbsp; invoke-virtual {p1, p4}, <span class="hljs-type">Ljava</span>/text/<span class="hljs-type">SimpleDateFormat</span>;-&gt;format(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">Object</span>;)<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">String</span>;<br><br>&nbsp; &nbsp; move-result-object p1<br><br>&nbsp; &nbsp; check-cast p1, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p2, p1}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; .line <span class="hljs-number">35</span><br>&nbsp; &nbsp; :goto_6d<br>&nbsp; &nbsp; iget p0, p0, <span class="hljs-type">Lcom</span>/zj/wuaipojie/ui/<span class="hljs-type">SmaliLearn</span>;-&gt;vip_coin:<span class="hljs-type">I</span><br><br>&nbsp; &nbsp; if-eqz p0, :cond_74<br><br>&nbsp; &nbsp; .line <span class="hljs-number">36</span><br>&nbsp; &nbsp; invoke-static {p0}, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">String</span>;-&gt;valueOf(<span class="hljs-type">I</span>)<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">String</span>;<br><br>&nbsp; &nbsp; move-result-object p0<br><br>&nbsp; &nbsp; check-cast p0, <span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;<br><br>&nbsp; &nbsp; invoke-virtual {p3, p0}, <span class="hljs-type">Landroid</span>/widget/<span class="hljs-type">TextView</span>;-&gt;setText(<span class="hljs-type">Ljava</span>/lang/<span class="hljs-type">CharSequence</span>;)<span class="hljs-type">V</span><br><br>&nbsp; &nbsp; :cond_74<br>&nbsp; &nbsp; return-void<br>.end method<br></code></pre></td></tr></tbody></table></figure>
+
+<p>const/4和const/16的区别？</p>
+<p>const/4 最大只允许存放4个二进制位(4bit)，</p>
+<p>const/16 最大值允许存放16个二进制位(16bit)， 第一位(即最高位)默认为符号位。单位换算 1byte=8bit</p>
+<p>举例说明下寄存器的取值范围: # 以下数据定义高位默认为符号位</p>
+<p>const/4 v0,0x2 # 最大只允许存放半字节数据 取值范围为 -8 and 7</p>
+<p>const/16 v0 , 0xABCD # 定义一个寄存器变量，最大只允许存放16位数据 比如short类型数据 取值范围为-32768~32767</p>
+<p>const v0 , 0xA# 定义一个寄存器， 最大只允许存放32位数据,比如int类型数据 将数字10赋值给v0 取值范围-2147483647~2147483647</p>
+<p>const/high16 #定义一个寄存器， 最大只允许存放高16位数值 比如0xFFFF0000末四位补0 存入高四位0XFFFF</p>
+<h3 id="2-Long型赋值"><a href="#2-Long型赋值" class="headerlink" title="2.Long型赋值"></a><strong>2.Long型赋值</strong></h3><p><strong>const-wide vx, lit32</strong>&nbsp;表示将一个 32 位的常量存储到 vx 与 vx+1 两个寄存器中 —— 即一个 long 类型的数据</p>
+<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs smali"><br><span class="hljs-keyword">.method</span><span class="hljs-keyword"> public</span><span class="hljs-keyword"> final</span> vipEndTime()J<br>&nbsp; &nbsp; .registers 3<br><br>&nbsp; &nbsp;<span class="hljs-built_in"> const-wide </span>v0, 0x1854460ef29L<br><br>&nbsp; &nbsp;<span class="hljs-built_in"> return-wide </span>v0<span class="hljs-keyword"></span><br><span class="hljs-keyword">.end method</span><br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>会员到期时间就是2022年12月24日。那么1854460ef29L 怎么来的呢？也就是（2022年12月24日-1970年1月1日）×365天×24小时×60分钟×60秒×1000毫秒，转换成16进制就大概是那个数了</p>
+<p><a target="_blank" rel="noopener" href="https://www.beijing-time.org/shijianchuo/">在线时间戳转换</a></p>
+<h3 id="3-变量赋值-正则"><a href="#3-变量赋值-正则" class="headerlink" title="3.变量赋值(正则)"></a><strong>3.变量赋值(正则)</strong></h3><figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs smali"><br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<span class="hljs-built_in">&nbsp;iget </span>p0, p0, <span class="hljs-class">Lcom/zj/wuaipojie/ui/SmaliLearn;</span>-&gt;vip_coin:I<br><br>&nbsp; &nbsp;<span class="hljs-built_in"> if-eqz </span>p0,<span class="hljs-keyword"> :cond_74</span><br><br>&nbsp; &nbsp; .line 36<br>&nbsp; &nbsp;<span class="hljs-built_in"> invoke-static </span>{p0}, <span class="hljs-class">Ljava/lang/String;</span>-&gt;valueOf(I)<span class="hljs-class">Ljava/lang/String;</span><br><br>&nbsp; &nbsp;<span class="hljs-built_in"> move-result-object </span>p0<br><br>&nbsp; &nbsp;<span class="hljs-built_in"> check-cast </span>p0, <span class="hljs-class">Ljava/lang/CharSequence;</span><br><br>&nbsp; &nbsp;<span class="hljs-built_in"> invoke-virtual </span>{p3, p0}, <span class="hljs-class">Landroid/widget/TextView;</span>-&gt;setText(<span class="hljs-class">Ljava/lang/CharSequence;</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202503232142255.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight smali"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs smali">(.*) .*<span class="hljs-built_in"></span><br><span class="hljs-built_in">const/4 </span>$1 0x1  //替换<br></code></pre></td></tr></tbody></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Android%E9%80%86%E5%90%91/" class="category-chain-item">Android逆向</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AD%BE%E5%90%8D%E6%A0%A1%E9%AA%8C/" class="print-no-link">#签名校验</a>
+      
+        <a href="/tags/smali/" class="print-no-link">#smali</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>签名校验</div>
+      <div>https://cc-nx.github.io/2025/03/23/ZJ6/签名校验 1b2a6f4b4daf80b3891ddef3c55cac14/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/23/ZJ5/jeb%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95%EF%BC%8CLog%E6%8F%92%E6%A1%A9%201b1a6f4b4daf80a68a87f1bcc2c5232d/" title="jeb动态调试，Log插桩">
+                        <span class="hidden-mobile">jeb动态调试，Log插桩</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxuehua.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
