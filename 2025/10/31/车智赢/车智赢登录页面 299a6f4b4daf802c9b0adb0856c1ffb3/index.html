@@ -1,0 +1,1155 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/CC.png">
+  <link rel="icon" href="/img/CC.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CC">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="车智赢登录页面1.安装apk老规矩，先下载相关版本软件  车智赢+下载页  2.抓包分析clash抓包注意事项（有空再补，今天我们直接用小鸟抓包） 打开小鸟进行抓包  通过返回信息，可以说明成功抓到相应的包  相应的携带数据如下  接下来我们开始进行简单分析 请求地址：https:&#x2F;&#x2F;dealercloudapi.che168.com&#x2F;tradercloud&#x2F;sealed&#x2F;login&#x2F;login.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="车智赢登录页面">
+<meta property="og:url" content="https://cc-nx.github.io/2025/10/31/%E8%BD%A6%E6%99%BA%E8%B5%A2/%E8%BD%A6%E6%99%BA%E8%B5%A2%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2%20299a6f4b4daf802c9b0adb0856c1ffb3/index.html">
+<meta property="og:site_name" content="CC₍ᐢ..ᐢ₎♡">
+<meta property="og:description" content="车智赢登录页面1.安装apk老规矩，先下载相关版本软件  车智赢+下载页  2.抓包分析clash抓包注意事项（有空再补，今天我们直接用小鸟抓包） 打开小鸟进行抓包  通过返回信息，可以说明成功抓到相应的包  相应的携带数据如下  接下来我们开始进行简单分析 请求地址：https:&#x2F;&#x2F;dealercloudapi.che168.com&#x2F;tradercloud&#x2F;sealed&#x2F;login&#x2F;login.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231930.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231097.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231314.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232865.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232562.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232635.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232863.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232187.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233663.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233573.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233079.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233178.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233308.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233129.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311234425.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311234707.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235606.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235265.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235538.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235534.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235634.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235909.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236609.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236257.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236963.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236073.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236550.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236904.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237620.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237796.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237386.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237922.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237700.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237467.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238038.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238158.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238702.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238935.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238080.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238404.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239348.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239373.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239270.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239005.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239792.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239884.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311240604.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311240901.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241369.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241029.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241719.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241027.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242803.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242159.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242221.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242873.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242400.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242853.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311243147.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311243099.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311246356.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311243711.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311245442.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244352.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244783.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244217.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244780.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244621.png">
+<meta property="article:published_time" content="2025-10-31T03:49:29.535Z">
+<meta property="article:modified_time" content="2025-10-31T04:46:19.671Z">
+<meta property="article:author" content="CC">
+<meta property="article:tag" content="Frida">
+<meta property="article:tag" content="实战">
+<meta property="article:tag" content="Android逆向">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231930.png">
+  
+  
+  
+  <title>车智赢登录页面 - CC₍ᐢ..ᐢ₎♡</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cc-nx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CC₍ᐢ..ᐢ₎♡</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/123.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="车智赢登录页面"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-31 11:49" pubdate>
+          2025年10月31日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          36 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">车智赢登录页面</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="车智赢登录页面"><a href="#车智赢登录页面" class="headerlink" title="车智赢登录页面"></a>车智赢登录页面</h1><h1 id="1-安装apk"><a href="#1-安装apk" class="headerlink" title="1.安装apk"></a>1.安装apk</h1><p>老规矩，先下载相关版本软件</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231930.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://appdownload.che168.com/usedcar/csy/index.html?pvareaid=106101">车智赢+下载页</a></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231097.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="2-抓包分析"><a href="#2-抓包分析" class="headerlink" title="2.抓包分析"></a>2.抓包分析</h1><p>clash抓包注意事项（有空再补，今天我们直接用小鸟抓包）</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311231314.png" srcset="/img/loading.gif" lazyload><br>打开小鸟进行抓包</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232865.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过返回信息，可以说明成功抓到相应的包</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232562.png" srcset="/img/loading.gif" lazyload></p>
+<p>相应的携带数据如下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232635.png" srcset="/img/loading.gif" lazyload></p>
+<p>接下来我们开始进行简单分析</p>
+<p>请求地址：<a target="_blank" rel="noopener" href="https://dealercloudapi.che168.com/">https://dealercloudapi.che168.com/</a>tradercloud/sealed/login/login.ashx</p>
+<p>请求方式：POST</p>
+<p>请求头：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232863.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以发现通过okhttp发送。但没有什么特殊字节不需要破解</p>
+<p>请求体：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311232187.png" srcset="/img/loading.gif" lazyload></p>
+<p>appid:#定值<br>sign:#像加密，需要破解</p>
+<p>appversion: #app版本，固定的<br>channelid:#固定值，可以尝试删除，再发包试一下<br>pwd:#密码加密了，需要破解</p>
+<p>udid:#需要破解<br>username:#很明显就是刚输入的手机号不需要破解</p>
+<h1 id="3-反编译分析"><a href="#3-反编译分析" class="headerlink" title="3.反编译分析"></a>3.反编译分析</h1><p>进行反编译，查看基础信息</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233663.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="pwd逆向"><a href="#pwd逆向" class="headerlink" title="pwd逆向"></a>pwd逆向</h2><p>通过关键字进行搜索</p>
+<p>优先搜索部分url，这里使用使用login/login.ashx作为关键字段</p>
+<p>我们发现无法检索到相关代码，根据jadx的报错信息猜测进行加固，我们查看验证</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233573.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们进行脱壳7f281176793b0d4c17dded39c446ae0c</p>
+<p>这里尝试多种脱壳方式暂时没有找到好的解决办法，我们直接降低版本继续进行逆向分析</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233079.png" srcset="/img/loading.gif" lazyload></p>
+<p>确定为昨天脱壳网站的网络问题，今天成功脱壳，我们继续往下分析。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233178.png" srcset="/img/loading.gif" lazyload></p>
+<p>脱壳后我们根据关键信息查找到我们的</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233308.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们成功查找到登录接口地址，双击进入查看</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311233129.png" srcset="/img/loading.gif" lazyload></p>
+<p>成功定位到这是一个<code>UserModel</code> 下定义了一个URL常量，我们通过右键查找用例来观察常量的使用。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311234425.png" srcset="/img/loading.gif" lazyload></p>
+<p>找到一个位置，进入代码位置进行查看</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311234707.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们直接观察不难发现其加密关键代码<code>SecurityUtil.encodeMD5(str3)</code>我们进一步进入查看该代码</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235606.png" srcset="/img/loading.gif" lazyload></p>
+<p>查看代码可以发现是一个典型的MD5加密</p>
+<p>同理我们也可以使用代码和hook来验证位置</p>
+<p>py验证：</p>
+<p>我们将输入明文放入python中用代码进行验证看是否与抓包得到的参数一致</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235265.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235538.png" srcset="/img/loading.gif" lazyload></p>
+<p>验证发现结果一致</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235534.png" srcset="/img/loading.gif" lazyload></p>
+<p>hook验证：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235634.png" srcset="/img/loading.gif" lazyload></p>
+<p>加密结果与抓包结果进行验证</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311235909.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以发现完全一致确认位置正确。</p>
+<h2 id="逆向签名-sign"><a href="#逆向签名-sign" class="headerlink" title="逆向签名_sign"></a>逆向签名_sign</h2><p>老规矩直接搜索关键值”_sign”</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236609.png" srcset="/img/loading.gif" lazyload></p>
+<p>观察发现大致可以分为AHAPIHelper和launchModel的类两种情况，我们进入查看以下通过hook确认具体位置</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236257.png" srcset="/img/loading.gif" lazyload></p>
+<p>首先AHAPIHelper我们可以通过观察猜测使用toSign进行加密，我们hook尝试一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236963.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们发现hoo点击后并没有返回值，说明脚本没有执行位置不是这里。</p>
+<p>我么不能继续向下排查</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236073.png" srcset="/img/loading.gif" lazyload></p>
+<p>下述代码一眼望不到头，那么~老规矩，我们开始查找用例</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236550.png" srcset="/img/loading.gif" lazyload></p>
+<p>？？？没有，斯~我们继续向下排查试一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311236904.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237620.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237796.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237386.png" srcset="/img/loading.gif" lazyload></p>
+<p>好好好<del>不愧是新版本哈</del>不慌我们浅分析一下哈，查找后发现只有下面一处用例</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237922.png" srcset="/img/loading.gif" lazyload></p>
+<p>观察可以看出这是一个典型的<strong>解析配置或签名文件</strong>的逻辑片段，并进行了简单的混淆。</p>
+<p>我们从 <code>BufferedReader</code> 中逐行读取文本，解析出以下字段：</p>
+<table>
+<thead>
+<tr>
+<th><strong>字段名</strong></th>
+<th><strong>解析方式</strong></th>
+<th><strong>存储变量</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ApkHash:</code></td>
+<td>提取冒号后的值</td>
+<td><code>f</code></td>
+</tr>
+<tr>
+<td><code>KEY_SIGNATURE</code></td>
+<td>提取冒号后的值</td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td><code>KEY_SIGNATURE2</code></td>
+<td>提取冒号后的值</td>
+<td><code>d</code></td>
+</tr>
+<tr>
+<td><code>KEY_SIGNATURE3</code></td>
+<td>提取冒号后的值</td>
+<td><code>e</code></td>
+</tr>
+<tr>
+<td>其他行</td>
+<td>拼接到&nbsp;<code>stringBuffer</code>&nbsp;中，最终赋值给&nbsp;<code>g</code></td>
+<td><code>g</code></td>
+</tr>
+</tbody></table>
+<p>那这很明显不是我们本轮分析的重点，我们继续排查</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237700.png" srcset="/img/loading.gif" lazyload></p>
+<p>哎？！</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311237467.png" srcset="/img/loading.gif" lazyload></p>
+<p>这段！这<code>SignManager.INSTANCE.signByType(0, treeMap)</code>看着就让人很有希望</p>
+<p>老规矩我们来hook一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238038.png" srcset="/img/loading.gif" lazyload></p>
+<p>与抓包结果对比可以确定我们这次寻找的位置是正确的</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238158.png" srcset="/img/loading.gif" lazyload></p>
+<p>同样我们通过hook结果可以发现每次**<code>udid</code>**&nbsp;都会改变，造成结果不同</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238702.png" srcset="/img/loading.gif" lazyload></p>
+<p>既然问题解决我们也来简单分析这一长串的函数</p>
+<p>首先是输入参数的部分：</p>
+<p><code>obj</code>：前端传来的 JSON 对象</p>
+<p><code>callback</code>：JS 回调，用于返回处理后的数据</p>
+<p>很明显先开始使用 <code>TreeMap</code> 自动按 key 排序</p>
+<p>从输入的JSONObject提取所有键值对<br>注入用户相关参数(userkey, memberid, dealerid)</p>
+<p>treeMap.put(“userkey”, userInfo.userkey);      // 用户密钥<br>treeMap.put(“m”, userInfo.memberid);           // 会员ID<br>treeMap.put(“d”, userInfo.dealerid);           // 经销商ID</p>
+<p> 添加APP_ID、渠道ID、版本号等固定参数<br>treeMap.put(LaunchModel.KEY_APP_ID, Constants.APP_ID); // 应用ID<br>treeMap.put(“channelid”, AppUtils.getChannelId(…));  // 渠道ID<br>treeMap.put(LaunchModel.KEY_APP_VERSION, …); // 应用版本</p>
+<p>调用SignManager生成数字签名<br>treeMap.put(“_sign”, SignManager.INSTANCE.signByType(0, treeMap)); // 签名</p>
+<p>签名结果放入 <code>_sign</code> 字段</p>
+<h2 id="udid"><a href="#udid" class="headerlink" title="udid"></a>udid</h2><p>这段理明白之后，接下来让我们逆向一下刚刚上面那个一致乱变（emm……还要破解，不能说人家乱变，对不起，求简单点）的udid</p>
+<p>这里我们上面的_sign值在生成过程中运用到了udid，个人猜测在该代码上边或周围应该有关键函数</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238935.png" srcset="/img/loading.gif" lazyload></p>
+<p>运气这一块./,当然我们也可以通过科学的查找方法来完成，具体示例在上边两个参数的逆向过程中已经详细展示过，这里不再赘述，我们继续跟踪getUDID函数</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238080.png" srcset="/img/loading.gif" lazyload></p>
+<p><code>getUDID()</code> 的返回值就是一段 3DES 加密串，<code>SecurityUtil.encode3Des()</code></p>
+<h3 id="3DES-加密逻辑"><a href="#3DES-加密逻辑" class="headerlink" title="3DES 加密逻辑"></a>3DES 加密逻辑</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311238404.png" srcset="/img/loading.gif" lazyload></p>
+<p>这串加密逻辑也很简单，我们简单分析一下这串代码（对不起，不简单，找着找者进so里去了）</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239348.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>加密逻辑分析</p>
+<p>  **<code>encode3Des(Context context, String str)</code>**接收上下文和待加密字符串<br>  <strong><code>AHAPIHelper.getDesKey(context)</code></strong>&nbsp;- 从AHAPIHelper类获取3DES加密密钥</p>
+<p>  那么我们分析查找des-key的值</p>
+<p> <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239373.png" srcset="/img/loading.gif" lazyload></p>
+<p>  这里的des-key很明显是从和getSignDesKey中得到，我们继续向下查找</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239270.png" srcset="/img/loading.gif" lazyload></p>
+<p>  继续查找，哎！在这里我们见到了一个不太亲切的老朋友<code>System.loadLibrary("native-lib");</code></p>
+<p> <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239005.png" srcset="/img/loading.gif" lazyload></p>
+<p>  那还说啥了？so层今天是肝不动了，我们换个逻辑。一般des加密的key是固定的，我们直接多次hook验证一下。是的话我们直接用。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239792.png" srcset="/img/loading.gif" lazyload></p>
+<p>  经验证key值确实是固定的result=appapiche168comappapiche168comap</p>
+<p>  那么我们接着往下分析</p>
+<p>  <strong><code>byte[] bArr = null</code></strong>&nbsp;- 声明并初始化为null，用于存储加密后的字节数据</p>
+<p>  <strong><code>TextUtils.isEmpty(desKey)</code></strong>&nbsp; 检查密钥是否为空如果密钥无效，直接返回null，避免后续加密操作异常</p>
+<p>  然后开始try-catch块，捕获加密过程中可能出现的所有异常</p>
+<p>  那么接下里就是我们重要的加密逻辑</p>
+<ul>
+<li><strong><code>SecretKeyFactory.getInstance("desede")</code></strong>&nbsp;- 获取3DES算法密钥工厂<ul>
+<li><strong><code>"desede"</code></strong>&nbsp;- 3DES算法的标准名称</li>
+</ul>
+</li>
+<li><strong><code>new DESedeKeySpec(desKey.getBytes())</code></strong>&nbsp;- 根据字节数组创建3DES密钥规范</li>
+<li><strong><code>generateSecret()</code></strong>&nbsp;- 生成SecretKey对象</li>
+<li><strong>完整逻辑</strong>：将字符串密钥转换为Java加密API可用的SecretKey对象</li>
+</ul>
+<p>  <strong>创建密码器实例</strong></p>
+<ul>
+<li><strong><code>Cipher.getInstance("desede/CBC/PKCS5Padding")</code></strong>&nbsp;- 获取3DES密码器实例</li>
+<li><strong>算法模式详解</strong>：<ul>
+<li><strong><code>desede</code></strong>&nbsp;- 3DES算法</li>
+<li><strong><code>CBC</code></strong>&nbsp;- 密码块链模式（Cipher Block Chaining）</li>
+<li><strong><code>PKCS5Padding</code></strong>&nbsp;- 填充方案，确保数据块大小符合要求</li>
+</ul>
+</li>
+</ul>
+<p>  <strong>初始化密码器</strong></p>
+<ul>
+<li><strong><code>cipher.init(1, generateSecret, new IvParameterSpec(iv.getBytes()))</code></strong><ul>
+<li><strong><code>1</code></strong>&nbsp;- 常量值，对应<code>Cipher.ENCRYPT_MODE</code>（加密模式）</li>
+<li><strong><code>generateSecret</code></strong>&nbsp;- 上一步生成的密钥对象</li>
+<li><strong><code>new IvParameterSpec(iv.getBytes())</code></strong>&nbsp;- 创建初始化向量<ul>
+<li><strong><code>iv</code></strong>&nbsp;- 类中定义的静态字符串变量（初始化向量）</li>
+<li><strong><code>IvParameterSpec</code></strong>&nbsp;- 确保CBC模式的安全性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <strong>执行加密操作</strong></p>
+<ul>
+<li><strong><code>str.getBytes("UTF-8")</code></strong>&nbsp;- 将输入字符串转换为UTF-8编码的字节数组</li>
+<li><strong><code>cipher.doFinal()</code></strong>&nbsp;- 执行加密操作，返回加密后的字节数组</li>
+<li><strong>逻辑</strong>：使用配置好的密码器对输入数据进行加密</li>
+</ul>
+<p>  <strong>异常处理</strong></p>
+<ul>
+<li><strong><code>catch (Exception unused)</code></strong>&nbsp;- 捕获所有异常但忽略不处理</li>
+<li><strong>设计问题</strong>：静默吞掉异常，不利于调试和错误排查</li>
+</ul>
+<p>  <strong>返回编码结果</strong></p>
+<ul>
+<li><strong><code>encode(bArr)</code></strong>&nbsp;- 调用encode方法（可能是Base64编码）</li>
+<li><strong><code>toString()</code></strong>&nbsp;- 确保返回字符串类型</li>
+<li><strong>逻辑</strong>：将加密后的字节数组转换为可读的字符串格式（通常是Base64）</li>
+</ul>
+<p> <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311239884.png" srcset="/img/loading.gif" lazyload></p>
+<p>  观察就可以发现是一个明显的Base64编码的实现，不行了，写不动了，直接hook吧</p>
+</li>
+</ul>
+<h3 id="加密字符串逻辑"><a href="#加密字符串逻辑" class="headerlink" title="加密字符串逻辑"></a>加密字符串逻辑</h3><p>明文格式固定为：IMEI + “|” + 秒级时间戳 + “.000000” + “|” + SPUtils.getDeviceId()</p>
+<p>emm……这个明文格式就是上边字符串的拼接，好难弄，不想写了。算啦，第一次完整写这种案例，稍微解释一下<br><code>context, AHDeviceUtil.getDeviceId(context)</code> #看到<code>context</code>很明显就是我们手机的IMEI</p>
+<ul>
+<li><p><code>context</code></p>
+<p>  至于<code>context</code>的这个概念想必我们刚刚看完第一行代码的小朋友们就很熟悉了，不过看了自己当初的笔记感觉还是有点稚嫩了，正好这里让我们来详细补充一下。</p>
+<p> <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311240604.png" srcset="/img/loading.gif" lazyload></p>
+<p>  在安卓(Android)开发中，context是一个非常重要的概念，它代表了应用程序的当前状态信息。</p>
+<p>  每个Android应用程序都有一个context，它允许应用程序访问系统资源和执行各种操作。</p>
+<p>  context通常是由Android系统传递给应用程序的各个组件(如Activity、service、BroadcastReceiver等)，以便它们能够与系统和其他组件进行交互。<br>  Context的主要作用包括:<br>  #访问资源:通过context，您可以访问应用程序的资源，如布局文件、字符串、图片等。这是因为context持有对应用程序资源的引用，使我们能够在应用程序中加载和使用这些资源。<br>  #启动组件:通过context，您可以启动其他组件，如Activity、service、BroadcastReceiver等。例如，我们可以使用context启动一个新的Activity来打开新的界面。<br>  #获取系统服务:通过context，我们可以获取系统级别的服务，例如获取系统的传感器、网络状态、存储管理等。这些服务是通过系统提供的服务注册表(service Registry)来获取的。<br>  #应用程序级别的操作:context还可以用于执行应用程序级别的操作，如发送广播、获取应用程序包名、获取应用程序的数据目录等。</p>
+</li>
+</ul>
+<p>我们进入<code>getDeviceId</code>来简单分析一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311240901.png" srcset="/img/loading.gif" lazyload></p>
+<p>我不行了，我开发没学好遭报应了，既然如此，那让我们来详细分析一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241369.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p><code>getDeviceId()</code>代码详细解</p>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-type">String</span> <span class="hljs-title">getDeviceId</span><span class="hljs-params">(Context context)</span> </span>{<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>方法声明</strong></p>
+<ul>
+<li><strong><code>public</code></strong>&nbsp;- 公共方法，可以被其他类访问</li>
+<li><strong><code>static</code></strong>&nbsp;- 静态方法，属于类而非实例</li>
+<li><strong><code>synchronized</code></strong>&nbsp;- 同步方法，确保多线程环境下线程安全</li>
+<li><strong><code>String</code></strong>&nbsp;- 返回字符串类型的设备ID</li>
+<li><strong><code>getDeviceId(Context context)</code></strong>&nbsp;- 接收Android上下文参数</li>
+</ul>
+<p>  <strong>同步块</strong></p>
+<ul>
+<li><strong><code>synchronized (AHDeviceUtil.class)</code></strong>&nbsp;- 使用类对象作为锁，确保同一时间只有一个线程能执行此代码块</li>
+</ul>
+  <figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">if</span> (!TextUtils.<span class="hljs-built_in">isEmpty</span>(mCompanyDeviceid)) {<br>    <span class="hljs-keyword">return</span> mCompanyDeviceid;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>内存缓存检查</strong></p>
+<ul>
+<li><strong><code>mCompanyDeviceid</code></strong>&nbsp;- 静态变量，作为内存级别的设备ID缓存</li>
+<li><strong><code>TextUtils.isEmpty()</code></strong>&nbsp;- 检查字符串是否为null或空字符串</li>
+<li><strong>逻辑</strong>：如果内存中已有缓存的设备ID，直接返回，避免重复生成</li>
+</ul>
+  <figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">OnDeviceIdListener</span> <span class="hljs-literal">on</span>DeviceIdListener = mDeviceIdListener;<br><span class="hljs-attribute">if</span> (<span class="hljs-literal">on</span>DeviceIdListener != null) {<br>    <span class="hljs-attribute">String</span> deviceId = <span class="hljs-literal">on</span>DeviceIdListener.getDeviceId();<br>    <span class="hljs-attribute">mCompanyDeviceid</span> = deviceId;<br>    <span class="hljs-attribute">return</span> deviceId;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>监听器检查</strong></p>
+<ul>
+<li><strong><code>OnDeviceIdListener</code></strong>&nbsp;- 设备ID生成监听器接口</li>
+<li><strong><code>mDeviceIdListener</code></strong>&nbsp;- 静态监听器实例</li>
+<li><strong>逻辑</strong>：如果设置了自定义监听器，通过监听器获取设备ID并缓存到内存</li>
+</ul>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-type">String</span> readString = PreferenceHelper.<span class="hljs-built_in">readString</span>(context, <span class="hljs-string">"usedcar_pre"</span>, <span class="hljs-string">"udid"</span>);<br><span class="hljs-keyword">if</span> (!<span class="hljs-built_in">udidIsNull</span>(readString)) {<br>    <span class="hljs-keyword">return</span> readString;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>SharedPreferences读取</strong></p>
+<ul>
+<li><strong><code>PreferenceHelper.readString()</code></strong>&nbsp;- 从SharedPreferences读取数据</li>
+<li><strong><code>"usedcar_pre"</code></strong>&nbsp;- SharedPreferences文件名</li>
+</ul>
+<p>  <code>SharedPreferences</code> 是 Android 提供的一种 <strong>轻量级本地持久化存储方案</strong>，用来以 <strong>键值对（key-value）</strong> 形式保存 <strong>少量、结构化、可跨进程读取</strong> 的配置数据，比如用户设置、首次启动标志、设备 ID 等。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>存储位置</strong></td>
+<td><code>/data/data/&lt;包名&gt;/shared_prefs/*.xml</code></td>
+</tr>
+<tr>
+<td><strong>数据格式</strong></td>
+<td>纯文本 XML，可读可改（需 root）</td>
+</tr>
+<tr>
+<td><strong>作用域</strong></td>
+<td>默认 <strong>私有</strong>（<code>MODE_PRIVATE</code>），仅本应用可读写；支持 <code>MODE_MULTI_PROCESS</code> 等</td>
+</tr>
+<tr>
+<td><strong>读写方式</strong></td>
+<td>自动加锁，线程安全；<strong>读</strong> 用 <code>getXxx()</code>，<strong>写</strong> 用 <code>edit().putXxx().apply()</code></td>
+</tr>
+<tr>
+<td><strong>容量</strong></td>
+<td>官方无硬性限制，建议 <strong>&lt; 1 MB</strong>；过大请用数据库</td>
+</tr>
+<tr>
+<td><strong>数据类型</strong></td>
+<td><code>boolean</code> / <code>int</code> / <code>long</code> / <code>float</code> / <code>String</code> / <code>Set&lt;String&gt;</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong><code>"udid"</code></strong>&nbsp;- 存储设备ID的键名</li>
+<li><strong><code>udidIsNull()</code></strong>&nbsp;- 自定义方法，检查设备ID是否有效</li>
+<li><strong>逻辑</strong>：如果本地已存储有效的设备ID，直接返回</li>
+</ul>
+  <figure class="highlight scss"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">if (PreferenceHelper.isShowPrivacyPolicyDialog(context)) {<br>    return UUID<span class="hljs-selector-class">.randomUUID</span>()<span class="hljs-selector-class">.toString</span>();<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>隐私政策检查</strong></p>
+<ul>
+<li><strong><code>isShowPrivacyPolicyDialog()</code></strong>&nbsp;- 检查是否需要显示隐私政策对话框</li>
+<li><strong><code>UUID.randomUUID().toString()</code></strong>&nbsp;- 生成随机UUID作为临时设备ID</li>
+<li><strong>逻辑</strong>：如果用户未同意隐私政策，返回随机UUID（避免收集真实设备信息）</li>
+</ul>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">udidIsNull</span>(readString)) {<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>有效性复查</strong></p>
+<ul>
+<li>再次确认从SharedPreferences读取的设备ID是否无效</li>
+</ul>
+  <figure class="highlight vbscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vbscript"><span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="hljs-number">29</span>) {<br>    readString = Settings.Secure.<span class="hljs-keyword">get</span><span class="hljs-built_in">String</span>(context.getContentResolver(), SocializeProtocolConstants.PROTOCOL_KEY_ANDROID_ID);<br>} <span class="hljs-keyword">else</span> {<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>Android版本分支 - Android 10+</strong></p>
+<ul>
+<li><strong><code>Build.VERSION.SDK_INT &gt;= 29</code></strong>&nbsp;- 判断是否为Android 10及以上版本</li>
+<li><strong><code>Settings.Secure.getString()</code></strong>&nbsp;- 获取系统安全设置中的值</li>
+<li><strong><code>SocializeProtocolConstants.PROTOCOL_KEY_ANDROID_ID</code></strong>&nbsp;- 常量，值为”android_id”</li>
+<li><strong>逻辑</strong>：Android 10+ 使用Android ID作为设备标识（因权限限制无法获取IMEI）</li>
+</ul>
+<p>  java</p>
+  <figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">TelephonyManager</span> telephonyManager = (TelephonyManager) context.getSystemService(<span class="hljs-string">"phone"</span>);<br><span class="hljs-attribute">if</span> (telephonyManager != null) {<br>    <span class="hljs-attribute">if</span> (ActivityCompat.checkSelfPermission(context, <span class="hljs-string">"android.permission.READ_PHONE_STATE"</span>) != <span class="hljs-number">0</span>) {<br>        <span class="hljs-attribute">return</span> mCompanyDeviceid;<br>    }<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>Android 10以下版本 - 权限检查</strong></p>
+<ul>
+<li><strong><code>context.getSystemService("phone")</code></strong>&nbsp;- 获取电话管理器服务</li>
+<li><strong><code>ActivityCompat.checkSelfPermission()</code></strong>&nbsp;- 检查READ_PHONE_STATE权限</li>
+<li><strong>逻辑</strong>：如果没有电话状态读取权限，返回内存缓存值（可能为空）</li>
+</ul>
+  <figure class="highlight abnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs abnf">        if (Build.VERSION.SDK_INT &gt;<span class="hljs-operator">=</span> <span class="hljs-number">26</span>) {<br>            readString <span class="hljs-operator">=</span> telephonyManager.getImei()<span class="hljs-comment">;</span><br>        } else {<br>            readString <span class="hljs-operator">=</span> telephonyManager.getDeviceId()<span class="hljs-comment">;</span><br>        }<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>IMEI/DeviceId获取</strong></p>
+<ul>
+<li><strong><code>Build.VERSION.SDK_INT &gt;= 26</code></strong>&nbsp;- 判断是否为Android 8.0及以上</li>
+<li><strong><code>telephonyManager.getImei()</code></strong>&nbsp;- Android 8.0+ 获取IMEI</li>
+<li><strong><code>telephonyManager.getDeviceId()</code></strong>&nbsp;- Android 8.0以下获取设备ID</li>
+<li><strong>逻辑</strong>：根据Android版本使用不同的设备标识获取方法</li>
+</ul>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">udidIsNull</span>(readString)) {<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>系统ID有效性检查</strong></p>
+<ul>
+<li>检查从系统获取的设备ID是否有效</li>
+</ul>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs arduino">AHWifiInfo aHWifiInfo = AHNetworkUtil.<span class="hljs-built_in">getAHWifiInfo</span>(context);<br><span class="hljs-type">String</span> macAddress = aHWifiInfo != null ? aHWifiInfo.<span class="hljs-built_in">getMacAddress</span>() : null;<br><span class="hljs-keyword">if</span> (!TextUtils.<span class="hljs-built_in">isEmpty</span>(macAddress)) {<br>    <span class="hljs-keyword">try</span> {<br>        readString = UUID.<span class="hljs-built_in">nameUUIDFromBytes</span>(macAddress.<span class="hljs-built_in">getBytes</span>(<span class="hljs-string">"utf8"</span>)).<span class="hljs-built_in">toString</span>();<br>    } <span class="hljs-built_in">catch</span> (UnsupportedEncodingException e) {<br>        e.<span class="hljs-built_in">printStackTrace</span>();<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>MAC地址备用方案</strong></p>
+<ul>
+<li><strong><code>AHNetworkUtil.getAHWifiInfo()</code></strong>&nbsp;- 获取Wifi信息</li>
+<li><strong><code>getMacAddress()</code></strong>&nbsp;- 获取MAC地址</li>
+<li><strong><code>UUID.nameUUIDFromBytes()</code></strong>&nbsp;- 根据MAC地址字节生成UUID</li>
+<li><strong>逻辑</strong>：如果系统设备ID无效，尝试使用MAC地址生成UUID</li>
+</ul>
+  <figure class="highlight abnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs abnf">    if (udidIsNull(readString)) {<br>        readString <span class="hljs-operator">=</span> getUUID(context)<span class="hljs-comment">;</span><br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>最终备用方案</strong></p>
+<ul>
+<li><strong><code>getUUID(context)</code></strong>&nbsp;- 调用其他方法生成UUID</li>
+<li><strong>逻辑</strong>：如果所有方法都失败，使用最后的UUID生成方案</li>
+</ul>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arduino">    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">udidIsNull</span>(readString)) {<br>        PreferenceHelper.<span class="hljs-built_in">write</span>(context, <span class="hljs-string">"usedcar_pre"</span>, <span class="hljs-string">"udid"</span>, readString);<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>持久化存储</strong></p>
+<ul>
+<li><strong><code>PreferenceHelper.write()</code></strong>&nbsp;- 将设备ID写入SharedPreferences</li>
+<li><strong>逻辑</strong>：如果成功生成了有效的设备ID，保存到本地存储供下次使用</li>
+</ul>
+  <figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs arduino">        <span class="hljs-keyword">return</span> readString;<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<p>  <strong>返回结果和方法结束</strong></p>
+<ul>
+<li>返回最终获取到的设备ID</li>
+<li>结束同步块和方法</li>
+</ul>
+</li>
+</ul>
+<p>通过分析这三种方案，我们相对也可以直接用UUID</p>
+<p>或者从xml中找到它存储的字符串</p>
+<p>/data/data/com.che168.autotradercloud/shared_prefs/</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241029.png" srcset="/img/loading.gif" lazyload></p>
+<p>谁爱找谁找吧，我是不找了</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241719.png" srcset="/img/loading.gif" lazyload></p>
+<p>或者通过hook得到等多种方案。</p>
+<p>这是我们hook得到的结果81f2e9f2_fe62_43fa_a273_e425d929ba47</p>
+<p><code>+ HiAnalyticsConstant.REPORT_VAL_SEPARATOR</code> #一个固定字符串，我们可以跳转查看一下是个“|”</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311241027.png" srcset="/img/loading.gif" lazyload></p>
+<p> <code>+ System.nanoTime()</code>  #手机开机时间。</p>
+<p>java中是一个前系统时间的纳秒数，但是在android系统中，这个表示手机开机时间</p>
+<p>#注意，它跟java的这个函数返回值是不一样的</p>
+<p><code>+ HiAnalyticsConstant.REPORT_VAL_SEPARATOR</code> #嗯呐又一个“|”</p>
+<p><code>+ UserInfoUtil.getUserDeviceId(context)</code> #<code>DeviceId</code>，就可以猜到哈，是我们的设备id，不放心就跳转过去瞄一眼（好吧，承认是我多疑）</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242803.png" srcset="/img/loading.gif" lazyload></p>
+<p>很明显就是一个只读的的程序代码。从哪里来的呐？“嘿”我们看到一位老朋友“<code>usedcar_pre</code>”，我们就知道读取自.xml文件，那么从哪里写入的呐？我们再继续逆向分析一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242159.png" srcset="/img/loading.gif" lazyload></p>
+<p>好好这么一长串， <code>write()</code> / <code>readInt()</code> / <code>readLong()</code> … 只是 <strong>“带内存缓存的 SharedPreferences 万能工具箱”</strong>，它们和 <strong>getUserDeviceId()</strong> 的关系非常单纯：getUserDeviceId() 仅仅是 readInt() 的一个普通调用者文件名为 “usedcar_pre”，key 为 “device_id”，返回值被当成 int 型设备序号 使用。不找了，我们选择直接通过hook来得到返回字串。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242221.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242873.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="最终逆向-sign"><a href="#最终逆向-sign" class="headerlink" title="最终逆向_sign"></a>最终逆向_sign</h2><p>当我们得到这些信息后我们进行最后的解密</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242400.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们进入signByType</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311242853.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过代码分析我们可以得到拼接公式为</p>
+<p>构建字符串: “secret_key_v2” + “appid” + “test” + “version” + “1.0” + “secret_key_v2”<br>= “secret_key_v2appidtestversion1.0secret_key_v2”</p>
+<p>MD5加密: MD5(“secret_key_v2appidtestversion1.0secret_key_v2”)<br>= “5d41402abc4b2a76b9719d911017c592”</p>
+<p>转换为大写: “5D41402ABC4B2A76B9719D911017C592”</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311243147.png" srcset="/img/loading.gif" lazyload></p>
+<p>至此就完成后了我们一个登录页面的复现</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311243099.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="4-so层key值分析"><a href="#4-so层key值分析" class="headerlink" title="4.so层key值分析"></a>4.so层key值分析</h1><p>既然我们任务完成了，那我们就看一下des-key值的逻辑实现</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311246356.png" srcset="/img/loading.gif" lazyload></p>
+<p>根据我们之前分析到的代码我们应该到libnative-lib.so文件中查看这个注册</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311243711.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后通过java_包名_类名_方法名读c的源码，我们打开后直接在Exports中查询</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311245442.png" srcset="/img/loading.gif" lazyload></p>
+<p>发现可以查询到关键字，是一个静态注册，我们进入分析一下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244352.png" srcset="/img/loading.gif" lazyload></p>
+<p>有一说一，烦so的一大部分原因就是很混乱分析起来真的很恶心人啊</p>
+<p>为了我们的脑细胞，那是说啥了，我们先引入一下jni头文件</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244783.png" srcset="/img/loading.gif" lazyload></p>
+<p>emm……报错了，那还说啥了，直接改吧。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244217.png" srcset="/img/loading.gif" lazyload></p>
+<p>Hide casts再show casts，隐藏投射，也就是隐藏掉我们的类型转换</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244780.png" srcset="/img/loading.gif" lazyload></p>
+<p>简单查看一下就知道return前的第一个参数是env，第二个DES3_KEY就是我们要找的值，进入观察</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202510311244621.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以发现这个固定值就是我们的key，与我们frida得到的so一样。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AE%9E%E6%88%98/" class="category-chain-item">实战</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Frida/" class="print-no-link">#Frida</a>
+      
+        <a href="/tags/%E5%AE%9E%E6%88%98/" class="print-no-link">#实战</a>
+      
+        <a href="/tags/Android%E9%80%86%E5%90%91/" class="print-no-link">#Android逆向</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>车智赢登录页面</div>
+      <div>https://cc-nx.github.io/2025/10/31/车智赢/车智赢登录页面 299a6f4b4daf802c9b0adb0856c1ffb3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/09/21/DEX%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" title="DEX文件结构">
+                        <span class="hidden-mobile">DEX文件结构</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxuehua.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
