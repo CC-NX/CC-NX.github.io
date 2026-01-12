@@ -1,0 +1,1542 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/CC.png">
+  <link rel="icon" href="/img/CC.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CC">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一，ida pro9 windows安装教程下载地址： 下载地址: https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1UPNzAsP9Ri1EFq9tVgvKrQ?pwd&#x3D;b5c8  备用地址1：https:&#x2F;&#x2F;gofile.io&#x2F;d&#x2F;cdAsOw 备用地址2：https:&#x2F;&#x2F;pixeldrain.com&#x2F;u&#x2F;N3AffaTt 备用地址3：https:&#x2F;&#x2F;url31.ctfile.com&#x2F;f&#x2F;45">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDA基础安装使用详记">
+<meta property="og:url" content="https://cc-nx.github.io/2026/01/12/IDA%E5%9F%BA%E7%A1%80%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%AE%B0/index.html">
+<meta property="og:site_name" content="CC₍ᐢ..ᐢ₎♡">
+<meta property="og:description" content="一，ida pro9 windows安装教程下载地址： 下载地址: https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1UPNzAsP9Ri1EFq9tVgvKrQ?pwd&#x3D;b5c8  备用地址1：https:&#x2F;&#x2F;gofile.io&#x2F;d&#x2F;cdAsOw 备用地址2：https:&#x2F;&#x2F;pixeldrain.com&#x2F;u&#x2F;N3AffaTt 备用地址3：https:&#x2F;&#x2F;url31.ctfile.com&#x2F;f&#x2F;45">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121551450.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121551035.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552197.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552925.png">
+<meta property="og:image" content="https://mrx.hk/img/image-20250313161308372.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552650.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552936.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552985.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553148.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553251.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553745.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553762.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553997.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554794.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554406.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554486.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554892.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555494.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555505.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555972.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555878.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555536.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555471.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556422.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556876.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556000.png">
+<meta property="og:image" content="https://mrx.hk/img/image-20250314131840906.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556304.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556904.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557860.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557771.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557934.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557030.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557231.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557770.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558911.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558212.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558408.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558803.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558926.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559717.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559277.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559413.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559007.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559674.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559305.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600551.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600527.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600922.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600997.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600663.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600371.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601706.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601395.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601984.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601144.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601894.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602739.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602742.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602842.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602737.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602777.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603508.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603225.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603356.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603043.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603502.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603903.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604137.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604199.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604621.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604562.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604991.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604637.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605175.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605380.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605794.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605208.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605815.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606054.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606274.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606616.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606992.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607955.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607652.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607593.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607900.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607403.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608844.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608448.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608626.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608034.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608574.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609563.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609689.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609054.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609596.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609884.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610309.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610368.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610150.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610095.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610007.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610188.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610266.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611261.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611949.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611487.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611994.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611930.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611609.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611956.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612299.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612142.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612143.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612853.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612068.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612816.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613594.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613434.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613912.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613053.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613571.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613908.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614366.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614386.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614891.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614333.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615515.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615858.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615895.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615371.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615929.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615148.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616057.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616451.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616674.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616147.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616293.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616762.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617130.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617807.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617071.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617226.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617296.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617893.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617267.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618916.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618666.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618160.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618993.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618368.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618382.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618888.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618427.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619139.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619508.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619472.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619787.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619821.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620006.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620066.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620439.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620194.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621218.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621260.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621464.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621134.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621335.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621320.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622436.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622633.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622202.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622849.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622361.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622204.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622967.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623066.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623309.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623593.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623702.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623232.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624416.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624339.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624092.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624653.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624499.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625870.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625525.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625806.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625361.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625556.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625832.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626133.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626094.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626082.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626268.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626433.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626395.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626408.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627741.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627732.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627160.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627807.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627226.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627236.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628912.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628678.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628337.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628942.png">
+<meta property="article:published_time" content="2026-01-12T07:47:22.321Z">
+<meta property="article:modified_time" content="2026-01-12T08:28:38.586Z">
+<meta property="article:author" content="CC">
+<meta property="article:tag" content="ida">
+<meta property="article:tag" content="动态调试">
+<meta property="article:tag" content="黑盒">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121551450.png">
+  
+  
+  
+  <title>IDA基础安装使用详记 - CC₍ᐢ..ᐢ₎♡</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cc-nx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CC₍ᐢ..ᐢ₎♡</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/123.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="IDA基础安装使用详记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-12 15:47" pubdate>
+          2026年1月12日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          56 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">IDA基础安装使用详记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一，ida-pro9-windows安装教程"><a href="#一，ida-pro9-windows安装教程" class="headerlink" title="一，ida pro9 windows安装教程"></a>一，ida pro9 windows安装教程</h1><p>下载地址：</p>
+<p><code>下载地址: https://pan.baidu.com/s/1UPNzAsP9Ri1EFq9tVgvKrQ?pwd=b5c8  备用地址1：https://gofile.io/d/cdAsOw 备用地址2：https://pixeldrain.com/u/N3AffaTt 备用地址3：https://url31.ctfile.com/f/45624031-1524433990-2a077b?p=5170</code></p>
+<p>压缩包解压结构：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121551450.png" srcset="/img/loading.gif" lazyload></p>
+<p>参考教程：</p>
+<p><code>https://bbs.kanxue.com/thread-285604.htm https://blog.csdn.net/sevendemage/article/details/136606750</code></p>
+<h2 id="1-安装python环境"><a href="#1-安装python环境" class="headerlink" title="1.安装python环境"></a>1.安装python环境</h2><p>运行目录<code>安装包</code>中的Python安装程序<code>python-3.11.6-amd64.exe</code>。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121551035.png" srcset="/img/loading.gif" lazyload></p>
+<p>一步一步根据自己的需求，点击完成安装即可。</p>
+<blockquote>
+<p>注意安装过程中勾选环境变量PATH。</p>
+</blockquote>
+<h2 id="2-安装ida-pro软件主体"><a href="#2-安装ida-pro软件主体" class="headerlink" title="2.安装ida pro软件主体"></a>2.安装ida pro软件主体</h2><p>运行目录<code>安装包</code>中的IDA Pro安装程序<code>ida-pro_91_x64win.exe</code>。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552197.png" srcset="/img/loading.gif" lazyload></p>
+<p>一步一步根据自己的需求，点击完成安装即可</p>
+<blockquote>
+<p>注意：IDA安装目录中不能包含中文。</p>
+</blockquote>
+<h2 id="3-激活"><a href="#3-激活" class="headerlink" title="3.激活"></a>3.激活</h2><p>复制<code>keygen_patch</code>目录中的文件<code>keygen.py</code>和<code>idapro.hexlic</code>文件到IDA Pro主目录下。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552925.png" srcset="/img/loading.gif" lazyload></p>
+<p>修改<code>keygen.py</code>中的<code>name</code>、<code>email</code>字段为自定义即可。<code>start_date</code>、<code>end_date</code>、<code>issued_on</code>字段可无需修改。</p>
+<p><img src="https://mrx.hk/img/image-20250313161308372.png" srcset="/img/loading.gif" lazyload alt="image-20250313161308372"></p>
+<p>保存修改并运行<code>keygen.py</code>脚本。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552650.png" srcset="/img/loading.gif" lazyload></p>
+<p>运行<code>keygen.py</code>后会生成 patch 后的文件<code>ida.dll.patched</code>与<code>ida32.dll.patched</code>。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552936.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们需要先将原先的文件<code>ida.dll</code>和<code>ida32.dll</code>备份到其他目录或直接删除，然后将补丁文件<code>ida.dll.patched</code>与<code>ida32.dll.patched</code>分别重新命名为<code>ida.dll</code>和<code>ida32.dll</code>。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121552985.png" srcset="/img/loading.gif" lazyload></p>
+<p>接着，我们需要把IDA Pro与Python3.11环境进行关联。</p>
+<p>运行IDA Pro主目录中的<code>idapyswitch.exe</code>选择刚安装的Python3.11，输入对应的数字回车即可完成关联。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553148.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时就可以运行IDA Pro主体程序，选择<code>Help-&gt;License manager...</code>，勾选刚才我们生成的许可证即可完成激活了。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553251.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553745.png" srcset="/img/loading.gif" lazyload></p>
+<p>再次点击<code>Help-&gt;About program...</code>即可查看激活状态。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553762.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="4-插件安装"><a href="#4-插件安装" class="headerlink" title="4.插件安装"></a>4.插件安装</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121553997.png" srcset="/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th><strong>插件</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bindiff</td>
+<td>文件对比</td>
+</tr>
+<tr>
+<td>findcrypt-yara</td>
+<td>识别常见加密算法</td>
+</tr>
+<tr>
+<td>keypatch</td>
+<td>patch代码指令</td>
+</tr>
+<tr>
+<td>WPeChatGPT</td>
+<td>调用AI模型辅助分析代码</td>
+</tr>
+<tr>
+<td>Hrtng</td>
+<td>解密字符串，反混淆，括号高亮等。</td>
+</tr>
+<tr>
+<td>classinformer</td>
+<td>反编译C++时, 可以根据RTTI等信息综合恢复类Class的相关信息，例如继承信息，类名等。</td>
+</tr>
+<tr>
+<td>deREferencing</td>
+<td>调试时增强显示寄存器和堆栈数据</td>
+</tr>
+<tr>
+<td>HexRaysCodeXplorer</td>
+<td>自动识别结构体，显示C++虚函数，生成函数结构树等</td>
+</tr>
+</tbody></table>
+<h3 id="（1）文件对比工具bindiff"><a href="#（1）文件对比工具bindiff" class="headerlink" title="（1）文件对比工具bindiff"></a><strong>（1）文件对比工具bindiff</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/google/bindiff">https://github.com/google/bindiff</a></p>
+<p><a target="_blank" rel="noopener" href="https://bbs.kanxue.com/thread-283804.htm">https://bbs.kanxue.com/thread-283804.htm</a></p>
+</blockquote>
+<p>运行<code>插件</code>目录下的<code>文件对比工具</code>目录中的<code>bindiff8.msi</code>，完成bindiff8的安装。</p>
+<p>拷贝目录<code>插件-&gt;文件对比工具</code>中的<code>bindiff8_ida64.dll</code>和<code>binexport12_ida64.dll</code>到目录<code>C:\Users\xxx\AppData\Roaming\Hex-Rays\IDA Pro\plugins</code>中。</p>
+<blockquote>
+<p>如果之前安装过bindiff，该目录有残存的bindiff8_ida.dll、bindiff8_ida64.dll、binexport12_ida.dll、binexport12_ida64.dll，请先全部删除，再将上述两个文件拷贝进来。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554794.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="（2）安装findcrypt-yara插件"><a href="#（2）安装findcrypt-yara插件" class="headerlink" title="（2）安装findcrypt-yara插件"></a><strong>（2）安装findcrypt-yara插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/polymorf/findcrypt-yara">https://github.com/polymorf/findcrypt-yara</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;findcrypt-yara</code>目录中的<code>findcrypt3.py</code>和<code>findcrypt3.rules</code>到IDA插件目录中。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554406.png" srcset="/img/loading.gif" lazyload></p>
+<p>安装Python包依赖：</p>
+<table>
+<thead>
+<tr>
+<th><code>pip3 install yara-python -i https://pypi.tuna.tsinghua.edu.cn/simple</code></th>
+</tr>
+</thead>
+</table>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554486.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="（3）安装keypatch插件"><a href="#（3）安装keypatch插件" class="headerlink" title="（3）安装keypatch插件"></a><strong>（3）安装keypatch插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/keystone-engine/keypatch">https://github.com/keystone-engine/keypatch</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;keypatch</code>目录中的<code>keypatch.py</code>到IDA插件目录中。</p>
+<p>安装Python包依赖：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121554892.png" srcset="/img/loading.gif" lazyload></p>
+<p>| `pip3 install keystone-engine  -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<table>
+<thead>
+<tr>
+<th>pip3 install six -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple%60">https://pypi.tuna.tsinghua.edu.cn/simple`</a></th>
+</tr>
+</thead>
+</table>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555494.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="（4）安装WPeChatGPT插件"><a href="#（4）安装WPeChatGPT插件" class="headerlink" title="（4）安装WPeChatGPT插件"></a><strong>（4）安装WPeChatGPT插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/WPeace-HcH/WPeChatGPT">https://github.com/WPeace-HcH/WPeChatGPT</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;WPeChatGPT</code>目录中的<code>WPeChatGPT.py</code>以及文件夹<code>Auto-WPeGPT_WPeace</code>到IDA插件目录中。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555505.png" srcset="/img/loading.gif" lazyload><br><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555972.png" srcset="/img/loading.gif" lazyload></p>
+<p>安装Python包依赖：</p>
+<p>| `pip3 install openai&gt;=0.27.0 -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a><br>pip3 install anytree -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<table>
+<thead>
+<tr>
+<th>pip3 install httpx -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple%60">https://pypi.tuna.tsinghua.edu.cn/simple`</a></th>
+</tr>
+</thead>
+</table>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555878.png" srcset="/img/loading.gif" lazyload></p>
+<p>免费openai api key获取：</p>
+<table>
+<thead>
+<tr>
+<th><code>https://github.com/chatanywhere/GPT_API_free</code></th>
+</tr>
+</thead>
+</table>
+<p>获取到免费openai api key之后，修改文件<code>WPeChatGPT.py</code>中的<code>model_api_key</code>及<code>proxy_address</code>为chatanywhere官方的key及API访问地址即可。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555536.png" srcset="/img/loading.gif" lazyload></p>
+<p>修改模型为免费的<code>gpt-3.5-turbo</code>，或者充值后也可继续使用<code>gpt-4</code>。</p>
+<h3 id="（5）安装Hrtng插件"><a href="#（5）安装Hrtng插件" class="headerlink" title="（5）安装Hrtng插件"></a><strong>（5）安装Hrtng插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/KasperskyLab/hrtng">https://github.com/KasperskyLab/hrtng</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;Hrtng-&gt;windows</code>目录中的<code>hrtng.dll</code>到IDA插件目录中。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121555471.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="（6）安装classinformer插件"><a href="#（6）安装classinformer插件" class="headerlink" title="（6）安装classinformer插件"></a><strong>（6）安装classinformer插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/herosi/classinformer">https://github.com/herosi/classinformer</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;ClassInformer</code>目录中的<code>ClassInformer64.dll</code>到IDA插件目录中。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556422.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="（7）安装deREferencing插件"><a href="#（7）安装deREferencing插件" class="headerlink" title="（7）安装deREferencing插件"></a><strong>（7）安装deREferencing插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/danigargu/deREferencing">https://github.com/danigargu/deREferencing</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;WPeChatGPT</code>目录中的<code>dereferencing.py</code>以及文件夹<code>dereferencing</code>到IDA插件目录中。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556876.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="（8）安装HexRaysCodeXplorer插件"><a href="#（8）安装HexRaysCodeXplorer插件" class="headerlink" title="（8）安装HexRaysCodeXplorer插件"></a><strong>（8）安装HexRaysCodeXplorer插件</strong></h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1999905&amp;highlight=HexRaysCodeXplorer">https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1999905&amp;highlight=HexRaysCodeXplorer</a></p>
+</blockquote>
+<p>拷贝<code>插件-&gt;HexRaysCodeXplorer</code>目录中的<code>HexRaysCodeXplorer64.dll</code>到IDA插件目录中。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556000.png" srcset="/img/loading.gif" lazyload></p>
+<p>至此，IDA Pro安装完成，插件安装完成，IDA Pro运行后终端无提示报错。</p>
+<p><img src="https://mrx.hk/img/image-20250314131840906.png" srcset="/img/loading.gif" lazyload alt="image-20250314131840906"></p>
+<h1 id="二，静态分析基础"><a href="#二，静态分析基础" class="headerlink" title="二，静态分析基础"></a>二，静态分析基础</h1><h3 id="IDA-反汇编窗口"><a href="#IDA-反汇编窗口" class="headerlink" title="IDA 反汇编窗口"></a>IDA 反汇编窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556304.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="IDA-伪代码窗口"><a href="#IDA-伪代码窗口" class="headerlink" title="IDA 伪代码窗口"></a>IDA 伪代码窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121556904.png" srcset="/img/loading.gif" lazyload></p>
+<p>同理想知道该段代码的位置只需要光标确认后按Tab键进行切换</p>
+<h3 id="IDA-字符串表（快捷键：Shift-F12）"><a href="#IDA-字符串表（快捷键：Shift-F12）" class="headerlink" title="IDA 字符串表（快捷键：Shift + F12）"></a>IDA 字符串表（快捷键：Shift + F12）</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557860.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557771.png" srcset="/img/loading.gif" lazyload></p>
+<p>如示例进入rdata段，后面一次为内存地址，地址标识符名字，字符串</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557934.png" srcset="/img/loading.gif" lazyload></p>
+<p>只收集IDA识别到的字符串</p>
+<h3 id="IDA-数据窗口"><a href="#IDA-数据窗口" class="headerlink" title="IDA 数据窗口"></a>IDA 数据窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557030.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557231.png" srcset="/img/loading.gif" lazyload></p>
+<p>原始修改数据方法</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121557770.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558911.png" srcset="/img/loading.gif" lazyload></p>
+<p>在调试的时候会变成内存中的动态数据</p>
+<h3 id="IDA-交叉引用（快捷键：X-键）"><a href="#IDA-交叉引用（快捷键：X-键）" class="headerlink" title="IDA 交叉引用（快捷键：X 键）"></a>IDA 交叉引用（快捷键：X 键）</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558212.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558408.png" srcset="/img/loading.gif" lazyload></p>
+<p>Direction表示当前位置的上面还是下面。</p>
+<p>Type引用类型</p>
+<p>Address引用地址</p>
+<p>双击跳转到引用位置</p>
+<h3 id="IDA-代码定位"><a href="#IDA-代码定位" class="headerlink" title="IDA 代码定位"></a>IDA 代码定位</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558803.png" srcset="/img/loading.gif" lazyload></p>
+<p>看一个函数是被什么函数进行调用通过交叉引用查找</p>
+<h3 id="IDA的重命名"><a href="#IDA的重命名" class="headerlink" title="IDA的重命名"></a>IDA的重命名</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121558926.png" srcset="/img/loading.gif" lazyload></p>
+<p>已分析函数进行重命名</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559717.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="快捷键总结"><a href="#快捷键总结" class="headerlink" title="快捷键总结"></a>快捷键总结</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559277.png" srcset="/img/loading.gif" lazyload></p>
+<p>H键切换进制</p>
+<h3 id="不同类型的整数"><a href="#不同类型的整数" class="headerlink" title="不同类型的整数"></a>不同类型的整数</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559413.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>可通过快捷键 <code>D</code> 切换数据类型（byte/word/dword/qword）。</li>
+<li>使用 <code>Shift+D</code> 可自定义数据格式（如浮点、结构体、数组）。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559007.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="多格式提取数据"><a href="#多格式提取数据" class="headerlink" title="多格式提取数据"></a><strong>多格式提取数据</strong></h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559674.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p>ASCII形式展现通过U键进行展开</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121559305.png" srcset="/img/loading.gif" lazyload></p>
+<p>同理4字节就选择dword</p>
+<h3 id="数据与代码的转换"><a href="#数据与代码的转换" class="headerlink" title="数据与代码的转换"></a><strong>数据与代码的转换</strong></h3><ul>
+<li><code>C</code>：将数据转换为代码（强制反汇编）。</li>
+<li><code>D</code>：将代码转换为数据。</li>
+<li><code>U</code>：取消定义（undefine）。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600551.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600527.png" srcset="/img/loading.gif" lazyload></p>
+<p>jz，jnz一起表示强制跳转，那么下面指针一定不会被执行，可能就是数据，我们取消定义进行转化。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600922.png" srcset="/img/loading.gif" lazyload></p>
+<p>全部转化后让ida重新进行函数分析，需要先取消定义</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600997.png" srcset="/img/loading.gif" lazyload></p>
+<p>将整个函数转化为数据后，在函数开头C键转换代码。然后再开头P键让IDA将此处识别为函数进行分析，最后Tab键进行处理。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600663.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><strong>混合代码/数据区域</strong>：常见于壳或混淆代码，需手动切换。</li>
+<li><strong>自动分析失败时</strong>：可手动指定代码起点，IDA 会尝试递归分析。</li>
+<li><strong>使用 <code>Analyze</code> → <code>Reanalyze program</code></strong> 重新分析整个模块。</li>
+</ul>
+<hr>
+<h3 id="IDA-函数调用图（Call-Graph）"><a href="#IDA-函数调用图（Call-Graph）" class="headerlink" title="IDA 函数调用图（Call Graph）"></a><strong>IDA 函数调用图（Call Graph）</strong></h3><ul>
+<li>查看函数调用关系：<code>View → Open subviews → Function calls</code>。</li>
+<li>图形化调用图：<code>右键函数 →</code> Function call graph`。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121600371.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601706.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p>向上查找</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601395.png" srcset="/img/loading.gif" lazyload></p>
+<p>from从当前函数向下查找调用函数</p>
+<ul>
+<li><strong>导出调用图</strong>：使用 <code>gdl</code> 或 <code>graphviz</code> 格式导出，供外部工具可视化。</li>
+<li><strong>脚本批量提取调用关系</strong>：</li>
+</ul>
+<p><code>import idautils, idc, ida_funcs for func_ea in idautils.Functions():     print(f"Function: {idc.get_func_name(func_ea)}")     for ref_ea in idautils.CodeRefsTo(func_ea, 0):         print(f"  Called by: {idc.get_func_name(ref_ea)}")</code></p>
+<hr>
+<h3 id="常数搜索（结构体偏移、OLLVM-真实块）"><a href="#常数搜索（结构体偏移、OLLVM-真实块）" class="headerlink" title="常数搜索（结构体偏移、OLLVM 真实块）"></a><strong>常数搜索（结构体偏移、OLLVM 真实块）</strong></h3><ul>
+<li>搜索常数：<code>Search → immediate value</code>（快捷键 <code>Alt+B</code>）。</li>
+<li>可用于定位：<ul>
+<li>结构体偏移（如 <code>0x18</code>、<code>0x28</code>）</li>
+<li>OLLVM 混淆中的真实块（通过常量跳转表）</li>
+</ul>
+</li>
+<li><strong>搜索结构体偏移</strong>：<ul>
+<li>假设结构体大小为 <code>0x20</code>，搜索 <code>0x18</code> 可能是访问最后一个成员。</li>
+</ul>
+</li>
+<li><strong>OLLVM 真实块定位</strong>：<ul>
+<li>搜索 <code>jmp eax</code> 或 <code>jmp [reg+offset]</code> 前的常量，可能是真实块地址。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601315.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601984.png" srcset="/img/loading.gif" lazyload></p>
+<p>jdb调试app可以对系统调用设置断点。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601144.png" srcset="/img/loading.gif" lazyload></p>
+<p>立即数搜索</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121601894.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602739.png" srcset="/img/loading.gif" lazyload></p>
+<p>ollvm常数对应基本块→sub/cmp→对应跳转的基本块</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602742.png" srcset="/img/loading.gif" lazyload></p>
+<p>混淆较多时可以直接通过value查找</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602842.png" srcset="/img/loading.gif" lazyload></p>
+<p>将混乱基本块右键Layout graph还原</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602737.png" srcset="/img/loading.gif" lazyload></p>
+<hr>
+<h3 id="指令文本搜索-字节数据搜索"><a href="#指令文本搜索-字节数据搜索" class="headerlink" title="指令文本搜索 &amp; 字节数据搜索"></a><strong>指令文本搜索 &amp; 字节数据搜索</strong></h3><ul>
+<li>文本搜索：<code>Search → Text</code>（快捷键 <code>Alt+T</code>）。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121602777.png" srcset="/img/loading.gif" lazyload></p>
+<p>有些调用系统函数可以直接使用该方法查找</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603508.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603225.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以用来搜索特殊指令</p>
+<ul>
+<li>字节搜索：<code>Search → Sequence of bytes</code>（快捷键 <code>Alt+B</code>）。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603356.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603043.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><strong>反调试指令搜索</strong>：<ul>
+<li>搜索 <code>cpuid</code>、<code>rdtsc</code>、<code>IsDebuggerPresent</code>、<code>NtGlobalFlag</code>。</li>
+</ul>
+</li>
+<li><strong>特征码搜索</strong>：<ul>
+<li>搜索特定指令序列，如 <code>64 A1 30 00 00 00</code>（访问 TEB）。</li>
+</ul>
+</li>
+<li><strong>YARA 规则集成</strong>：<ul>
+<li>使用 IDA 插件或外部工具（如 <code>yara-python</code>）匹配特征。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IDA-代码提取与编译使用"><a href="#IDA-代码提取与编译使用" class="headerlink" title="IDA 代码提取与编译使用"></a><strong>IDA 代码提取与编译使用</strong></h3><ul>
+<li>提取伪代码：<code>F5</code> 反编译 → 右键 → <code>Copy to clipboard</code>。</li>
+<li>提取汇编：<code>Edit → Export → Dump assembly</code>。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603502.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><strong>提取并重构代码</strong>：<ul>
+<li>使用 <code>Hex-Rays SDK</code> 或 <code>IDAPython</code> 提取函数伪代码。</li>
+<li>使用 <code>Clang</code> 或 <code>MSVC</code> 编译提取的代码，验证功能。</li>
+</ul>
+</li>
+<li><strong>自动化提取脚本</strong>：</li>
+</ul>
+<p><code>import ida_hexrays func = ida_funcs.get_func(here()) if func:     cfunc = ida_hexrays.decompile(func)     print(cfunc)</code></p>
+<p>只需要引用ida中的这个头文件即可</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121603903.png" srcset="/img/loading.gif" lazyload></p>
+<hr>
+<h3 id="IDA-Patch（修改汇编并生效）"><a href="#IDA-Patch（修改汇编并生效）" class="headerlink" title="IDA Patch（修改汇编并生效）"></a><strong>IDA Patch（修改汇编并生效）</strong></h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604137.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><code>Edit → Patch program → Assemble</code>（快捷键 <code>Ctrl+Alt+K</code>）。</li>
+<li>keypatch修改</li>
+<li>修改后需使用 <code>Edit → Patch program → Apply patches to input file</code> 保存。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604199.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604621.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里可以列举处所有修改的数据</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604562.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><strong>绕过反调试</strong>：<ul>
+<li>将 <code>jnz</code> 改为 <code>jmp</code>，跳过调试检测。</li>
+</ul>
+</li>
+<li><strong>NOP 掉指令</strong>：<ul>
+<li>使用 <code>NOP</code> 指令替换 <code>call IsDebuggerPresent</code>。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604991.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121604637.png" srcset="/img/loading.gif" lazyload></p>
+<p>将修改内容保存在文件中</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605175.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605380.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><strong>使用 Keypatch 插件</strong>：<ul>
+<li>支持汇编指令自动补全与 NOP 填充。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="IDA-符号恢复（符号还原）"><a href="#IDA-符号恢复（符号还原）" class="headerlink" title="IDA 符号恢复（符号还原）"></a><strong>IDA 符号恢复（符号还原）</strong></h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605794.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>导入 PDB：<code>File → Load file → PDB file</code>。</li>
+<li>使用 <code>FLIRT</code> 签名识别库函数：<code>View → Open subviews → Signatures</code>。</li>
+<li><strong>自定义 FLIRT 签名</strong>：<ul>
+<li>使用 <code>sigmake</code> 工具从静态库生成 <code>.sig</code> 文件。</li>
+</ul>
+</li>
+<li><strong>恢复函数名</strong>：<ul>
+<li>使用 <code>Diaphora</code>、<code>BinDiff</code>、<code>Lumina</code> 进行函数匹配。</li>
+</ul>
+</li>
+<li><strong>使用符号服务器</strong>：<ul>
+<li>配置 Microsoft 符号服务器，自动下载 PDB。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605208.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="LazyIDA提取数据"><a href="#LazyIDA提取数据" class="headerlink" title="LazyIDA提取数据"></a>LazyIDA提取数据</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121605815.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据与代码转换（处理花指令）"><a href="#数据与代码转换（处理花指令）" class="headerlink" title="数据与代码转换（处理花指令）"></a>数据与代码转换（处理花指令）</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606054.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>案例</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606274.png" srcset="/img/loading.gif" lazyload></p>
+<p>  我们可以看到jz和jnz构成跳转指令到loc_405AF6，导致中间的指令不会运行。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606616.png" srcset="/img/loading.gif" lazyload></p>
+<p>  这里使用高亮功能显眼一些。我们到指定地方使用快捷键U将代码转换成数据。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121606992.png" srcset="/img/loading.gif" lazyload></p>
+<p>  下面内容如法炮制一直更改到函数结束，选中区域，注意要到数据地址再向下一行进行填充</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607955.png" srcset="/img/loading.gif" lazyload></p>
+<p>   <strong>Fill Range</strong>，整段就会被改写成 NOP，效果跟 IDA 原生菜单的 “Fill with NOPs” 完全一样，</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607652.png" srcset="/img/loading.gif" lazyload></p>
+<p>  把 <strong>Assembly</strong> 栏里原来的 <code>iz 1oc ...</code> 全部删掉，只写<code>nop</code>，下方 <strong>“Fill byte”</strong> 框里填<code>90</code></p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607593.png" srcset="/img/loading.gif" lazyload></p>
+<p>  同样如法炮制后让ida进行重新分析。</p>
+<p>  回到函数头部重新转换为数据</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607900.png" srcset="/img/loading.gif" lazyload></p>
+<p>  然后按C重新分析后我们使用F5返汇编尝试发现提示不是函数。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121607403.png" srcset="/img/loading.gif" lazyload></p>
+<p>  我们在函数头部使用P创建函数就完成去花。</p>
+<p>  <img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608844.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h1 id="三，动态调试启动"><a href="#三，动态调试启动" class="headerlink" title="三，动态调试启动"></a>三，动态调试启动</h1><p>什么是调试?</p>
+<p>运行程序并观察程序运行过程中的控制流、寄存器、内存数据的变换，推测和验证程序的逻辑</p>
+<p>IDA 支持哪些调试?<br>本地调试、远程调试(Linux/Android)、远程调试(gdb)、…</p>
+<p>IDA 支持哪些调试操作?<br>查看/修改内存、查看/修改寄存器、反汇编/反编译调试内存、单步、追踪(Trace)、断点、调试脚<br>IDA 调试有哪些优势?<br>跨平台指令集操作统一<br>动态调试与静态分析操作统<br>支持伪代码级调试</p>
+<h2 id="1，windows本地调试"><a href="#1，windows本地调试" class="headerlink" title="1，windows本地调试"></a>1，windows本地调试</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608448.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们以验证看v8，v9的值来示例</p>
+<h2 id="链接启动调试"><a href="#链接启动调试" class="headerlink" title="链接启动调试"></a>链接启动调试</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608626.png" srcset="/img/loading.gif" lazyload></p>
+<p>再次点击debuuger</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608034.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121608574.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们这里启用新进程调试</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609563.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们发现会停到断点处</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609689.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="调试界面介绍"><a href="#调试界面介绍" class="headerlink" title="调试界面介绍"></a>调试界面介绍</h2><h3 id="栈窗口"><a href="#栈窗口" class="headerlink" title="栈窗口"></a>栈窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609054.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们进去查看一下会发现内容中存放的内容</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609596.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们移动到代码结尾部分tab键查看调用位置。 </p>
+<h3 id="数据窗口"><a href="#数据窗口" class="headerlink" title="数据窗口"></a>数据窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121609884.png" srcset="/img/loading.gif" lazyload></p>
+<p>同理想在Hex View中跳转也是同样的道理，先点击Hex View在点击小按钮即可‘</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610309.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="模块窗口"><a href="#模块窗口" class="headerlink" title="模块窗口"></a>模块窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610368.png" srcset="/img/loading.gif" lazyload></p>
+<p>该窗口展示所有动态链接库</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610150.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以通过该窗口直接跳转到该动态链接库的函数下</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610095.png" srcset="/img/loading.gif" lazyload></p>
+<p>想要添加窗口可已直接装在这里查询</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610007.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="寄存器窗口"><a href="#寄存器窗口" class="headerlink" title="寄存器窗口"></a>寄存器窗口</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610188.png" srcset="/img/loading.gif" lazyload></p>
+<p>寄存器窗口的小按钮可以实现点击后跳转。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121610266.png" srcset="/img/loading.gif" lazyload></p>
+<p>同理，想要查看通用寄存器外的其它寄存器可以直接点击右键进行打开</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611261.png" srcset="/img/loading.gif" lazyload></p>
+<p>同样双击寄存器可以修改值</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611949.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="简单功能"><a href="#简单功能" class="headerlink" title="简单功能"></a>简单功能</h2><h3 id="单步执行操作"><a href="#单步执行操作" class="headerlink" title="单步执行操作"></a>单步执行操作</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611487.png" srcset="/img/loading.gif" lazyload></p>
+<p>步入F7，步过F8.步入到不感兴趣的函数直接Ctrl+F7返回原来的函数</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611994.png" srcset="/img/loading.gif" lazyload></p>
+<p>F4直接下一步执行到我们F4标记的目标位置（常用于跳出调试循环）</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611930.png" srcset="/img/loading.gif" lazyload></p>
+<p>将我们IP改到任意位置</p>
+<h3 id="调试命令行参数"><a href="#调试命令行参数" class="headerlink" title="调试命令行参数"></a>调试命令行参数</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611609.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121611956.png" srcset="/img/loading.gif" lazyload></p>
+<p>在此处配置调试命令行参数</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612299.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2，远程调试"><a href="#2，远程调试" class="headerlink" title="2，远程调试"></a>2，远程调试</h2><h3 id="Windows远程调试"><a href="#Windows远程调试" class="headerlink" title="Windows远程调试"></a>Windows远程调试</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612142.png" srcset="/img/loading.gif" lazyload><br><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612143.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Linux远程调试"><a href="#Linux远程调试" class="headerlink" title="Linux远程调试"></a>Linux远程调试</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612853.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="动态链接库调试"><a href="#动态链接库调试" class="headerlink" title="动态链接库调试"></a>动态链接库调试</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612068.png" srcset="/img/loading.gif" lazyload></p>
+<p>重定位</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121612816.png" srcset="/img/loading.gif" lazyload></p>
+<p>改为实际地址</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613594.png" srcset="/img/loading.gif" lazyload></p>
+<p>调试时不能手动重定位断点可能会对不上</p>
+<h3 id="路由器固件模拟调试"><a href="#路由器固件模拟调试" class="headerlink" title="路由器固件模拟调试"></a>路由器固件模拟调试</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613434.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613912.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3，Android-Native调试"><a href="#3，Android-Native调试" class="headerlink" title="3，Android Native调试"></a>3，Android Native调试</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613053.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613571.png" srcset="/img/loading.gif" lazyload></p>
+<p>将对应的server push到手机端</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121613908.png" srcset="/img/loading.gif" lazyload></p>
+<p>赋予可执行文件权限</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614366.png" srcset="/img/loading.gif" lazyload></p>
+<p>运行，并通过adb转发端口</p>
+<p>adb forward tcp:23946 tcp:23946</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614386.png" srcset="/img/loading.gif" lazyload></p>
+<p>调试时需要先设置好端口号等信息</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614891.png" srcset="/img/loading.gif" lazyload></p>
+<p>选中我们要调试的进程（注意要在同一wifi下不然找不到的泪目ing）</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121614333.png" srcset="/img/loading.gif" lazyload></p>
+<p>电脑和手机端一个文件名，不用管直接save就行</p>
+<p>进入后需要快速进行调试不然进程可能断掉或者被污染</p>
+<h2 id="进成自杀解决办法"><a href="#进成自杀解决办法" class="headerlink" title="进成自杀解决办法"></a>进成自杀解决办法</h2><h3 id="临时关闭-JIT（需要-root，仅调试机）"><a href="#临时关闭-JIT（需要-root，仅调试机）" class="headerlink" title="临时关闭 JIT（需要 root，仅调试机）"></a><strong>临时关闭 JIT（需要 root，仅调试机）</strong></h3><p>JIT 编译时会主动触发 GC，关闭后 GC 次数明显减少：</p>
+<p><code>adb root adb shell setprop dalvik.vm.usejit false adb shell stop adb shell start</code></p>
+<p>调试完再改回 <code>true</code> 并重启 runtime 即可恢复。</p>
+<h3 id="终极黑科技——“暂停-GC-线程”-仅-gdb-IDA-下用"><a href="#终极黑科技——“暂停-GC-线程”-仅-gdb-IDA-下用" class="headerlink" title="终极黑科技——“暂停 GC 线程”(仅 gdb/IDA 下用)"></a><strong>终极黑科技——“暂停 GC 线程”(仅 gdb/IDA 下用)</strong></h3><p><strong>仅当设备已 root 且你明确在调试阶段使用，用完立即恢复。</strong></p>
+<ol>
+<li><p>找到 GC 线程 tid（通常叫 <code>GCDaemon</code> 或 <code>HeapTaskDaemon</code>）</p>
+<p> <code>adb shell ps -T -p &lt;pid&gt; | grep -i daemon</code></p>
+</li>
+<li><p>用 gdb 只停 GC 线程，不让它运行：</p>
+<p> <code>(gdb) attach &lt;pid&gt;  (gdb) info threads  (gdb) thread apply &lt;gc-tid&gt; signal SIGSTOP</code></p>
+<p> 这样 GC 永远进不了 STW 阶段，也就不会发 signal 35。调试结束后 <code>thread apply &lt;gc-tid&gt; signal SIGCONT</code> 放它继续即可。</p>
+</li>
+</ol>
+<h1 id="四，动态调试技巧"><a href="#四，动态调试技巧" class="headerlink" title="四，动态调试技巧"></a>四，动态调试技巧</h1><h2 id="1，断点"><a href="#1，断点" class="headerlink" title="1，断点"></a>1，断点</h2><h2 id="硬件断点"><a href="#硬件断点" class="headerlink" title="硬件断点"></a>硬件断点</h2><p>由硬件提供的断点机制，同时需要内核支持<br>硬件断点不会修改内存数据(隐蔽性高、不会破坏壳数据、自解密代码、代码校验等)<br>支持对数据/代码设置断点<br>一般有数量限制<br>◆应用场景:<br>  加壳程序设置断点<br>  自解密程序设置断点<br>  自校验程序设置断点<br>  日监控内存地址读写</p>
+<p>   ……</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615515.png" srcset="/img/loading.gif" lazyload></p>
+<p>硬件断点恢复数据</p>
+<h2 id="内存断点"><a href="#内存断点" class="headerlink" title="内存断点"></a>内存断点</h2><p>对内存地址设置读写断点，命中修改该内存的指令<br>设置方法:在IDA-View窗口中按下G键，定位到目标内存，再按下F2键设置</p>
+<p>默认情况下，内存断点，IDA 使用硬件断点实现，若要修改则在[edit Break Pointer中手日动修改<br>内存断点也可以设置IDAPython脚本</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615858.png" srcset="/img/loading.gif" lazyload></p>
+<p>将这些勾选上即可</p>
+<h2 id="API断点"><a href="#API断点" class="headerlink" title="API断点"></a>API断点</h2><p>所谓 API断点就是指的直接对系统库提供的API接口设置断点，以此来达到定位关键代码的目的。<br>设置方法与普通断点一致。<br>跳转到API的方法如下：<br>方法1:IDA-View窗口&gt;G键》输入导出符号名<br>方法2:[Debugger][Debugger Window]&gt;[Module List]双击API所在的模块→双击对应的函数<br>找到API函数所在的内存之后，直接用F2设置断点即可。</p>
+<h2 id="2，调试内存"><a href="#2，调试内存" class="headerlink" title="2，调试内存"></a>2，调试内存</h2><h3 id="提取"><a href="#提取" class="headerlink" title="提取"></a>提取</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615895.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615371.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3，黑盒分析法"><a href="#3，黑盒分析法" class="headerlink" title="3，黑盒分析法"></a>3，黑盒分析法</h2><p>把程序当作黑盒，通过输入输出的关系来判断程序逻辑。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615929.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="so黑盒调试示例："><a href="#so黑盒调试示例：" class="headerlink" title="so黑盒调试示例："></a>so黑盒调试示例：</h3><figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs csharp">jstring __<span class="hljs-function">fastcall <span class="hljs-title">Java_com_pandaos_idacourse_MainActivity_enc</span>(<span class="hljs-params">JNIEnv *a1, __int64 a2, <span class="hljs-keyword">void</span> *a3</span>)</span><br>{<br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">char</span> *s; <span class="hljs-comment">// x21</span><br>  <span class="hljs-built_in">char</span> *ptr; <span class="hljs-comment">// x22</span><br>  size_t n2; <span class="hljs-comment">// x23</span><br>  size_t v8; <span class="hljs-comment">// x9</span><br>  unsigned <span class="hljs-built_in">int</span> v9; <span class="hljs-comment">// w12</span><br>  <span class="hljs-built_in">char</span> *v10; <span class="hljs-comment">// x13</span><br>  unsigned <span class="hljs-built_in">int</span> v11; <span class="hljs-comment">// w14</span><br>  size_t v12; <span class="hljs-comment">// x17</span><br>  <span class="hljs-built_in">char</span> v13; <span class="hljs-comment">// w3</span><br>  <span class="hljs-built_in">char</span> v14; <span class="hljs-comment">// w0</span><br>  size_t v15; <span class="hljs-comment">// x10</span><br>  <span class="hljs-built_in">char</span> *v16; <span class="hljs-comment">// x11</span><br>  <span class="hljs-built_in">char</span> v17; <span class="hljs-comment">// w14</span><br>  <span class="hljs-built_in">char</span> *v18; <span class="hljs-comment">// x24</span><br>  jstring v19; <span class="hljs-comment">// x23</span><br><br>  <span class="hljs-keyword">if</span> ( !fork() )<br>  {<br>    __android_log_print(<span class="hljs-number">3</span>, <span class="hljs-string">"pandaos"</span>, <span class="hljs-string">"try DEBUG ME!"</span>);<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    <span class="hljs-keyword">init</span>();<br>    __android_log_print(<span class="hljs-number">3</span>, <span class="hljs-string">"pandaos"</span>, <span class="hljs-string">"tell me special_key."</span>);<br>    exit(<span class="hljs-number">0</span>);<br>  }<br>  s = (*a1)-&gt;GetStringUTFChars(a1, a3, <span class="hljs-number">0</span>); <span class="hljs-comment">//a3 是 Java 层传进来的 jstring 参数，a3 是 Java 层传进来的 jstring 参数。</span><br>  ptr = strdup(s);   <span class="hljs-comment">//strdup(s) 复制了一份这个字符串，赋值给 ptr。</span><br>  n2 = strlen(s);<br>  enc(ptr, n2);<br>  <span class="hljs-keyword">if</span> ( (<span class="hljs-built_in">int</span>)n2 &gt;= <span class="hljs-number">1</span> )<br>  {<br>    <span class="hljs-keyword">if</span> ( (unsigned <span class="hljs-built_in">int</span>)n2 &lt; <span class="hljs-number">2u</span>LL )<br>    {<br>      v8 = <span class="hljs-number">0</span>;<br>LABEL_8:<br>      v15 = (unsigned <span class="hljs-built_in">int</span>)n2 - v8;<br>      v16 = &amp;ptr[v8];<br>      <span class="hljs-keyword">do</span><br>      {<br>        v17 = special_key[(unsigned <span class="hljs-built_in">int</span>)v8 % <span class="hljs-number">0xC8</span>];<br>        --v15;<br>        LODWORD(v8) = v8 + <span class="hljs-number">1</span>;<br>        *v16++ ^= v17;<br>      }<br>      <span class="hljs-keyword">while</span> ( v15 );<br>      <span class="hljs-keyword">goto</span> LABEL_10;<br>    }<br>    v8 = (unsigned <span class="hljs-built_in">int</span>)n2 - (n2 &amp; <span class="hljs-number">1</span>);<br>    v9 = <span class="hljs-number">0</span>;<br>    v10 = ptr + <span class="hljs-number">1</span>;<br>    v11 = <span class="hljs-number">1</span>;<br>    v12 = v8;<br>    <span class="hljs-keyword">do</span><br>    {<br>      v13 = *v10;<br>      v14 = special_key[v11 % <span class="hljs-number">0xC8</span>];<br>      v12 -= <span class="hljs-number">2L</span>L;<br>      v11 += <span class="hljs-number">2</span>;<br>      *(v10 - <span class="hljs-number">1</span>) ^= special_key[v9 % <span class="hljs-number">0xC8</span>];<br>      *v10 = v13 ^ v14;<br>      v10 += <span class="hljs-number">2</span>;<br>      v9 += <span class="hljs-number">2</span>;<br>    }<br>    <span class="hljs-keyword">while</span> ( v12 );<br>    <span class="hljs-keyword">if</span> ( (n2 &amp; <span class="hljs-number">1</span>) != <span class="hljs-number">0</span> )<br>      <span class="hljs-keyword">goto</span> LABEL_8;<br>  }<br>LABEL_10:<br>  v18 = (<span class="hljs-built_in">char</span> *)<span class="hljs-keyword">operator</span> <span class="hljs-keyword">new</span>[](<span class="hljs-number">2</span> * n2);<br>  base64_encode((unsigned __int8 *)ptr, v18, n2);<br>  v19 = (*a1)-&gt;NewStringUTF(a1, v18); <span class="hljs-comment">//ptr 被当作 UTF-8 字符串，封装成新的 jstring 返回。</span><br>  (*a1)-&gt;ReleaseStringUTFChars(a1, a3, s);<br>  free(ptr); <span class="hljs-comment">//然后 ptr 被 free 掉。</span><br>  <span class="hljs-keyword">operator</span> delete[](v18);<br>  <span class="hljs-keyword">return</span> v19;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>我们在进行这个代码的时候发现了ptr被输入和输出的逻辑，我们在这两个地方下断点。</p>
+<p>那么中间的大量加密算法，比如中间 <code>enc(ptr, n2);</code>等，我们直接以<code>enc</code>为例进行分析</p>
+<p>先设置断点调试运行到断点处</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121615148.png" srcset="/img/loading.gif" lazyload></p>
+<p>查看寄存器发现我们刚刚输入的字符串</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616057.png" srcset="/img/loading.gif" lazyload></p>
+<p>将地址记录下来</p>
+<p>000000749002DE50 DCB 0x31 ; 1</p>
+<p>我们下面F8步过该函数到新断点处，我们回到刚刚的地址发现变成了密文</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616451.png" srcset="/img/loading.gif" lazyload></p>
+<p>DCB 0x1D<br>[anon:libc_malloc]:000000749002DE41 DCB 0x77 ; w<br>[anon:libc_malloc]:000000749002DE42 DCB 0x9E<br>[anon:libc_malloc]:000000749002DE43 DCB 0xA4<br>[anon:libc_malloc]:000000749002DE44 DCB 0xAD<br>[anon:libc_malloc]:000000749002DE45 DCB 0x44 ; D<br>[anon:libc_malloc]:000000749002DE46 DCB 0x1E<br>[anon:libc_malloc]:000000749002DE47 DCB 0xAE<br>[anon:libc_malloc]:000000749002DE48 DCB 0x14<br>[anon:libc_malloc]:000000749002DE49 DCB 0x86</p>
+<p>使用Set IP回到我们的输入位置，我们再尝试一下111111111</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616674.png" srcset="/img/loading.gif" lazyload></p>
+<p>同理运行后我们回到相同位置变为了</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616147.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们再试一下12121212121</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616293.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121616762.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过多次尝试不拿发现它应该是存在映射关系，所有1变为了1D，2变为了77</p>
+<p>为了得到映射表我们将0~255输入得到映射内容进行查询即可。而我们注意到两个参数也位置有关，但照这样的思路简单映射下我们也就不用再管那500多行的<code>enc</code>是怎么实现的了。常用来完成研究魔改加密。</p>
+<h3 id="exe黑盒调试示例"><a href="#exe黑盒调试示例" class="headerlink" title="exe黑盒调试示例"></a>exe黑盒调试示例</h3><p>打开程序我们会发现有明显不和谐的花指令</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617130.png" srcset="/img/loading.gif" lazyload></p>
+<p>U取消定义后查看实际跳转哪里C重新编译，以此类推完成花指令处理</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617807.png" srcset="/img/loading.gif" lazyload></p>
+<p>大致处理完之后我们的程序就很多了</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617071.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们尝试分析sub_401EF0，发现它在sub_403460内调用，有两个参数</p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs csharp">__int64 __<span class="hljs-function">fastcall <span class="hljs-title">sub_403460</span>(<span class="hljs-params">__int64 a1</span>)</span><br>{<br>  <span class="hljs-built_in">int</span> v2; <span class="hljs-comment">// eax</span><br>  __int64 result; <span class="hljs-comment">// rax</span><br>  <span class="hljs-built_in">int</span> v4; <span class="hljs-comment">// edx</span><br><br>  v2 = sub_401EF0(<span class="hljs-number">3</span>i64);<br>  *(_BYTE *)(a1 + <span class="hljs-number">8</span>) = <span class="hljs-number">0</span>;<br>  *(_DWORD *)(a1 + <span class="hljs-number">4</span>) = v2;<br>  result = <span class="hljs-number">4</span>i64;<br>  <span class="hljs-keyword">while</span> ( <span class="hljs-number">1</span> )<br>  {<br>    v4 = result;<br>    <span class="hljs-keyword">if</span> ( *(_BYTE *)(a1 + result + <span class="hljs-number">3</span>) )<br>      <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">if</span> ( !--result )<br>    {<br>      v4 = <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">break</span>;<br>    }<br>  }<br>  *(_DWORD *)a1 = v4;<br>  <span class="hljs-keyword">return</span> result;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>而sub_403460程序执行到调用的地方需要满足传入字符串长度为64</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617226.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们在要分析的地方下断点</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617296.png" srcset="/img/loading.gif" lazyload></p>
+<p>既然是黑盒分析我们观察一下输入输出函数都是一个int值</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617893.png" srcset="/img/loading.gif" lazyload></p>
+<p>猜测应该是进行了一个数据变换</p>
+<p>我们开始进行动态调试</p>
+<p>我们随机生成功64个字符及逆行尝试</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121617267.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们在断点后我们想要查看你返回值是多少。我们单步一下f8</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618916.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们发现单步后变为了000000000000FFFD</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618666.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们不断回到，通过修改寄存器的值得到不同结果。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618160.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618993.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们观察发现下一项比前一项是2倍的关系，可以看出就是一个等比数列</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618368.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="4，Trace分析"><a href="#4，Trace分析" class="headerlink" title="4，Trace分析"></a>4，Trace分析</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618382.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618888.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121618427.png" srcset="/img/loading.gif" lazyload></p>
+<p>示例：</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619139.png" srcset="/img/loading.gif" lazyload></p>
+<p>进行配置</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619508.png" srcset="/img/loading.gif" lazyload></p>
+<p>trace的三种模式</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619472.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们在最开始的位置下断点然后进行trace</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619787.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们有时候在脚本呢分析是时这种名字会影响分析</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121619821.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们取消use nice name，这样我们就i得到了执行代码的trace</p>
+<p>我们知道花指令的重要特点是不能干扰层序的正常执行流，而我们有了trace之后可以找到堆栈平衡点。就可以确定花指令区间，将区间代码去除掉从而找真实的代码。我们可以右键点击copy all及逆行文本提取</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620006.png" srcset="/img/loading.gif" lazyload></p>
+<p>像这种肉眼可见啊，一行就是一条指令。第一列是：线程。python写脚本的时候就split一下第一列不要。它有一栏很重要，叫做这个result，result里面会有一些寄存器，这寄存器是什么呢？这些寄存器就是这一条，当前这条指令指明它会修改什么寄存器，修改之后的值。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620066.png" srcset="/img/loading.gif" lazyload></p>
+<p>push rax，那么push之后，这个RSP=000000000014FF20</p>
+<p>这个站要平衡嘛，对吧？然后我们可以把这种所有的这种区间找出来啊，找出来，然后把花指令给给去除掉。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620439.png" srcset="/img/loading.gif" lazyload></p>
+<p>它这个花指令嵌套的比较多，然后当这个return之后呢，我们会发现。它有有一条指令和前面的不太一样，我们可以把这个这个认为是一条真实指令。</p>
+<p>然后这条正式指令之后呢？它又开始了这种各种花指令嵌套。然后我们通过这种占平衡的思路，就可以找到这种真实指令。</p>
+<p>我们也可以通过另外一种思路，就是指令序列匹配，比如说我们把这种push然后push fq。这样的一个一个整个的指令片段呢的特征记下来，然后我们用python的一个March。就也可以把他们给匹配出来，这样没匹配上的就是真实指令。</p>
+<p>然后。用汇编器编译，然后再用ida进行分析，或者说直接看汇编啊，都是可以的。</p>
+<h2 id="5，Fork双进程调试法"><a href="#5，Fork双进程调试法" class="headerlink" title="5，Fork双进程调试法"></a>5，Fork双进程调试法</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121620194.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后这里一堆这个int函数呢，它会去修改这个special key的数据，然后修改完了之后。可能有些其他的用途。可能传递回主进程，然后进行一个post请求。所以说我们可以要想办法在这里提取它，魔改之后修改之后的这个special key，那special key的大小就是200个字节。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621218.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们设置断点及逆行内容提取</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621260.png" srcset="/img/loading.gif" lazyload></p>
+<p>g0db支持调试fork的，但是ida我们要想办法能附加到fork。</p>
+<p>我们处理的方法就是把这里呢给它设置成一条死循环指令。然后它fork时候就会在这里死循环的等待，此时我们可以附加上去，对于所有没办法直接调试的，都可以用这种方法。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621464.png" srcset="/img/loading.gif" lazyload></p>
+<p>先在这个fork这里设置一个断点然后打开调试。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621134.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们进行修改这里的地址，赋值ctrl+lt+k，再粘贴让它进入死循环。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621335.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时呢，我们进行detach，再附加会发现有两个进程。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121621320.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们点击新进程前先附件调试断点</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622436.png" srcset="/img/loading.gif" lazyload></p>
+<p>set IP，让它退出这个循环就可以接着调试。此时我们会发现，它其实全都变成了零。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622633.png" srcset="/img/loading.gif" lazyload></p>
+<p>有的时候两个进程可能会进行交互，就是要求我必须要有两个进程。那么这个时候我们就可以先detach第一个进程，然后第二个进程正在死循环的等待状态，然后我们在这个死循环这里设置一个断点附加上去。</p>
+<h2 id="6，Frida辅助IDA调试Linker-JNI-OnLoad"><a href="#6，Frida辅助IDA调试Linker-JNI-OnLoad" class="headerlink" title="6，Frida辅助IDA调试Linker/JNI_OnLoad"></a>6，Frida辅助IDA调试Linker/JNI_OnLoad</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622202.png" srcset="/img/loading.gif" lazyload></p>
+<p>会有一些函数，这个函数会在这个so，这个动态链接库被加载的时候调用。直接附加的时候，这个函数已经被执行了，我们可以借助一个工具叫做Frida，它启动之后，会有一个暂停模式，就是说APk它启动了，但它并没有加载任何的库。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622849.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们启动frida挂载该程序</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622361.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过该方法找到库函数</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622204.png" srcset="/img/loading.gif" lazyload></p>
+<p>在挂载的时机启动进程</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121622967.png" srcset="/img/loading.gif" lazyload></p>
+<p>根据linux的调用原理我们找到该函数</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623066.png" srcset="/img/loading.gif" lazyload></p>
+<p>这个里面的call_array方法进行调用</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623309.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们进入观察找到唯一调用的地方下断点</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623593.png" srcset="/img/loading.gif" lazyload></p>
+<p>让程序保持运行状态释放frida，中间等待时间比较长到我们函数调用的地方</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623702.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们F7就进入到该函数中了</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121623232.png" srcset="/img/loading.gif" lazyload></p>
+<p>JNI_OnLoad也是同样的原理。</p>
+<h1 id="五，IDA-Python脚本编程"><a href="#五，IDA-Python脚本编程" class="headerlink" title="五，IDA Python脚本编程"></a>五，IDA Python脚本编程</h1><h2 id="1，寄存器操作"><a href="#1，寄存器操作" class="headerlink" title="1，寄存器操作"></a>1，寄存器操作</h2><p>读取通用寄存器操作</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624416.png" srcset="/img/loading.gif" lazyload></p>
+<p>调试器命中某个断点，就是具体的代码位置，并且停下来的时候，我们才能进行这方面的操作。</p>
+<p>因为寄存器信息是一个程序的状态，它不是一个全局的状态。大部分内存就是全局的状态，只要程序在运行都可以去读写内存。局部变量等内存不具有全局性。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624339.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2，调试内存-1"><a href="#2，调试内存-1" class="headerlink" title="2，调试内存"></a>2，调试内存</h2><p>用这些API接口来进行读取，ida它会直接从这个目标进程里面去读写它是实时的。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624092.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们需要自己用这个pach debug byte来进行一个上层的封装。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624653.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="本地内存接口"><a href="#本地内存接口" class="headerlink" title="本地内存接口"></a>本地内存接口</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121624499.png" srcset="/img/loading.gif" lazyload></p>
+<p>会在那个pass list，pass bytes那个中去找到我们的这些操作。</p>
+<h2 id="3，反汇编操作"><a href="#3，反汇编操作" class="headerlink" title="3，反汇编操作"></a>3，反汇编操作</h2><p>GetDisasm(addr)#获取反汇编文本</p>
+<p>idc.next head(ea)#获取下一条指令地址</p>
+<p>ARM精简指令集，那它的指令长度是定长。</p>
+<h2 id="4，交叉引用分析"><a href="#4，交叉引用分析" class="headerlink" title="4，交叉引用分析"></a>4，交叉引用分析</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625870.png" srcset="/img/loading.gif" lazyload></p>
+<p>遍历得到ea的所有交叉引用</p>
+<h2 id="5，ollvm下批量设置断点"><a href="#5，ollvm下批量设置断点" class="headerlink" title="5，ollvm下批量设置断点"></a>5，ollvm下批量设置断点</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625525.png" srcset="/img/loading.gif" lazyload></p>
+<p>这样的ollvm变种混淆没办法解开的话我们可以进行批量代码设置断点</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625806.png" srcset="/img/loading.gif" lazyload></p>
+<p>设置完后我们可以在断点窗口进行整合批量操作</p>
+<h2 id="6，杂项常用接口"><a href="#6，杂项常用接口" class="headerlink" title="6，杂项常用接口"></a>6，杂项常用接口</h2><p>idc.add_bpt(0x409437)添加断点<br>idaapi.get_imagebase()获取基地址</p>
+<p>idc.create_insn(addr)#c, Make Code<br>ida_funcs.add_func(addr)#p,create function</p>
+<p>ida_bytes.create_strlit(addr)#创建字符串，A 键效果</p>
+<h2 id="7，函数遍历"><a href="#7，函数遍历" class="headerlink" title="7，函数遍历"></a>7，函数遍历</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625361.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="8，基本块"><a href="#8，基本块" class="headerlink" title="8，基本块"></a>8，基本块</h2><h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625556.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="前驱"><a href="#前驱" class="headerlink" title="前驱"></a>前驱</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121625832.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="后继"><a href="#后继" class="headerlink" title="后继"></a>后继</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626133.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="9，指令遍历"><a href="#9，指令遍历" class="headerlink" title="9，指令遍历"></a>9，指令遍历</h2><p>里面填写函数起始地址</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626094.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="10，条件断点脚本编写"><a href="#10，条件断点脚本编写" class="headerlink" title="10，条件断点脚本编写"></a>10，条件断点脚本编写</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626082.png" srcset="/img/loading.gif" lazyload></p>
+<p>rax == 16949</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626268.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以利用该方法打印数据，作为hook来使用</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626433.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="11，Microcode"><a href="#11，Microcode" class="headerlink" title="11，Microcode"></a>11，Microcode</h2><p>Microcode是hexrays 内部采用的介于机器代码与伪代码之间的一种中间表示语言(IR)。<br>目前，有许多编译器与反编译器都采用了中间表示语言，例如LLVMIR、IBinary的 NIL等。Ninjahexrays的microcode的IR，早在1999就有最版本。</p>
+<p>Microcode 展示插件 <a target="_blank" rel="noopener" href="https://github.com/gaasedelen/lucid">https://github.com/gaasedelen/lucid</a></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626395.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Microcode指令格式"><a href="#Microcode指令格式" class="headerlink" title="Microcode指令格式"></a>Microcode指令格式</h2><p>Microcode 指令格式<br>opcode left, right, destination<br>一般来说有三个操作数，有一些指今可能缺少某个操作数，destination也不一定会被修改（Store指令)</p>
+<h2 id="Microcode寄存器"><a href="#Microcode寄存器" class="headerlink" title="Microcode寄存器"></a>Microcode寄存器</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121626408.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Microcode生成"><a href="#Microcode生成" class="headerlink" title="Microcode生成"></a>Microcode生成</h2><p>最初非常冗余</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627741.png" srcset="/img/loading.gif" lazyload></p>
+<p>最终输出</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627732.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="手动生成Microcode"><a href="#手动生成Microcode" class="headerlink" title="手动生成Microcode"></a>手动生成Microcode</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627160.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Microcode数据结构"><a href="#Microcode数据结构" class="headerlink" title="Microcode数据结构"></a>Microcode数据结构</h2><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627807.png" srcset="/img/loading.gif" lazyload></p>
+<p>相关数据结构被定义在hexrays.hpp文件中</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627226.png" srcset="/img/loading.gif" lazyload></p>
+<p>Microcode 相关的数据结构:mblarray_t这个结构用来存放函数的基本块信息。<br>基本块之间使用双向链表链接</p>
+<p>基本块数组存放在natural数组</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121627236.png" srcset="/img/loading.gif" lazyload></p>
+<p>Microcode 相关的数据结构:mblockt这个结构用来描述基本块信息<br>基本块内的指令与指令之间使用双向链表链接</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628912.png" srcset="/img/loading.gif" lazyload></p>
+<p>Microcode 相关的数据结构:minsnt用于描述指令信息的结构。<br>(注意微码指令支持指令嵌套。)</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628678.png" srcset="/img/loading.gif" lazyload></p>
+<p>Microcode 相关的数据结构:mop_t<br>用于描述操作数信息的结构，指令minsnt有0~3个操作数，分别时1(left)，r(right),(destination)操作数的类型用mop_t来表示。</p>
+<p>实现svc0x900001与svc 0x9000F8指令反编译成一条call指令<br>install microcode filter 注册 microcode filter 实现拦截指令翻译<br>microcode_filter_t 是一种可以拦截 microcode 指令生成的机制，开发者需要继承4microcodefilter_t类并实现match与apply 两个函数。<br>ida 在生成某一条指令的 microcode 之前会调用所有已经注册的filter的match 函数，若match 函数返回 True，则调用对应的 apply 函数实现指令替换。<br>我们需要将svc指令替换成 call指令，ida已经为我们实现了替换类 udc_filter_t，这个类继承于 microcode_filter_t并实现了apply方法(即替换call指令)，我们需要继承udc filtert并实现它的match 方法用于判断拦截的指令。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628337.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="12，Hexrays-Hooks"><a href="#12，Hexrays-Hooks" class="headerlink" title="12，Hexrays Hooks"></a>12，Hexrays Hooks</h2><p>实现 IDA的回调类的不同事件的回调方法，获得不同事件</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601121628942.png" srcset="/img/loading.gif" lazyload></p>
+<p>上面的例子是获取 Microcode 生成成功的回调，此时可以修改调试时，可以直接复制到 ida 底部运行，再次调试时先调用r.unhook()卸载其余回调可以参考文档中 Hexrays Hooks 的方法</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ida/" class="print-no-link">#ida</a>
+      
+        <a href="/tags/%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" class="print-no-link">#动态调试</a>
+      
+        <a href="/tags/%E9%BB%91%E7%9B%92/" class="print-no-link">#黑盒</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>IDA基础安装使用详记</div>
+      <div>https://cc-nx.github.io/2026/01/12/IDA基础安装使用详记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/06/%E5%88%B7%E6%9C%BA/" title="刷机">
+                        <span class="hidden-mobile">刷机</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxuehua.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
