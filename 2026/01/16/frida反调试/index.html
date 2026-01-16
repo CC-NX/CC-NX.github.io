@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/CC.png">
+  <link rel="icon" href="/img/CC.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CC">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一，常见检测1.ThracePid检测原理:当被调试器附加之后 不为0：安卓逆向反调试的手段有哪些-街头小贩 检测方法可以一直遍历 &#x2F;proc&#x2F;self&#x2F;status Thracepid的值 ptrace占坑:https:&#x2F;&#x2F;bbs.pediy.com&#x2F;thread-268155.htm#msg_header_h2_16 （具体方法见ida动态调试部分有详细记录，这里我们就跳了）  2.进程名检测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frida反调试">
+<meta property="og:url" content="https://cc-nx.github.io/2026/01/16/frida%E5%8F%8D%E8%B0%83%E8%AF%95/index.html">
+<meta property="og:site_name" content="CC₍ᐢ..ᐢ₎♡">
+<meta property="og:description" content="一，常见检测1.ThracePid检测原理:当被调试器附加之后 不为0：安卓逆向反调试的手段有哪些-街头小贩 检测方法可以一直遍历 &#x2F;proc&#x2F;self&#x2F;status Thracepid的值 ptrace占坑:https:&#x2F;&#x2F;bbs.pediy.com&#x2F;thread-268155.htm#msg_header_h2_16 （具体方法见ida动态调试部分有详细记录，这里我们就跳了）  2.进程名检测">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540678.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540936.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540822.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541448.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541298.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541323.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541885.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542143.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542521.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542883.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542656.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543205.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543808.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543364.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543257.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543501.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161544969.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161544169.png">
+<meta property="article:published_time" content="2026-01-16T07:36:39.973Z">
+<meta property="article:modified_time" content="2026-01-16T07:44:41.408Z">
+<meta property="article:author" content="CC">
+<meta property="article:tag" content="frida">
+<meta property="article:tag" content="实战">
+<meta property="article:tag" content="检测">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540678.png">
+  
+  
+  
+  <title>Frida反调试 - CC₍ᐢ..ᐢ₎♡</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cc-nx.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CC₍ᐢ..ᐢ₎♡</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/123.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Frida反调试"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-16 15:36" pubdate>
+          2026年1月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Frida反调试</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一，常见检测"><a href="#一，常见检测" class="headerlink" title="一，常见检测"></a>一，常见检测</h2><h3 id="1-ThracePid检测"><a href="#1-ThracePid检测" class="headerlink" title="1.ThracePid检测"></a>1.ThracePid检测</h3><p>原理:当被调试器附加之后 不为0：<a target="_blank" rel="noopener" href="https://wiki.hackjie.com/2728.html">安卓逆向反调试的手段有哪些-街头小贩</a></p>
+<p>检测方法可以一直遍历 /proc/self/status Thracepid的值</p>
+<p>ptrace占坑:<br><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-268155.htm#msg_header_h2_16">https://bbs.pediy.com/thread-268155.htm#msg_header_h2_16</a></p>
+<p>（具体方法见ida动态调试部分有详细记录，这里我们就跳了）</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540678.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-进程名检测"><a href="#2-进程名检测" class="headerlink" title="2.进程名检测"></a>2.进程名检测</h3><p>遍历进程名是否包含frida-server</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.kanxue.com/thread-217482.htm">[翻译]多种特征检测 Frida-外文翻译-看雪安全社区｜专业技术交流与安全研究论坛</a></p>
+<h3 id="3-端口检测"><a href="#3-端口检测" class="headerlink" title="3.端口检测"></a>3.端口检测</h3><p>27042是frida的默认端口</p>
+<p><code>./fs1 -l 0.0.0.0:6666</code></p>
+<p><code>adb forward tcp:6666 tcp:6666</code></p>
+<p><code>frida -H 127.0.0.1:6666 包名 -l hook.js</code></p>
+<h3 id="4-D-Bus协议通信"><a href="#4-D-Bus协议通信" class="headerlink" title="4.D-Bus协议通信"></a>4.D-Bus协议通信</h3><p>文章:<a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-217482.htm">https://bbs.pediy.com/thread-217482.htm</a><br>因为fridaserver 使用D-Bus 协议通信，我们为每个开放的端口发送D-Bus 的认证消息,哪个端口回复”REJEcT”.哪个就是fridaserver。</p>
+<h3 id="5-maps检测"><a href="#5-maps检测" class="headerlink" title="5.maps检测"></a>5.maps检测</h3><p><code>/proc/self/maps</code>&nbsp;是一个特殊的文件，它包含了当前进程的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&amp;spm=1001.2101.3001.7020">内存</a>映射信息。当你打开这个文件时，它会显示一个列表，其中包含了进程中每个内存区域的详细信息。</p>
+<p>adb shell dumpsys window w lgrep V lgrep name=</p>
+<p>先搜索一下进程</p>
+<p>ps -e | grep 包名</p>
+<p>cat proc/进程号/maps | grep frida</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540936.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="6-线程检测gmain-gdbus-gum-js-loop"><a href="#6-线程检测gmain-gdbus-gum-js-loop" class="headerlink" title="6.线程检测gmain,gdbus,gum-js-loop"></a>6.线程检测gmain,gdbus,gum-js-loop</h3><p>sailfish:/proc/进程号/task </p>
+<p>cat 31651/status|grep Name<br>Name:<br>gdbus<br>/proc/self/task/self/status</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161540822.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="7-内存特征检测frida相关的字符串"><a href="#7-内存特征检测frida相关的字符串" class="headerlink" title="7.内存特征检测frida相关的字符串"></a>7.内存特征检测frida相关的字符串</h3><h3 id="8-自实现的比较函数"><a href="#8-自实现的比较函数" class="headerlink" title="8.自实现的比较函数"></a>8.自实现的比较函数</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010559109/article/details/120846740Android%E9%80%86%E5%90%91-%E8%BF%87frida%E6%A3%80%E6%B5%8B+so%E5%B1%82%E7%AE%97%E6%B3%95%E9%80%86%E5%90%91https://blog.csdn.net/weixin_43889136/article/details/127713563">https://blog.csdn.net/u010559109/article/details/120846740Android逆向-过frida检测+so层算法逆向https://blog.csdn.net/weixin_43889136/article/details/127713563</a></p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541448.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="二，过检测的几种方式"><a href="#二，过检测的几种方式" class="headerlink" title="二，过检测的几种方式"></a>二，过检测的几种方式</h2><p>下面以Demo示例</p>
+<p>adb shell dumpsys window | findstr mCurrentFocus</p>
+<p>运行查看包名</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541298.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们将apk扔进jadx发现检测均为native函数，我们hook so层</p>
+<p>借助脚本定位检测frida的so</p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function">function <span class="hljs-title">hook_dlopen</span>()</span> {<br>    Interceptor.attach(Module.findExportByName(<span class="hljs-literal">null</span>, <span class="hljs-string">"android_dlopen_ext"</span>),<br>        {<br>            onEnter: function (<span class="hljs-keyword">args</span>) {<br>                <span class="hljs-keyword">var</span> pathptr = <span class="hljs-keyword">args</span>[<span class="hljs-number">0</span>];<br>                <span class="hljs-keyword">if</span> (pathptr !== undefined &amp;&amp; pathptr != <span class="hljs-literal">null</span>) {<br>                    <span class="hljs-keyword">var</span> path = ptr(pathptr).readCString();<br>                    console.log(<span class="hljs-string">"load "</span> + path);<br>                }<br>            }<br>        }<br>    );<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>偏移</p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function">function <span class="hljs-title">find_RegisterNatives</span>(<span class="hljs-params"><span class="hljs-keyword">params</span></span>)</span> {<br>    <span class="hljs-keyword">var</span> symbols = Module.enumerateSymbolsSync(<span class="hljs-string">"libart.so"</span>);<br>    <span class="hljs-keyword">var</span> addrRegisterNatives = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; symbols.length; i++) {<br>        <span class="hljs-keyword">var</span> symbol = symbols[i];<br>        <br>        <span class="hljs-comment">//_ZN3art3JNI15RegisterNativesEP7_JNIEnvP7_jclassPK15JNINativeMethodi</span><br>        <span class="hljs-keyword">if</span> (symbol.name.indexOf(<span class="hljs-string">"art"</span>) &gt;= <span class="hljs-number">0</span> &amp;&amp;<br>                symbol.name.indexOf(<span class="hljs-string">"JNI"</span>) &gt;= <span class="hljs-number">0</span> &amp;&amp; <br>                symbol.name.indexOf(<span class="hljs-string">"RegisterNatives"</span>) &gt;= <span class="hljs-number">0</span> &amp;&amp; <br>                symbol.name.indexOf(<span class="hljs-string">"CheckJNI"</span>) &lt; <span class="hljs-number">0</span>) {<br>            addrRegisterNatives = symbol.address;<br>            console.log(<span class="hljs-string">"RegisterNatives is at "</span>, symbol.address, symbol.name);<br>            hook_RegisterNatives(addrRegisterNatives)<br>        }<br>    }<br><br>}<br><br><span class="hljs-function">function <span class="hljs-title">hook_RegisterNatives</span>(<span class="hljs-params">addrRegisterNatives</span>)</span> {<br><br>    <span class="hljs-keyword">if</span> (addrRegisterNatives != <span class="hljs-literal">null</span>) {<br>        Interceptor.attach(addrRegisterNatives, {<br>            onEnter: function (<span class="hljs-keyword">args</span>) {<br>                console.log(<span class="hljs-string">"[RegisterNatives] method_count:"</span>, <span class="hljs-keyword">args</span>[<span class="hljs-number">3</span>]);<br>                <span class="hljs-keyword">var</span> env = <span class="hljs-keyword">args</span>[<span class="hljs-number">0</span>];<br>                <span class="hljs-keyword">var</span> java_class = <span class="hljs-keyword">args</span>[<span class="hljs-number">1</span>];<br>                <span class="hljs-keyword">var</span> class_name = Java.vm.tryGetEnv().getClassName(java_class);<br>                <span class="hljs-comment">//console.log(class_name);</span><br><br>                <span class="hljs-keyword">var</span> methods_ptr = ptr(<span class="hljs-keyword">args</span>[<span class="hljs-number">2</span>]);<br><br>                <span class="hljs-keyword">var</span> method_count = parseInt(<span class="hljs-keyword">args</span>[<span class="hljs-number">3</span>]);<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; method_count; i++) {<br>                    <span class="hljs-keyword">var</span> name_ptr = Memory.readPointer(methods_ptr.<span class="hljs-keyword">add</span>(i * Process.pointerSize * <span class="hljs-number">3</span>));<br>                    <span class="hljs-keyword">var</span> sig_ptr = Memory.readPointer(methods_ptr.<span class="hljs-keyword">add</span>(i * Process.pointerSize * <span class="hljs-number">3</span> + Process.pointerSize));<br>                    <span class="hljs-keyword">var</span> fnPtr_ptr = Memory.readPointer(methods_ptr.<span class="hljs-keyword">add</span>(i * Process.pointerSize * <span class="hljs-number">3</span> + Process.pointerSize * <span class="hljs-number">2</span>));<br><br>                    <span class="hljs-keyword">var</span> name = Memory.readCString(name_ptr);<br>                    <span class="hljs-keyword">var</span> sig = Memory.readCString(sig_ptr);<br>                    <span class="hljs-keyword">var</span> find_module = Process.findModuleByAddress(fnPtr_ptr);<br>                    console.log(<span class="hljs-string">"[RegisterNatives] java_class:"</span>, class_name, <span class="hljs-string">"name:"</span>, name, <span class="hljs-string">"sig:"</span>, sig, <span class="hljs-string">"fnPtr:"</span>, fnPtr_ptr,  <span class="hljs-string">" fnOffset:"</span>, ptr(fnPtr_ptr).sub(find_module.<span class="hljs-keyword">base</span>), <span class="hljs-string">" callee:"</span>, DebugSymbol.fromAddress(<span class="hljs-keyword">this</span>.returnAddress));<br><br>                }<br>            }<br>        });<br>    }<br>}<br><br>setImmediate(find_RegisterNatives);<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541323.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们通过ida查询偏移</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161541885.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们就找到了第一个检测点，直接修改过掉就可以</p>
+<h3 id="ThracePid反调试"><a href="#ThracePid反调试" class="headerlink" title="ThracePid反调试"></a>ThracePid反调试</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30332669/article/details/117312330">android拦截native方法,Android native反调试方式及使用IDA绕过反调试-CSDN博客</a></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function">function <span class="hljs-title">bypass_fgets</span>()</span> {<br>    <span class="hljs-keyword">var</span> fgetsPtr = Module.findExportByName(<span class="hljs-string">"libc.so"</span>, <span class="hljs-string">"fgets"</span>);<br>    <span class="hljs-keyword">var</span> fgets = <span class="hljs-keyword">new</span> NativeFunction(fgetsPtr, <span class="hljs-string">'pointer'</span>, [<span class="hljs-string">'pointer'</span>, <span class="hljs-string">'int'</span>, <span class="hljs-string">'pointer'</span>]);<br>    Interceptor.replace(fgetsPtr, <span class="hljs-keyword">new</span> NativeCallback(function (buffer, size, fp) {<br>        <span class="hljs-keyword">var</span> retval = fgets(buffer, size, fp);<br>        <span class="hljs-keyword">var</span> bufstr = buffer.readCString();<br>        <span class="hljs-keyword">if</span> (bufstr.indexOf(<span class="hljs-string">"TracerPid:"</span>) &gt; <span class="hljs-number">-1</span>) {<br>            Memory.writeUtf8String(buffer, <span class="hljs-string">"TracerPid:\t0"</span>);<br>        }<br><span class="hljs-comment">//替换的值</span><br>        <span class="hljs-keyword">if</span> (bufstr.indexOf(<span class="hljs-string">"Name:\tgmain"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"Name:\tgdbus"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"Name:\tpool-frida"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"Name:\tgum-js-loop"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"SigBlk:\tffffffe0fffbfaff"</span>) &gt; <span class="hljs-number">-1</span>) {<br>            Memory.writeUtf8String(buffer, <span class="hljs-string">"TName:\t1"</span>);<br>        }<br>        <span class="hljs-keyword">return</span> retval;<br>    }, <span class="hljs-string">'pointer'</span>, [<span class="hljs-string">'pointer'</span>, <span class="hljs-string">'int'</span>, <span class="hljs-string">'pointer'</span>]))<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>hook线程创建<br>定位检测点hook系统函数进行过掉需要分析常用于检测的系统函数</p>
+<h3 id="线程检测反调试"><a href="#线程检测反调试" class="headerlink" title="线程检测反调试"></a>线程检测反调试</h3><p>我们ida跳转到0x10b8</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542143.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们可以发现线程检测就是</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542521.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们通过返回假，来过掉检测</p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function">function <span class="hljs-title">bypass_fgets</span>()</span> {<br>    <span class="hljs-keyword">var</span> fgetsPtr = Module.findExportByName(<span class="hljs-string">"libc.so"</span>, <span class="hljs-string">"fgets"</span>);<br>    <span class="hljs-keyword">var</span> fgets = <span class="hljs-keyword">new</span> NativeFunction(fgetsPtr, <span class="hljs-string">'pointer'</span>, [<span class="hljs-string">'pointer'</span>, <span class="hljs-string">'int'</span>, <span class="hljs-string">'pointer'</span>]);<br>    console.log(fgetsPtr,fgets);<br>    Interceptor.replace(fgetsPtr, <span class="hljs-keyword">new</span> NativeCallback(function (buffer, size, fp) {<br>        <span class="hljs-keyword">var</span> retval = fgets(buffer, size, fp);<br>        <span class="hljs-keyword">var</span> bufstr = buffer.readCString();<br>        <span class="hljs-keyword">if</span> (bufstr.indexOf(<span class="hljs-string">"TracerPid:"</span>) &gt; <span class="hljs-number">-1</span>) {<br>            Memory.writeUtf8String(buffer, <span class="hljs-string">"TracerPid:\t0"</span>);<br>        }<br><br>        <span class="hljs-keyword">if</span> (bufstr.indexOf(<span class="hljs-string">"Name:\tgmain"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"Name:\tgdbus"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"Name:\tpool-frida"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"Name:\tgum-js-loop"</span>) &gt; <span class="hljs-number">-1</span> || bufstr.indexOf(<span class="hljs-string">"SigBlk:\tffffffe0fffbfaff"</span>) &gt; <span class="hljs-number">-1</span>) {<br>            Memory.writeUtf8String(buffer, <span class="hljs-string">"TName:\t1"</span>);<br>        }<br>        <span class="hljs-keyword">return</span> retval;<br>    }, <span class="hljs-string">'pointer'</span>, [<span class="hljs-string">'pointer'</span>, <span class="hljs-string">'int'</span>, <span class="hljs-string">'pointer'</span>]))<br>}<br><br><span class="hljs-function">function <span class="hljs-title">main</span>()</span>{<br>    bypass_fgets()<br>}<br><br>setImmediate(main)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>成功过掉线程检测</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542883.png" srcset="/img/loading.gif" lazyload></p>
+<p>除了hook fgets我们该可以hook strstr再或者hook fopen</p>
+<h3 id="过maps检测"><a href="#过maps检测" class="headerlink" title="过maps检测"></a>过maps检测</h3><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">hook_fopen</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-keyword">var</span> open_addr = <span class="hljs-title class_">Module</span>.<span class="hljs-title function_">findExportByName</span>(<span class="hljs-string">"libc.so"</span>, <span class="hljs-string">"fopen"</span>)<br>    <span class="hljs-keyword">var</span> io_map = <span class="hljs-title class_">Memory</span>.<span class="hljs-title function_">allocUtf8String</span>(<span class="hljs-string">"/proc/13585/maps"</span>);<br>    <span class="hljs-title class_">Interceptor</span>.<span class="hljs-title function_">attach</span>(open_addr, {<br>        <span class="hljs-attr">onEnter</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">args</span>) {<br>            <span class="hljs-keyword">if</span> (args[<span class="hljs-number">0</span>].<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"/maps"</span>) != -<span class="hljs-number">1</span>) {<br>                args[<span class="hljs-number">0</span>] = io_map<br>            }<br>            <span class="hljs-variable language_">this</span>.<span class="hljs-property">pathname</span> = args[<span class="hljs-number">0</span>]<br>            <span class="hljs-variable language_">this</span>.<span class="hljs-property">mode</span> = args[<span class="hljs-number">1</span>]<br>        },<br>        <span class="hljs-attr">onLeave</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">retval</span>) {<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"fopen pathname="</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">readCString</span>() + <span class="hljs-string">"---mode="</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">mode</span>)<br>        }<br>    })<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161542656.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="过FD检测"><a href="#过FD检测" class="headerlink" title="过FD检测"></a>过FD检测</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543205.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/readlink/9097341">readlink_百度百科</a></p>
+<p>readlink()会将参数path的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5/0?fromModule=lemma_inlink">符号链接</a>内容存储到参数buf所指的内存空间，返回的内容不是以\000作字符串结尾，但会将字符串的字符数返回，这使得添加\000变得简单。若参数bufsiz小于符号连接的内容长度，过长的内容会被截断，如果 readlink 第一个参数指向一个文件而不是符号链接时，readlink 设 置errno 为 EINVAL 并返回 -1。 readlink()函数组合了open()、read()和close()的所有操作。</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">hook_readlink</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-keyword">var</span> aaa, bbb, ccc;<br>    <span class="hljs-title class_">Interceptor</span>.<span class="hljs-title function_">attach</span>(<span class="hljs-title class_">Module</span>.<span class="hljs-title function_">findExportByName</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">"readlink"</span>), {<br>        <span class="hljs-attr">onEnter</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">args</span>) {<br>            aaa = args[<span class="hljs-number">0</span>];<br>            bbb = args[<span class="hljs-number">1</span>];<br>            ccc = args[<span class="hljs-number">2</span>];<br>        },<br>        <span class="hljs-attr">onLeave</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">retval</span>) {<br>            <span class="hljs-comment">// console.log('\nreadlink(' + 's1="' + aaa.readCString() + '"' + ', s2="' + bbb.readCString() + '"' + ', s3="' + ccc + '"' + ')');</span><br>            <span class="hljs-keyword">if</span> (bbb.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"frida"</span>) !== -<span class="hljs-number">1</span> ||<br>                bbb.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"gum-js-loop"</span>) !== -<span class="hljs-number">1</span> ||<br>                bbb.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"gmain"</span>) !== -<span class="hljs-number">1</span> ||<br>                bbb.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"tmp"</span>) !== -<span class="hljs-number">1</span> ||<br>                bbb.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"linjector"</span>) !== -<span class="hljs-number">1</span>) {<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'\nreadlink('</span> + <span class="hljs-string">'s1="'</span> + aaa.<span class="hljs-title function_">readCString</span>() + <span class="hljs-string">'"'</span> + <span class="hljs-string">', s2="'</span> + bbb.<span class="hljs-title function_">readCString</span>() + <span class="hljs-string">'"'</span> + <span class="hljs-string">', s3="'</span> + ccc + <span class="hljs-string">'"'</span> + <span class="hljs-string">')'</span>);<br>                bbb.<span class="hljs-title function_">writeUtf8String</span>(<span class="hljs-string">"/system/framework/boot.art"</span>)<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"replce with: "</span>+bbb.<span class="hljs-title function_">readCString</span>())<br>                retval.<span class="hljs-title function_">replace</span>(<span class="hljs-number">0x1A</span>)<br>            }<br>        }<br>    });<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="魔改frida"><a href="#魔改frida" class="headerlink" title="魔改frida"></a>魔改frida</h3><p><a target="_blank" rel="noopener" href="https://github.com/taisuii/rusda">https://github.com/taisuii/rusda</a></p>
+<p>[undetected-frida] <a target="_blank" rel="noopener" href="https://github.com/zer0def/undetected-frida">https://github.com/zer0def/undetected-frida</a><br>[strongR-frida-android] <a target="_blank" rel="noopener" href="https://github.com/hzzheyang/strongR-frida-android">https://github.com/hzzheyang/strongR-frida-android</a><br>[Florida] <a target="_blank" rel="noopener" href="https://github.com/Ylarod/Florida">https://github.com/Ylarod/Florida</a><br>[rusda] <a target="_blank" rel="noopener" href="https://github.com/taisuii/rusda">https://github.com/taisuii/rusda</a></p>
+<h2 id="实战过检测"><a href="#实战过检测" class="headerlink" title="实战过检测"></a>实战过检测</h2><h3 id="1-hook线程创建干掉检测线程案例"><a href="#1-hook线程创建干掉检测线程案例" class="headerlink" title="1.hook线程创建干掉检测线程案例"></a>1.hook线程创建干掉检测线程案例</h3><p>i加密的 贵旅 </p>
+<p>我们去hook创建，当线程加载的时候会挂掉，打印出相应的so以及偏移</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543808.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们吧其中不要的偏移hook掉</p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">hook_pthread_create</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-keyword">var</span> pthread_create_addr = <span class="hljs-title class_">Module</span>.<span class="hljs-title function_">findExportByName</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">"pthread_create"</span>);<br>    <span class="hljs-keyword">const</span> __android_log_print_ptr = <span class="hljs-title class_">Module</span>.<span class="hljs-title function_">findExportByName</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">'__android_log_print'</span>)<br>    <span class="hljs-keyword">const</span> cm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">CModule</span>(<span class="hljs-string">`</span><br><span class="hljs-string">    #include &lt;gum/guminterceptor.h&gt;</span><br><span class="hljs-string">    extern void onMessageStr (const gchar * message);</span><br><span class="hljs-string">    extern void onMessagePtr (void * message);</span><br><span class="hljs-string">    extern void onMessageInt (int a);</span><br><span class="hljs-string">    extern int __android_log_print(int prio, const char* tag, const char* fmt, ...);</span><br><span class="hljs-string">    void hello(){</span><br><span class="hljs-string">    }</span><br><span class="hljs-string">    void onEnter (GumInvocationContext * ic)</span><br><span class="hljs-string">      {</span><br><span class="hljs-string">        // void* arg2,arg3;</span><br><span class="hljs-string">        if((((int)gum_invocation_context_get_nth_argument(ic, 2))&amp;0xfff)==0x599){</span><br><span class="hljs-string">            onMessageStr("replace success");</span><br><span class="hljs-string">            gum_invocation_context_replace_nth_argument(ic,2,(gpointer)hello);</span><br><span class="hljs-string">        }</span><br><span class="hljs-string">        // arg2 = gum_invocation_context_get_nth_argument (ic, 2);</span><br><span class="hljs-string">        onMessagePtr(gum_invocation_context_get_nth_argument (ic, 2));</span><br><span class="hljs-string">        // arg0 = (int)gum_invocation_context_get_nth_argument (ic, 2);</span><br><span class="hljs-string">        // gum_invocation_context_replace_nth_argument(ic,2,(gpointer)100);</span><br><span class="hljs-string">        // arg1 = (int)gum_invocation_context_get_nth_argument (ic, 3);</span><br><span class="hljs-string">        // log ("function add arg0=%d arg1=%d ", arg0,arg1);</span><br><span class="hljs-string">        // __android_log_print(3,"isDebug","arg0=%d,arg1=%d",arg0,arg1);</span><br><span class="hljs-string">      }</span><br><span class="hljs-string">      void</span><br><span class="hljs-string">      onLeave (GumInvocationContext * ic)</span><br><span class="hljs-string">      {</span><br><span class="hljs-string">        int result;</span><br><span class="hljs-string">        result = (int) gum_invocation_context_get_return_value (ic);</span><br><span class="hljs-string">        onMessageInt(result);</span><br><span class="hljs-string">        // gum_invocation_context_replace_return_value (ic,(gpointer)100);</span><br><span class="hljs-string">      }`</span>, {<br>        <span class="hljs-attr">__android_log_print</span>: __android_log_print_ptr,<br>        <span class="hljs-attr">onMessageStr</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">NativeCallback</span>(<span class="hljs-function"><span class="hljs-params">messagePtr</span> =&gt;</span> {<br>            <span class="hljs-keyword">const</span> message = messagePtr.<span class="hljs-title function_">readUtf8String</span>();<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'onMessageStr:'</span>, message);<br>        }, <span class="hljs-string">'void'</span>, [<span class="hljs-string">'pointer'</span>]),<br>        <span class="hljs-attr">onMessagePtr</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">NativeCallback</span>(<span class="hljs-function"><span class="hljs-params">messagePtr</span> =&gt;</span> {<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'onMessagePtr:'</span>, messagePtr ,<span class="hljs-title function_">hexdump</span>(messagePtr));<br>        }, <span class="hljs-string">'void'</span>, [<span class="hljs-string">'pointer'</span>]),<br>        <span class="hljs-attr">onMessageInt</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">NativeCallback</span>(<span class="hljs-function"><span class="hljs-params">messageInt</span> =&gt;</span> {<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'onMessageInt:'</span>, messageInt);<br>        }, <span class="hljs-string">'void'</span>, [<span class="hljs-string">'int'</span>]),<br>    });<br>    <span class="hljs-title class_">Interceptor</span>.<span class="hljs-title function_">attach</span>(pthread_create_addr, cm);<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">replace_thread</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-keyword">var</span> pthread_create_addr = <span class="hljs-title class_">Module</span>.<span class="hljs-title function_">findExportByName</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">"pthread_create"</span>);<br>    <span class="hljs-keyword">var</span> pthread_create = <span class="hljs-keyword">new</span> <span class="hljs-title class_">NativeFunction</span>(pthread_create_addr, <span class="hljs-string">"int"</span>, [<span class="hljs-string">"pointer"</span>, <span class="hljs-string">"pointer"</span>, <span class="hljs-string">"pointer"</span>, <span class="hljs-string">"pointer"</span>]);<br>    <span class="hljs-title class_">Interceptor</span>.<span class="hljs-title function_">replace</span>(pthread_create_addr, <span class="hljs-keyword">new</span> <span class="hljs-title class_">NativeCallback</span>(<span class="hljs-function">(<span class="hljs-params">parg0, parg1, parg2, parg3</span>) =&gt;</span> {<br>        <span class="hljs-keyword">var</span> so_name = <span class="hljs-title class_">Process</span>.<span class="hljs-title function_">findModuleByAddress</span>(parg2).<span class="hljs-property">name</span>;<br>        <span class="hljs-keyword">var</span> so_base = <span class="hljs-title class_">Module</span>.<span class="hljs-title function_">getBaseAddress</span>(so_name);<br>        <span class="hljs-keyword">var</span> offset = (parg2 - so_base);<br>        <span class="hljs-keyword">var</span> <span class="hljs-variable constant_">PC</span> = <span class="hljs-number">0</span>;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"normal find thread func offset"</span>, so_name, parg2,offset, offset.<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>));<br>        <span class="hljs-comment">// i加密</span><br>        <span class="hljs-keyword">if</span>(<br>        (so_name.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"libexec.so"</span>)&gt;-<span class="hljs-number">1</span> &amp;&amp; offset===<span class="hljs-number">197069</span>)||<br>        (so_name.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"libexec.so"</span>)&gt;-<span class="hljs-number">1</span> &amp;&amp; offset===<span class="hljs-number">196137</span>)<br>        ){<br>            <br>        }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>((so_name.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"libDexHelper.so"</span>)&gt;-<span class="hljs-number">1</span> &amp;&amp; offset===<span class="hljs-number">684452</span>)||<br>        (so_name.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"libDexHelper.so"</span>)&gt;-<span class="hljs-number">1</span> &amp;&amp; offset===<span class="hljs-number">724380</span>)){<br><br>        }<br>        <span class="hljs-keyword">else</span>{<br>            <span class="hljs-variable constant_">PC</span> = <span class="hljs-title function_">pthread_create</span>(parg0, parg1, parg2, parg3);<br>        }<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable constant_">PC</span>;<br>    }, <span class="hljs-string">"int"</span>, [<span class="hljs-string">"pointer"</span>, <span class="hljs-string">"pointer"</span>, <span class="hljs-string">"pointer"</span>, <span class="hljs-string">"pointer"</span>]));<br>}<br><br><span class="hljs-title function_">setImmediate</span>(replace_thread)<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543364.png" srcset="/img/loading.gif" lazyload></p>
+<p>排除后就找到相关文件。</p>
+<p>梆梆 步道悦跑</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543257.png" srcset="/img/loading.gif" lazyload></p>
+<p>同理hook排除得到<a target="_blank" rel="noopener" href="http://libdexhelper.so/">libDexHelper.so</a>线程干掉即可</p>
+<h3 id="2-定位检测点-hook系统函数进行过掉"><a href="#2-定位检测点-hook系统函数进行过掉" class="headerlink" title="2.定位检测点 hook系统函数进行过掉"></a>2.定位检测点 hook系统函数进行过掉</h3><p>需要分析 常用于检测的系统函数:strstr,strcmp.open,read.fread,</p>
+<p>豆瓣 </p>
+<figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">hook_strstr</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-comment">// char *strstr(const char *haystack, const char *needle) 在字符串 haystack 中查找第一次出现字符串 needle 的位置，不包含终止符</span><br>    <span class="hljs-keyword">var</span> strstr = <span class="hljs-title class_">Module</span>.<span class="hljs-title function_">findExportByName</span>(<span class="hljs-literal">null</span>, <span class="hljs-string">"strstr"</span>);<br>    <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> !== strstr) {<br>        <span class="hljs-title class_">Interceptor</span>.<span class="hljs-title function_">attach</span>(strstr, {<br>            <span class="hljs-attr">onEnter</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">args</span>) {<br>                <span class="hljs-variable language_">this</span>.<span class="hljs-property">frida</span> = <span class="hljs-title class_">Boolean</span>(<span class="hljs-number">0</span>);<br><br>                <span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span> = args[<span class="hljs-number">0</span>];<br>                <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span> = args[<span class="hljs-number">1</span>];<br><br>                <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span>.<span class="hljs-title function_">readCString</span>() !== <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span>.<span class="hljs-title function_">readCString</span>() !== <span class="hljs-literal">null</span>) {<br>                    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"frida"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"frida"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"gum-js-loop"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"gum-js-loop"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"gmain"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"gmain"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"linjector"</span>) !== -<span class="hljs-number">1</span> ||<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span>.<span class="hljs-title function_">readCString</span>().<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">"linjector"</span>) !== -<span class="hljs-number">1</span>) {<br>                        <span class="hljs-variable language_">this</span>.<span class="hljs-property">frida</span> = <span class="hljs-title class_">Boolean</span>(<span class="hljs-number">1</span>);<br>                    }<br>                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"strstr haystack: "</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">haystack</span>.<span class="hljs-title function_">readCString</span>());<br>                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"strstr needle: "</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">needle</span>.<span class="hljs-title function_">readCString</span>());<br>                }<br>            },<br>            <span class="hljs-attr">onLeave</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">retval</span>) {<br>                <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">frida</span>) {<br>                    retval.<span class="hljs-title function_">replace</span>(<span class="hljs-title function_">ptr</span>(<span class="hljs-string">"0x0"</span>));<br>                }<br><br>            }<br>        })<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"anti anti-frida"</span>);<br>    }<br><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"hook strstr over"</span>)<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>(<span class="hljs-params"></span>){<br>    <span class="hljs-title function_">hook_strstr</span>();<br>}<br><br><span class="hljs-title function_">setImmediate</span>(main)<br></code></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161543501.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-魔改frida将frida的特征都给改完仿照葫芦娃加上自己的"><a href="#3-魔改frida将frida的特征都给改完仿照葫芦娃加上自己的" class="headerlink" title="3.魔改frida将frida的特征都给改完仿照葫芦娃加上自己的"></a>3.魔改frida将frida的特征都给改完仿照葫芦娃加上自己的</h3><p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161544969.png" srcset="/img/loading.gif" lazyload></p>
+<p>我们直接使用魔改好的frida就可以绕过大部分检测，魔改新老版本差别较大我们后续有空单独探讨。</p>
+<p><img src="https://raw.githubusercontent.com/CC-NX/blogImage/main//_img/202601161544169.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8F%8D%E8%B0%83%E8%AF%95/" class="category-chain-item">反调试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/frida/" class="print-no-link">#frida</a>
+      
+        <a href="/tags/%E5%AE%9E%E6%88%98/" class="print-no-link">#实战</a>
+      
+        <a href="/tags/%E6%A3%80%E6%B5%8B/" class="print-no-link">#检测</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Frida反调试</div>
+      <div>https://cc-nx.github.io/2026/01/16/frida反调试/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/15/%E8%BF%87ROOT%E6%A3%80%E6%B5%8B/" title="过ROOT检测">
+                        <span class="hidden-mobile">过ROOT检测</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxuehua.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
